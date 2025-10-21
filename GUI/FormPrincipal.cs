@@ -65,7 +65,7 @@ namespace GUI
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
-        #region Funcionalidades del Form
+        #region Funcionalidades del Form 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
