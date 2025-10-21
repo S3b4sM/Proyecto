@@ -139,7 +139,6 @@
             this.CPE.Legends.Add(legend2);
             this.CPE.Location = new System.Drawing.Point(651, 321);
             this.CPE.Name = "CPE";
-            this.CPE.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);

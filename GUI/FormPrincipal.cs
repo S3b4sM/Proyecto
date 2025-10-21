@@ -25,12 +25,9 @@ namespace GUI
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        #region Funcionalidades del Form
+        
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
@@ -68,7 +65,11 @@ namespace GUI
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
+        #region Funcionalidades del Form
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
 
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea salir del programa?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) 
@@ -110,13 +111,10 @@ namespace GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        #endregion
 
         private void btnHome_Click(object sender, EventArgs e)
         {   
@@ -140,11 +138,6 @@ namespace GUI
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -157,7 +150,7 @@ namespace GUI
         {
 
         }        
-        private void CloseForms(object sender, FormClosedEventArgs e)
+        private void CloseForms()
         {
             if (Application.OpenForms["FormHome"] == null)
                 btnHome.BackColor = Color.FromArgb(13, 80, 97);
@@ -187,5 +180,6 @@ namespace GUI
                 formulario.BringToFront();
             }
         }
+        #endregion
     }
 }
