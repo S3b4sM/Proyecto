@@ -100,7 +100,7 @@ namespace GUI
             sEgreso.YValueMembers = "TOTAL";
             CPE.Series.Add(sEgreso);
             CPE.DataBind();
-            CPE.Titles.Add("Distribución de Egresos");
+            //CPE.Titles.Add("Distribución de Egresos");
             CPE.Series["EGRESOS"].IsValueShownAsLabel = true;
             CPE.Series["EGRESOS"].Label = "#PERCENT{P2}";
             CPE.Series["EGRESOS"].LegendText = "#VALX";
