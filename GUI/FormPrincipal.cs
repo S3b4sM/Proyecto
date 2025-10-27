@@ -130,7 +130,7 @@ namespace GUI
         private void btnUpdate_Click(object sender, EventArgs e)
         {   
             
-            AbrirForm(() => new FormUpdate());
+            AbrirForm(() => new FormUpdate(usuario.Id));
         }
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)

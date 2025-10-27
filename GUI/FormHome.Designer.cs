@@ -110,7 +110,6 @@
             title1.Name = "Title1";
             title1.Text = "Distribucion de Ingresos";
             this.CPI.Titles.Add(title1);
-            this.CPI.Click += new System.EventHandler(this.CPI_Click);
             this.CPI.Paint += new System.Windows.Forms.PaintEventHandler(this.CPI_Paint);
             // 
             // button1

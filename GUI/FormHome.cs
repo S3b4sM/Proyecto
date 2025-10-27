@@ -26,10 +26,6 @@ namespace GUI
             Llenarlbls();
 
         }
-        private void CPI_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CPI_Paint(object sender, PaintEventArgs e)
         {

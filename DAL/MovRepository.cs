@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace DAL
 {
     public class MovRepository
     {
         private readonly string _connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)));User Id=proyecto;Password=sebas123;";
-        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, string razon)
+        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
@@ -27,7 +28,6 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_monto", monto));
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", id_cat));
-                        command.Parameters.Add(new OracleParameter("p_razon", razon));
                         command.Parameters.Add(new OracleParameter("p_tipo", tipo));
                         OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
                         idParam.Direction = System.Data.ParameterDirection.Output;
@@ -43,8 +43,7 @@ namespace DAL
                                 monto = monto,
                                 tipo = tipo,
                                 id_user = id_user,
-                                id_categoria = id_cat,
-                                razon = razon
+                                id_categoria = id_cat
                             };
                             return movimiento;
                         }
@@ -185,6 +184,92 @@ namespace DAL
                     Console.WriteLine("Error al conectar a la base de datos/obtener egreso: " + ex.Message);
                     return 0m;
                 }
+            }
+        }
+        public Movimiento Actualizar(Movimiento movimiento)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat, RAZON = :p_razon WHERE ID_MOVIMIENTO = :p_id";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_fecha", movimiento.fecha));
+                        command.Parameters.Add(new OracleParameter("p_monto", movimiento.monto));
+                        command.Parameters.Add(new OracleParameter("p_tipo", movimiento.tipo));
+                        command.Parameters.Add(new OracleParameter("p_id_user", movimiento.id_user));
+                        command.Parameters.Add(new OracleParameter("p_id_cat", movimiento.id_categoria));
+                        command.Parameters.Add(new OracleParameter("p_razon", movimiento.razon));
+                        command.Parameters.Add(new OracleParameter("p_id", movimiento.id));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            return movimiento;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/actualizar el movimiento: " + ex.Message);
+                    return null;
+                }
+            }
+        }
+        public bool Eliminar(int id_movimiento)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = :p_id";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id", id_movimiento));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/eliminar el movimiento: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+        public DataTable MostrarMovimientos(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                DataTable dataTable = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
+                                    FROM MOVIMIENTOS m
+                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
+                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
+                                    WHERE ID_USER = :p_id_user 
+                                    ORDER BY FECHA DESC";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dataTable);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/mostrar movimientos: " + ex.Message);
+                    return null;
+                }
+                return dataTable;
             }
         }
     }

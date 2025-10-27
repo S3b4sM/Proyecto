@@ -18,6 +18,7 @@ namespace GUI
     {
         private List<string> registros = new List<string>();
         public readonly int Id;
+        MovService movService = new MovService();
         public FormAgg(int Id)
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace GUI
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try {
-                if (string.IsNullOrWhiteSpace(txtMonto.Text) || cbxTipo.SelectedIndex <= 0 || cbxRazon.SelectedIndex <= 0)
+                if (cbxTipo.SelectedIndex <= 0 || cbxRazon.SelectedIndex <= 0 || string.IsNullOrEmpty(txtMonto.Text))
                 {
                     MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -61,17 +62,15 @@ namespace GUI
                     MessageBox.Show("Por favor, ingrese un monto numérico válido y mayor que cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                int idTipo = Convert.ToInt32(cbxTipo.SelectedValue);
-                int idCategoria = Convert.ToInt32(cbxRazon.SelectedValue);
-                string razonTexto = cbxRazon.Text;
-                MovService movService = new MovService();
+                //int idTipo = Convert.ToInt32(cbxTipo.SelectedValue);
+                //int idCategoria = Convert.ToInt32(cbxRazon.SelectedValue);
+                //string razonTexto = cbxRazon.Text;
                 var movimiento = movService.AgregarMov(
                     fecha: dtFecha.Value,
-                    monto: montoD,
-                    razon: razonTexto, 
-                    tipo: idTipo,       
+                    monto: montoD, 
+                    tipo: Convert.ToInt32(cbxTipo.SelectedValue),       
                     id_user: Id,
-                    id_cat: idCategoria 
+                    id_cat: Convert.ToInt32(cbxRazon.SelectedValue)
                 );
                 MessageBox.Show("Registro Exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -14,7 +14,7 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            int id = 5;
+            int id = 1;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());
