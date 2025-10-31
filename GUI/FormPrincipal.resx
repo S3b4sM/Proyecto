@@ -139,33 +139,6 @@
         ov+oAn8BobKg1DMkeI8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASoSURBVHhe7ZtX
-        qB5FFMd/Ro0lGqLE8qDYYtTYsGCJIoIFC1FJBAWNhURBxIpYwBKCXVRsiKLYHlQQlGjy4IOCDVFBsIOI
-        omIvGGMkdv54Bg6HvfuV2e8y+7E/ONzLN7PDnLOzs6fMQkdHR8domQLMBW4CXgE+BX4HvgHeAZ4ETgM2
-        jReOA4ebkv/2IX8A9wFbxEHaiO7m8xVKvgs8A9wPPAa8AKwKfX4GjosDtonZwMdOoZXAEmC72NHYADgB
-        eMNd8zdwWezYBmYCnzhFlgObx04TsBZwpu0P6frFsVPJaLN70U3+HmDt2KkP9rPHQGOsAQ6MHUrlVKf8
-        iiGVTxwB/GljvW3GLZqp9nrThH8CNokdhuB2Z9CTYmNpHO0m29Tmpf3kFxtTb5Si0ftbE9XuvWVszOAR
-        G1c+QhOramR8aBN9NTZkcqJbWcfExpL41Sb5QGzIZFdngLNiYyls6CZ5XWzMRB5lGvvq2FgK6wB/2SRv
-        i42ZbOUMcElsLImvbZJPxIZM5BQlA5wSG0tCYa4m+bm5tE1xkTPA/rGxJK5wE903Nmbwko2p3EHR3uAu
-        zgBPxcYhOciNqfC5eJ62yf4DHBobB2Rd4HUbT06QQuzi2dkFMN8C28QOA6BIMt19/d8aLnYTV15Ajswg
-        6JV6pxvjfWB67FQ6DzoFlA26wKLFXuwDvOyu/QGYFTu1Ae3WNztFJAqVrwcOADazfusDOwCLgOds70j9
-        P2rLc1+HYvgvgiGSaGOLv0kUTT4EzIiDtRUlPC8FPqhQ1oselceBPeIA44SWtJKeVwF3AzcA5wNHAuvF
-        zh3/oyTI8cB5lmnyIuMtsMzR2DENuMuywvFxiSLfQ3mIsSmtbQy8WaFoL5HPMBar4WGnlDZPhcFzgO2D
-        7AjMC77DGXGwtiHF9CqUMqoH6C3SC3mPqjwrCGv9CjjX3c3DYmPbkA+vpasqz+nAlcA5PRImupPJANoL
-        WsNGFgJfbuXvlCKrkqPixY5UDZJbXDxKWF5otYCUFO0lco23jgM5cg2g1TXS16ECGUV3ygGmzSqKojiV
-        xa+1Ja+dem+rGNUtf5FrAMURulZeZqNod1ZiYnWFwsrXqTS2sIEILtcAKYskUUSazZ7Aoy7Tk+RH+113
-        V+mrpsg1gDZd3ZBGjHBLiNElWvryzXNq/3XkGkDsBHzl5nxr7NAPJ7sBNJllwMGx0whowgAi2whSWBeq
-        Pr9XbBwhdQa4puJRHESejQPWkU5saclPJnUGeK1CqUHk+zhgHckACjQmkzoD7GbV5xv7FPknSfnfgGPj
-        gHWUaIBBWOqU/26YVFubDZCtvGirAXyRVs/8UMqLthrgvSaUF201gDLMigfkEWbRVgM0RgkG6BU5jpQU
-        VenvZCJvL21iEx2vnxRUptIklJdXXBAzssNKr5qfPpRIBlB2qV+UBNk2/piDTmfl+N0TiTwyHaeZCFWM
-        v7S++m5gfuxQgY7S6ECGEjSHxMYc9CGTipZRiVzpNUkp7cPwt4B7K1zdO+yTG5+Zavw4rb72UJn77IZE
-        r6l+0Jci/ZTFkmi1Fn2QchhU+dGd11GbKmPojMFndiJl93hxR0dHRz/8BytBFfjFgkmLAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
   <data name="btnUpdate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAH

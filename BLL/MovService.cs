@@ -33,7 +33,7 @@ namespace BLL
         {
             return MovRepository.SumEgresos(id_user, 22);
         }
-        public Movimiento Actualizar(Movimiento movimiento)
+        public bool Actualizar(Movimiento movimiento)
         {
             return MovRepository.Actualizar(movimiento);
         }

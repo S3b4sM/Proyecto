@@ -186,14 +186,14 @@ namespace DAL
                 }
             }
         }
-        public Movimiento Actualizar(Movimiento movimiento)
+        public bool Actualizar(Movimiento movimiento)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat, RAZON = :p_razon WHERE ID_MOVIMIENTO = :p_id";
+                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat WHERE ID_MOVIMIENTO = :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_fecha", movimiento.fecha));
@@ -201,23 +201,22 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_tipo", movimiento.tipo));
                         command.Parameters.Add(new OracleParameter("p_id_user", movimiento.id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", movimiento.id_categoria));
-                        command.Parameters.Add(new OracleParameter("p_razon", movimiento.razon));
                         command.Parameters.Add(new OracleParameter("p_id", movimiento.id));
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            return movimiento;
+                            return true;
                         }
                         else
                         {
-                            return null;
+                            return false;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al conectar a la base de datos/actualizar el movimiento: " + ex.Message);
-                    return null;
+                    return false;
                 }
             }
         }
@@ -251,7 +250,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
                                     FROM MOVIMIENTOS m
                                     JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
                                     JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO

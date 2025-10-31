@@ -23,6 +23,7 @@ namespace GUI
             this.usuario = username;
             AbrirForm(() => new FormHome(username.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
+            btnLogout.Image = Properties.Resources.logout;
         }
 
         

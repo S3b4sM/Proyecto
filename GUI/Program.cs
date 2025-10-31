@@ -12,7 +12,7 @@ namespace GUI
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main() 
         {
             int id = 1;
             Application.EnableVisualStyles();
