@@ -18,39 +18,29 @@ namespace GUI
     {
         public readonly int Id;
         MovService movService = new MovService();
-
+        private DataTable detalleMov; 
         public FormHome(int Id)
         {
             InitializeComponent();
             this.Id = Id;
             Llenarlbls();
+            CPI.MouseClick += Chart_MouseClick;
+            CPE.MouseClick += Chart_MouseClick;
 
         }
-
-        private void CPI_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"{Id}");
-            movService.SumIngresos(Id);
-            MessageBox.Show("Ingreso sumado");
-            MessageBox.Show($"{movService.SumIngresos(Id)}");
-        }
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             DataTable dtIngresos = movService.CPI(Id);
             DataTable dtEgresos = movService.CPE(Id);
+            DataTable DetalleMov = movService.DetalleMov(Id);
             Datos datos = new Datos
             {
                 dIngresos = dtIngresos,
-                dEgresos = dtEgresos
+                dEgresos = dtEgresos,
+                DetalleMov = DetalleMov
             };
             e.Result = datos;
         }
-
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Error != null)
@@ -63,9 +53,42 @@ namespace GUI
             {
                 cpi(datos.dIngresos);
                 cpe(datos.dEgresos);
+                detalleMov = datos.DetalleMov;
+                llenardgv(detalleMov);
             }
         }
-        public void cpi (DataTable dt)
+        private void llenardgv(DataTable detalleMov)
+        {
+            dgvMov.DataSource = detalleMov;
+            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
+        }
+        private void FormHome_Load(object sender, EventArgs e)
+        {
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var mesage = MessageBox.Show("¿Desea generar el reporte en Excel?", "Generar Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (mesage == DialogResult.Yes)
+                {
+                    //movService.GenerarExcel(this.Id);
+                    MessageBox.Show("Reporte generado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al generar reporte: " + ex.Message);
+                return;
+            }
+        }
+        public void cpi(DataTable dt)
         {
             DataTable dtIngresos = movService.CPI(this.Id);
             CPI.Series.Clear();
@@ -78,7 +101,6 @@ namespace GUI
             sIngreso.YValueMembers = "TOTAL";
             CPI.Series.Add(sIngreso);
             CPI.DataBind();
-            CPI.Titles.Add("Distribución de Ingresos");
             CPI.Series["INGRESOS"].IsValueShownAsLabel = true;
             CPI.Series["INGRESOS"].Label = "#PERCENT{P2}";
             CPI.Series["INGRESOS"].LegendText = "#VALX";
@@ -114,12 +136,29 @@ namespace GUI
             decimal Balance = SumIngresos - SumEgresos;
             lblBalance.Text = Balance.ToString("C2");
         }
-        private void FormHome_Load(object sender, EventArgs e)
+        private void Chart_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!backgroundWorker1.IsBusy)
+            Chart clickedChart = sender as Chart;
+            if (clickedChart == null) 
+                return;
+            HitTestResult result = clickedChart.HitTest(e.X, e.Y);
+
+            if (result.ChartElementType == ChartElementType.DataPoint)
             {
-                backgroundWorker1.RunWorkerAsync();
+                DataPoint clickedPoint = clickedChart.Series[result.Series.Name].Points[result.PointIndex];
+                string catClick = clickedPoint.AxisLabel;
+                DataView dv = detalleMov.DefaultView;
+                dv.RowFilter = $"CATEGORIA = '{catClick}'";
+                dgvMov.DataSource = dv.ToTable();
             }
+        }
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            dgvMov.Columns.Clear();
+            dgvMov.DataSource = movService.DetalleMov(Id);
+            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
     }
 }

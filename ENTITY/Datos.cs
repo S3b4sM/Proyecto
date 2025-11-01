@@ -11,6 +11,7 @@ namespace ENTITY
     {
         public DataTable dIngresos { get; set; }
         public DataTable dEgresos { get; set; }
+        public DataTable DetalleMov { get; set; }
         public decimal SumIngresos { get; set; }
         public decimal SumEgresos { get; set; }
         public decimal Balance { get; set; }

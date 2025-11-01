@@ -25,10 +25,6 @@ namespace GUI
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
             btnLogout.Image = Properties.Resources.logout;
         }
-
-        
-
-        
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
@@ -48,7 +44,6 @@ namespace GUI
                     break;
             }
         }
-
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
@@ -58,7 +53,6 @@ namespace GUI
             this.panelContenedor.Region = region;
             this.Invalidate();
         }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             SolidBrush blueBrush = new SolidBrush(Color.FromArgb(244, 244, 244));
@@ -79,7 +73,6 @@ namespace GUI
             }
             
         }
-
         int lx, ly;
         int sw, sh;
         private void btnMax_Click(object sender, EventArgs e)
@@ -93,7 +86,6 @@ namespace GUI
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
         }
-
         private void btnRestart_Click(object sender, EventArgs e)
         {
             this.Size = new Size(sw, sh);
@@ -105,40 +97,33 @@ namespace GUI
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void panel_Title_MouseMove(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
         private void btnHome_Click(object sender, EventArgs e)
         {   
             AbrirForm(() => new FormHome(usuario.Id));
             
         }
-
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
             AbrirForm(() => new FormAgg(usuario.Id));
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {   
             
             AbrirForm(() => new FormUpdate(usuario.Id));
         }
-
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -146,20 +131,10 @@ namespace GUI
                 this.Close();
             }
         }
-
         private void panelForms_Paint(object sender, PaintEventArgs e)
         {
 
         }        
-        private void CloseForms()
-        {
-            if (Application.OpenForms["FormHome"] == null)
-                btnHome.BackColor = Color.FromArgb(13, 80, 97);
-            if (Application.OpenForms["FormAgg"] == null)
-                btnMovimientos.BackColor = Color.FromArgb(13, 80, 97);
-            if (Application.OpenForms["FormUpdate"] == null)
-                btnUpdate.BackColor = Color.FromArgb(13, 80, 97);
-        }
         private void AbrirForm<T>(Func<T> formFactory) where T : Form
         {
             Form formulario = panelForms.Controls.OfType<T>().FirstOrDefault();

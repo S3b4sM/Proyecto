@@ -32,13 +32,11 @@ namespace GUI
             cbxTipo.SelectionLength = 0;
             this.ActiveControl = null;
         }
-
         private void cbxRazon_SelectionChangeCommitted(object sender, EventArgs e)
         {
             cbxRazon.SelectionLength = 0;
             this.ActiveControl = null;
         }
-
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try {
@@ -62,9 +60,6 @@ namespace GUI
                     MessageBox.Show("Por favor, ingrese un monto numérico válido y mayor que cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                //int idTipo = Convert.ToInt32(cbxTipo.SelectedValue);
-                //int idCategoria = Convert.ToInt32(cbxRazon.SelectedValue);
-                //string razonTexto = cbxRazon.Text;
                 var movimiento = movService.AgregarMov(
                     fecha: dtFecha.Value,
                     monto: montoD, 
@@ -74,7 +69,7 @@ namespace GUI
                 );
                 MessageBox.Show("Registro Exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                string registro = ($"Id: {Id} | Monto: {montoD:C2} | Tipo: {cbxTipo.Text} | Razón: {cbxRazon.Text} | Fecha: {dtFecha.Value:dd/MM/yyyy}");
+                string registro = ($"Monto: {montoD:C2} | Tipo: {cbxTipo.Text} | Razón: {cbxRazon.Text} | Fecha: {dtFecha.Value:dd/MM/yyyy}");
                 registros.Add(registro); 
                 RefreshLbx(); 
                 txtMonto.Clear();
@@ -88,7 +83,6 @@ namespace GUI
             }
             
         }
-
         private void FormAgg_Load(object sender, EventArgs e)
         {
             listBox1.DataSource = registros;

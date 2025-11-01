@@ -21,7 +21,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, RAZON, ID_TIPO) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_razon, :p_tipo) RETURNING ID_MOVIMIENTO INTO :p_id";
+                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, ID_TIPO) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_tipo) RETURNING ID_MOVIMIENTO INTO :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_fecha", fecha));
@@ -203,14 +203,7 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_id_cat", movimiento.id_categoria));
                         command.Parameters.Add(new OracleParameter("p_id", movimiento.id));
                         int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        return rowsAffected > 0;
                     }
                 }
                 catch (Exception ex)
@@ -220,7 +213,7 @@ namespace DAL
                 }
             }
         }
-        public bool Eliminar(int id_movimiento)
+        public bool Eliminar(int id)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
@@ -230,7 +223,7 @@ namespace DAL
                     string query = "DELETE FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
-                        command.Parameters.Add(new OracleParameter("p_id", id_movimiento));
+                        command.Parameters.Add(new OracleParameter("p_id", id));
                         int rowsAffected = command.ExecuteNonQuery();
                         return rowsAffected > 0;
                     }
@@ -266,6 +259,35 @@ namespace DAL
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al conectar a la base de datos/mostrar movimientos: " + ex.Message);
+                    return null;
+                }
+                return dataTable;
+            }
+        }
+        public DataTable DetalleMov(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                DataTable dataTable = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
+                                    FROM MOVIMIENTOS m
+                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
+                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
+                                    WHERE m.ID_USER = :p_id_user
+                                    ORDER BY m.FECHA DESC";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dataTable);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/mostrar detalle del movimiento: " + ex.Message);
                     return null;
                 }
                 return dataTable;

@@ -23,7 +23,7 @@ namespace GUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        #region Funcionalidades del Form
+        #region Funcionalidades del form
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtuser.Text == "Username" || string.IsNullOrWhiteSpace(txtuser.Text) || txtpass.Text == "Password" || string.IsNullOrEmpty(txtpass.Text))
@@ -48,13 +48,6 @@ namespace GUI
                 txtuser.Focus();
             }
         }
-
-        private void MsgError (string Msg)
-        {
-            lblErrorMsg.Text = "     " + Msg;
-            lblErrorMsg.Visible = true;
-        }   
-
         private void Logout(object sender, FormClosedEventArgs e)
         {
             txtuser.Text = "Username";
@@ -63,12 +56,10 @@ namespace GUI
             lblErrorMsg.Visible = false;
             this.Show();    
         }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if  (txtuser.Text == "Username")
@@ -77,7 +68,6 @@ namespace GUI
                 txtuser.ForeColor = Color.LightGray;
             }
         }
-
         private void txtuser_Leave(object sender, EventArgs e)
         {
             if (txtuser.Text == "")
@@ -86,7 +76,6 @@ namespace GUI
                 txtuser.ForeColor = Color.DimGray;
             }
         }
-
         private void txtpass_Enter(object sender, EventArgs e)
         {
             if (txtpass.Text == "Password")
@@ -96,7 +85,6 @@ namespace GUI
                 txtpass.UseSystemPasswordChar = true;
             }
         }
-
         private void txtpass_Leave(object sender, EventArgs e)
         {
             if (txtpass.Text == "")
@@ -106,34 +94,28 @@ namespace GUI
                 txtpass.UseSystemPasswordChar = false;
             }
         }
-
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void FormLogin_Load(object sender, EventArgs e)
         {
 
         }
-
         private void btnregistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormSignup main = new FormSignup();
@@ -141,7 +123,6 @@ namespace GUI
             main.FormClosed += Logout;
             main.Show();
         }
-
         private void btnInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("¿Haz Olvidado tu Usuario/Contraseña?" +
@@ -149,5 +130,10 @@ namespace GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
+        private void MsgError(string Msg)
+        {
+            lblErrorMsg.Text = "     " + Msg;
+            lblErrorMsg.Visible = true;
+        }
     }
 }

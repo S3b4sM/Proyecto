@@ -45,5 +45,15 @@ namespace BLL
         {
             return MovRepository.MostrarMovimientos(id_user);
         }
+        public DataTable DetalleMov(int id_user)
+        {
+            Datos datos = new Datos();
+            datos.DetalleMov = MovRepository.DetalleMov(id_user);
+            return datos.DetalleMov;
+        }
+        //public void GenerarExcel(int id_user)
+        //{
+        //    MovRepository.GenerarExcel(id_user);
+        //}
     }
 }
