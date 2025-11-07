@@ -51,9 +51,5 @@ namespace BLL
             datos.DetalleMov = MovRepository.DetalleMov(id_user);
             return datos.DetalleMov;
         }
-        //public void GenerarExcel(int id_user)
-        //{
-        //    MovRepository.GenerarExcel(id_user);
-        //}
     }
 }

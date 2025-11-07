@@ -65,7 +65,7 @@ namespace GUI
             if  (txtuser.Text == "Username")
             {
                 txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
+                txtuser.ForeColor = Color.Black;
             }
         }
         private void txtuser_Leave(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace GUI
             if (txtpass.Text == "Password")
             {
                 txtpass.Text = "";
-                txtpass.ForeColor = Color.LightGray;
+                txtpass.ForeColor = Color.Black;
                 txtpass.UseSystemPasswordChar = true;
             }
         }

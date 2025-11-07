@@ -33,6 +33,11 @@ namespace GUI
         {
             try
             {
+                if (idMovimiento == -1)
+                {
+                    MessageBox.Show("Por favor, seleccione un moviento para actualizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 var messageBoxResult = MessageBox.Show("¿Está seguro de que desea actualizar este movimiento?", "Confirmar actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (messageBoxResult == DialogResult.No)
                 {
@@ -40,11 +45,7 @@ namespace GUI
                 }
                 else
                 {
-                    if (idMovimiento == -1)
-                    {
-                        MessageBox.Show("Por favor, seleccione un moviento para actualizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    
                     decimal montoD;
                     string montoS = txtMonto.Text.Replace(',', '.');
                     if (!decimal.TryParse(montoS, NumberStyles.Any, CultureInfo.InvariantCulture, out montoD) || montoD <= 0)
@@ -87,7 +88,7 @@ namespace GUI
             {
                 if (idMovimiento == -1)
                 {
-                    MessageBox.Show("Por favor, seleccione un moviento para actualizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por favor, seleccione un moviento para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 var messageBoxResult = MessageBox.Show("¿Está seguro de que desea eliminar este movimiento?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

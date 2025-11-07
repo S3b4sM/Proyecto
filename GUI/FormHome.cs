@@ -1,11 +1,13 @@
 ﻿using BLL;
 using ENTITY;
+using OfficeOpenXml;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,16 +77,55 @@ namespace GUI
         {
             try
             {
+                DataTable dtMov = movService.DetalleMov(this.Id);
+                if (dtMov == null || dtMov.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay movimientos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 var mesage = MessageBox.Show("¿Desea generar el reporte en Excel?", "Generar Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (mesage == DialogResult.Yes)
                 {
-                    //movService.GenerarExcel(this.Id);
-                    MessageBox.Show("Reporte generado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (dtMov.Columns.Contains("ID_MOVIMIENTO"))
+                    {
+                        dtMov.Columns.Remove("ID_MOVIMIENTO");
+                    }
+                    //abre la vista para guardar el archivo
+                    SaveFileDialog saveFileDialog = new SaveFileDialog
+                    {
+                        Filter = "Archivo de Excel (*.xlsx)|*.xlsx", // solo permite guardar como .xlsx
+                        Title = "Guardar Reporte de Movimientos",
+                        FileName = $"Movimientos_{DateTime.Now:yyyyMMdd}.xlsx" 
+                    };
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            //crea el archivo de Excel
+                            ExcelPackage.License.SetNonCommercialOrganization("Flowence");
+                            using (ExcelPackage pck = new ExcelPackage())
+                            {
+                                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Movimientos");
+                                ws.Cells["A1"].LoadFromDataTable(dtMov, true);
+                                ws.Column(1).Style.Numberformat.Format = "dd/MM/yyyy";
+                                ws.Column(2).Style.Numberformat.Format = "$ #,##0.00";
+                                ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                                FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                                pck.SaveAs(fileInfo);
+                            }
+                            MessageBox.Show("¡Reporte de Excel generado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al generar el archivo de Excel: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Console.WriteLine("Error EPPlus: " + ex.ToString());
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al generar reporte: " + ex.Message);
+                Console.WriteLine("Error general del reporte: " + ex.Message);
                 return;
             }
         }
@@ -95,15 +136,15 @@ namespace GUI
             CPI.DataSource = dtIngresos;
             Series sIngreso = new Series("INGRESOS")
             {
-                ChartType = SeriesChartType.Pie
+                ChartType = SeriesChartType.StackedColumn
             };
             sIngreso.XValueMember = "NOMBRE";
             sIngreso.YValueMembers = "TOTAL";
             CPI.Series.Add(sIngreso);
             CPI.DataBind();
             CPI.Series["INGRESOS"].IsValueShownAsLabel = true;
-            CPI.Series["INGRESOS"].Label = "#PERCENT{P2}";
-            CPI.Series["INGRESOS"].LegendText = "#VALX";
+            CPI.Series["INGRESOS"].Label = "";
+            CPI.Series["INGRESOS"].LegendText = "#VALX (#PERCENT{P2})";
         }
         public void cpe(DataTable dt)
         {
@@ -112,7 +153,7 @@ namespace GUI
             CPE.DataSource = dtEgresos;
             Series sEgreso = new Series("EGRESOS")
             {
-                ChartType = SeriesChartType.Pie
+                ChartType = SeriesChartType.StackedColumn
             };
             sEgreso.XValueMember = "NOMBRE";
             sEgreso.YValueMembers = "TOTAL";
@@ -120,12 +161,8 @@ namespace GUI
             CPE.DataBind();
             //CPE.Titles.Add("Distribución de Egresos");
             CPE.Series["EGRESOS"].IsValueShownAsLabel = true;
-            CPE.Series["EGRESOS"].Label = "#PERCENT{P2}";
+            //CPE.Series["EGRESOS"].Label = "#VALX";
             CPE.Series["EGRESOS"].LegendText = "#VALX";
-        }
-        public void cpt(DataTable dt)
-        {
-
         }
         public void Llenarlbls()
         {
