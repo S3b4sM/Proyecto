@@ -23,7 +23,6 @@ namespace GUI
             this.usuario = username;
             AbrirForm(() => new FormHome(username.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
-            btnLogout.Image = Properties.Resources.logout;
         }
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
@@ -115,22 +114,24 @@ namespace GUI
         {
             AbrirForm(() => new FormAgg(usuario.Id));
         }
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {   
-            
-            AbrirForm(() => new FormUpdate(usuario.Id));
-        }
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private void btnLogout_Click(object sender, EventArgs e)
+
+        private void ibtnExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 this.Close();
             }
         }
+
+        private void ibtnUpdate_Click(object sender, EventArgs e)
+        {
+            AbrirForm(() => new FormUpdate(usuario.Id));
+        }
+
         private void panelForms_Paint(object sender, PaintEventArgs e)
         {
 

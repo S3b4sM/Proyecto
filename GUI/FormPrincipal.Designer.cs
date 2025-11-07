@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.PictureBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnReport = new FontAwesome.Sharp.IconButton();
+            this.ibtnUpdate = new FontAwesome.Sharp.IconButton();
+            this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.btnMovimientos = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel_Title = new System.Windows.Forms.Panel();
@@ -44,10 +44,8 @@
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMax = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.panel_Title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
@@ -55,28 +53,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(53, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(5, 68);
+            this.lblName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(3, 20);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 19);
+            this.lblName.Size = new System.Drawing.Size(47, 17);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "label1";
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelContenedor.BackColor = System.Drawing.Color.Transparent;
             this.panelContenedor.Controls.Add(this.panelForms);
             this.panelContenedor.Controls.Add(this.panelMenu);
             this.panelContenedor.Controls.Add(this.panel_Title);
@@ -102,49 +91,77 @@
             // 
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(80)))), ((int)(((byte)(97)))));
-            this.panelMenu.Controls.Add(this.pictureBox1);
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(231)))), ((int)(((byte)(216)))));
+            this.panelMenu.Controls.Add(this.btnReport);
+            this.panelMenu.Controls.Add(this.ibtnUpdate);
+            this.panelMenu.Controls.Add(this.ibtnExit);
             this.panelMenu.Controls.Add(this.lblName);
-            this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.btnUpdate);
             this.panelMenu.Controls.Add(this.btnMovimientos);
             this.panelMenu.Controls.Add(this.btnHome);
-            this.panelMenu.Location = new System.Drawing.Point(0, 40);
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(165, 610);
+            this.panelMenu.Size = new System.Drawing.Size(165, 650);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
-            // btnLogout
+            // btnReport
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Location = new System.Drawing.Point(53, 550);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(48, 48);
-            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnLogout.TabIndex = 0;
-            this.btnLogout.TabStop = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnReport.ForeColor = System.Drawing.Color.Black;
+            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnReport.IconColor = System.Drawing.Color.Black;
+            this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReport.Location = new System.Drawing.Point(0, 436);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(164, 69);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "Reportes";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReport.UseVisualStyleBackColor = false;
             // 
-            // btnUpdate
+            // ibtnUpdate
             // 
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(108)))), ((int)(((byte)(122)))));
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(101)))), ((int)(((byte)(114)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 380);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(165, 64);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Actualizar";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.ibtnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnUpdate.FlatAppearance.BorderSize = 0;
+            this.ibtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.ibtnUpdate.ForeColor = System.Drawing.Color.Black;
+            this.ibtnUpdate.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.ibtnUpdate.IconColor = System.Drawing.Color.Black;
+            this.ibtnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ibtnUpdate.Location = new System.Drawing.Point(0, 322);
+            this.ibtnUpdate.Name = "ibtnUpdate";
+            this.ibtnUpdate.Size = new System.Drawing.Size(164, 69);
+            this.ibtnUpdate.TabIndex = 0;
+            this.ibtnUpdate.Text = "Actualizar";
+            this.ibtnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ibtnUpdate.UseVisualStyleBackColor = false;
+            this.ibtnUpdate.Click += new System.EventHandler(this.ibtnUpdate_Click);
+            // 
+            // ibtnExit
+            // 
+            this.ibtnExit.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnExit.FlatAppearance.BorderSize = 0;
+            this.ibtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibtnExit.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.ibtnExit.ForeColor = System.Drawing.Color.Black;
+            this.ibtnExit.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.ibtnExit.IconColor = System.Drawing.Color.Black;
+            this.ibtnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ibtnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ibtnExit.Location = new System.Drawing.Point(0, 562);
+            this.ibtnExit.Name = "ibtnExit";
+            this.ibtnExit.Size = new System.Drawing.Size(164, 71);
+            this.ibtnExit.TabIndex = 0;
+            this.ibtnExit.Text = "Cerrar Sesion";
+            this.ibtnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ibtnExit.UseVisualStyleBackColor = false;
+            this.ibtnExit.Click += new System.EventHandler(this.ibtnExit_Click);
             // 
             // btnMovimientos
             // 
@@ -153,12 +170,12 @@
             this.btnMovimientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(101)))), ((int)(((byte)(114)))));
             this.btnMovimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovimientos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMovimientos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMovimientos.ForeColor = System.Drawing.Color.Black;
             this.btnMovimientos.Image = ((System.Drawing.Image)(resources.GetObject("btnMovimientos.Image")));
             this.btnMovimientos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMovimientos.Location = new System.Drawing.Point(0, 270);
+            this.btnMovimientos.Location = new System.Drawing.Point(0, 226);
             this.btnMovimientos.Name = "btnMovimientos";
-            this.btnMovimientos.Size = new System.Drawing.Size(165, 64);
+            this.btnMovimientos.Size = new System.Drawing.Size(164, 64);
             this.btnMovimientos.TabIndex = 1;
             this.btnMovimientos.Text = "Añadir";
             this.btnMovimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -172,12 +189,12 @@
             this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(101)))), ((int)(((byte)(114)))));
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHome.ForeColor = System.Drawing.Color.Black;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnHome.Location = new System.Drawing.Point(0, 160);
+            this.btnHome.Location = new System.Drawing.Point(0, 118);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(165, 64);
+            this.btnHome.Size = new System.Drawing.Size(164, 64);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -188,15 +205,15 @@
             // 
             this.panel_Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(173)))), ((int)(((byte)(176)))));
+            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
             this.panel_Title.Controls.Add(this.label3);
             this.panel_Title.Controls.Add(this.btnRestart);
             this.panel_Title.Controls.Add(this.btnMin);
             this.panel_Title.Controls.Add(this.btnCerrar);
             this.panel_Title.Controls.Add(this.btnMax);
-            this.panel_Title.Location = new System.Drawing.Point(0, 0);
+            this.panel_Title.Location = new System.Drawing.Point(165, 0);
             this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(1100, 40);
+            this.panel_Title.Size = new System.Drawing.Size(935, 42);
             this.panel_Title.TabIndex = 0;
             this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Title_MouseMove);
             // 
@@ -205,19 +222,19 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(440, 9);
+            this.label3.Font = new System.Drawing.Font("Lucida Handwriting", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(404, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 25);
+            this.label3.Size = new System.Drawing.Size(209, 41);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Menu Principal";
+            this.label3.Text = "ModistApp";
             // 
             // btnRestart
             // 
             this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestart.Image = ((System.Drawing.Image)(resources.GetObject("btnRestart.Image")));
-            this.btnRestart.Location = new System.Drawing.Point(1018, 2);
+            this.btnRestart.Location = new System.Drawing.Point(853, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(32, 32);
             this.btnRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +248,7 @@
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(980, 2);
+            this.btnMin.Location = new System.Drawing.Point(815, 2);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(32, 32);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -244,7 +261,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1056, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(891, 2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -257,7 +274,7 @@
             this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(1018, 2);
+            this.btnMax.Location = new System.Drawing.Point(853, 2);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(32, 32);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -277,11 +294,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.panel_Title.ResumeLayout(false);
             this.panel_Title.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestart)).EndInit();
@@ -303,11 +318,11 @@
         private System.Windows.Forms.PictureBox btnMin;
         private System.Windows.Forms.PictureBox btnRestart;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnMovimientos;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox btnLogout;
+        private FontAwesome.Sharp.IconButton ibtnExit;
+        private FontAwesome.Sharp.IconButton ibtnUpdate;
+        private FontAwesome.Sharp.IconButton btnReport;
     }
 }
