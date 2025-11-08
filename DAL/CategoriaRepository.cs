@@ -50,14 +50,14 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID_TIPO, NOMBRE FROM TIPOS Order By NOMBRE";
+                    string query = "SELECT ID_TIPO, NOMBRE FROM TIPOS Order By ID_TIPO";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         OracleDataAdapter adapter = new OracleDataAdapter(command);
                         adapter.Fill(dataTable);
                         DataRow placeholderRow = dataTable.NewRow();
                         placeholderRow["ID_TIPO"] = 0;
-                        placeholderRow["NOMBRE"] = "TIPO";
+                        placeholderRow["NOMBRE"] = "Tipos";
                         dataTable.Rows.InsertAt(placeholderRow, 0);
                     }
                 }
@@ -69,6 +69,32 @@ namespace DAL
                 }
             }
             return dataTable;
+        }
+        public DataTable CatPorTipo(bool esIngreso)
+        {
+            DataTable dt = new DataTable();
+            using (OracleConnection con = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string sql = "SELECT ID_CATEGORIA, NOMBRE FROM CATEGORIAS WHERE ES_INGRESO = :EsIngreso ORDER BY NOMBRE";
+                    using (OracleCommand cmd = new OracleCommand(sql, con))
+                    {
+                        cmd.Parameters.Add("EsIngreso", OracleDbType.Decimal).Value = esIngreso ? 1 : 0;
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener categorías por tipo: " + ex.Message);
+                    // Aquí podrías lanzar una excepción o registrar el error
+                }
+            }
+            return dt;
         }
     }
 }

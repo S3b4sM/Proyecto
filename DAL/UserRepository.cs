@@ -18,7 +18,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "SELECT USERID, USERNAME, FIRSTNAME, LASTNAME FROM Users WHERE USERNAME = :p_user AND PASSWORD = :p_pass";
+                    string query = "SELECT USERID, USERNAME, FIRSTNAME, LASTNAME, DOCUMENTO FROM Users WHERE USERNAME = :p_user AND PASSWORD = :p_pass";
                     using (OracleCommand reader = new OracleCommand(query, connection))
                     {
                         reader.Parameters.Add(new OracleParameter("p_user", user.Trim().ToLower()));
@@ -32,7 +32,8 @@ namespace DAL
                                     Id = Convert.ToInt32(rd["USERID"]),
                                     Username = rd["USERNAME"].ToString(),
                                     FirstName = rd["FIRSTNAME"].ToString(),
-                                    LastName = rd["LASTNAME"].ToString()
+                                    LastName = rd["LASTNAME"].ToString(),
+                                    Document = Convert.ToInt32(rd["DOCUMENTO"])
                                 };
                             return usuario;
                             }
@@ -50,21 +51,22 @@ namespace DAL
                 }
             }
         }           
-        public Usuario Register(string user, string pass, string firstName, string lastName)
+        public Usuario Register(string user, string pass, string firstName, string lastName, int document)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO Users (USERNAME, PASSWORD, FIRSTNAME, LASTNAME) VALUES (:p_user, :p_pass, :p_firstName, :p_lastName) RETURNING USERID INTO :p_userId";
+                    string query = "INSERT INTO Users (USERNAME, PASSWORD, FIRSTNAME, LASTNAME, DOCUMENTO) VALUES (:p_user, :p_pass, :p_firstName, :p_lastName, :p_doc) RETURNING USERID INTO :p_userId";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_user", user.Trim().ToLower()));
                         command.Parameters.Add(new OracleParameter("p_pass", pass.Trim().ToLower()));
                         command.Parameters.Add(new OracleParameter("p_firstName", firstName.Trim()));
                         command.Parameters.Add(new OracleParameter("p_lastName", lastName.Trim()));
-                        Oracle.ManagedDataAccess.Client.OracleParameter userIdParam = new Oracle.ManagedDataAccess.Client.OracleParameter("p_userId", Oracle.ManagedDataAccess.Client.OracleDbType.Int32);
+                        command.Parameters.Add(new OracleParameter("p_doc", document));
+                        OracleParameter userIdParam = new OracleParameter("p_userId", OracleDbType.Int32);
                         userIdParam.Direction = System.Data.ParameterDirection.Output;
                         command.Parameters.Add(userIdParam);
                         int rowsAffected = command.ExecuteNonQuery();
@@ -77,7 +79,8 @@ namespace DAL
                                 Username = user,
                                 Password = pass,
                                 FirstName = firstName,
-                                LastName = lastName
+                                LastName = lastName,
+                                Document = document
                             };
                             return usuario;
                         }
@@ -94,17 +97,18 @@ namespace DAL
                 }
             }
         }
-        public bool UserExists(string username)
+        public bool UserExists(string username, int doc)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM Users WHERE USERNAME = :p_user";
+                    string query = "SELECT COUNT(*) FROM Users WHERE USERNAME = :p_user AND DOCUMENTO = :p_doc";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_user", username));
+                        command.Parameters.Add(new OracleParameter("p_doc", username));
                         int count = Convert.ToInt32(command.ExecuteScalar());
                         return count > 0;
                     }

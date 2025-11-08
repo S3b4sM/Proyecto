@@ -42,7 +42,7 @@ namespace GUI
         }
         private void btnSignup_Click(object sender, EventArgs e)
         {
-            if (txtuser.Text == "Username" || txtpass.Text == "Password" || txtname.Text == "Primer Nombre" || txtlastname.Text == "Primer Apellido")
+            if (txtuser.Text == "Username" || txtpass.Text == "Password" || txtname.Text == "Primer Nombre" || txtlastname.Text == "Primer Apellido" || txtDoc.Text == "Documento")
             {
                 MsgError("Por favor rellena todos los campos");
                 return;
@@ -52,7 +52,8 @@ namespace GUI
                 txtuser.Text.Trim(),
                 txtpass.Text,
                 txtname.Text.Trim(),
-                txtlastname.Text.Trim()
+                txtlastname.Text.Trim(),
+                txtDoc.Text.Trim().Length > 0 ? Convert.ToInt32(txtDoc.Text.Trim()) : 0
             );
 
             if (newUser != null)
@@ -62,7 +63,7 @@ namespace GUI
             }
             else
             {
-                MsgError("Username no disponible, intentelo nuevamente.");
+                MsgError("Username/documento ya registrado en la base de datos.");
                 txtpass.Text = "Password";
                 txtpass.UseSystemPasswordChar = false;
                 txtuser.Focus();
@@ -82,7 +83,7 @@ namespace GUI
         {
             TextBox textBox = sender as TextBox;
 
-            if (textBox.Text == "Username" || textBox.Text == "Password" || textBox.Text == "Primer Nombre" || textBox.Text == "Primer Apellido")
+            if (textBox.Text == "Username" || textBox.Text == "Password" || textBox.Text == "Primer Nombre" || textBox.Text == "Primer Apellido" || textBox.Text == "Documento")
             {
                 textBox.Text = "";
                 textBox.ForeColor = Color.LightGray;
@@ -106,6 +107,7 @@ namespace GUI
                 }
                 if (textBox == txtname) textBox.Text = "Primer Nombre";
                 if (textBox == txtlastname) textBox.Text = "Primer Apellido";
+                if (textBox == txtDoc) textBox.Text = "Documento";
 
                 textBox.ForeColor = Color.DimGray;
             }
@@ -115,5 +117,6 @@ namespace GUI
             this.Close();
         }
         #endregion
+
     }
 }

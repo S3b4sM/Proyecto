@@ -17,14 +17,14 @@ namespace BLL
         {
             return UserRepository.Validate(username, password);
         }
-        public Usuario RegisterUser(string username, string password, string firstName, string lastName)
+        public Usuario RegisterUser(string username, string password, string firstName, string lastName, int documento)
         {
             string cleanUser = username.Trim().ToLower();
-            if (UserRepository.UserExists(cleanUser))
+            if (UserRepository.UserExists(cleanUser, documento))
             {
                 return null;
             }
-            return UserRepository.Register(cleanUser, password, firstName.Trim(), lastName.Trim());
+            return UserRepository.Register(cleanUser, password, firstName.Trim(), lastName.Trim(), Convert.ToInt32(documento));
         }
     }
 }

@@ -136,14 +136,14 @@ namespace GUI
             CPI.DataSource = dtIngresos;
             Series sIngreso = new Series("INGRESOS")
             {
-                ChartType = SeriesChartType.StackedColumn
+                ChartType = SeriesChartType.Pie
             };
             sIngreso.XValueMember = "NOMBRE";
             sIngreso.YValueMembers = "TOTAL";
             CPI.Series.Add(sIngreso);
             CPI.DataBind();
-            CPI.Series["INGRESOS"].IsValueShownAsLabel = true;
-            CPI.Series["INGRESOS"].Label = "";
+            CPI.Series["INGRESOS"].IsValueShownAsLabel = false;
+            CPI.Series["INGRESOS"].Label = " ";
             CPI.Series["INGRESOS"].LegendText = "#VALX (#PERCENT{P2})";
         }
         public void cpe(DataTable dt)

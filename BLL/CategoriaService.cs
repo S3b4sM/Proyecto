@@ -21,5 +21,9 @@ namespace BLL
             var dataTable = catRepo.cbxTipo();
             return dataTable;
         }
+        public DataTable CatPorTipo(bool esIngreso)
+        {
+            return catRepo.CatPorTipo(esIngreso);
+        }
     }
 }

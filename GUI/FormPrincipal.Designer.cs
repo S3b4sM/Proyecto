@@ -34,7 +34,7 @@
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnReport = new FontAwesome.Sharp.IconButton();
-            this.ibtnUpdate = new FontAwesome.Sharp.IconButton();
+            this.btnUpdate = new FontAwesome.Sharp.IconButton();
             this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.btnMovimientos = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(3, 20);
+            this.lblName.Location = new System.Drawing.Point(3, 49);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(47, 17);
             this.lblName.TabIndex = 4;
@@ -93,7 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(231)))), ((int)(((byte)(216)))));
             this.panelMenu.Controls.Add(this.btnReport);
-            this.panelMenu.Controls.Add(this.ibtnUpdate);
+            this.panelMenu.Controls.Add(this.btnUpdate);
             this.panelMenu.Controls.Add(this.ibtnExit);
             this.panelMenu.Controls.Add(this.lblName);
             this.panelMenu.Controls.Add(this.btnMovimientos);
@@ -108,6 +108,8 @@
             // 
             this.btnReport.BackColor = System.Drawing.Color.Transparent;
             this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnReport.ForeColor = System.Drawing.Color.Black;
@@ -115,38 +117,42 @@
             this.btnReport.IconColor = System.Drawing.Color.Black;
             this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(0, 436);
+            this.btnReport.Location = new System.Drawing.Point(0, 322);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(164, 69);
+            this.btnReport.Size = new System.Drawing.Size(165, 69);
             this.btnReport.TabIndex = 5;
-            this.btnReport.Text = "Reportes";
+            this.btnReport.Text = "Pedidos";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReport.UseVisualStyleBackColor = false;
             // 
-            // ibtnUpdate
+            // btnUpdate
             // 
-            this.ibtnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnUpdate.FlatAppearance.BorderSize = 0;
-            this.ibtnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.ibtnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.ibtnUpdate.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.ibtnUpdate.IconColor = System.Drawing.Color.Black;
-            this.ibtnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ibtnUpdate.Location = new System.Drawing.Point(0, 322);
-            this.ibtnUpdate.Name = "ibtnUpdate";
-            this.ibtnUpdate.Size = new System.Drawing.Size(164, 69);
-            this.ibtnUpdate.TabIndex = 0;
-            this.ibtnUpdate.Text = "Actualizar";
-            this.ibtnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ibtnUpdate.UseVisualStyleBackColor = false;
-            this.ibtnUpdate.Click += new System.EventHandler(this.ibtnUpdate_Click);
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnUpdate.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdate.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btnUpdate.IconColor = System.Drawing.Color.Black;
+            this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUpdate.Location = new System.Drawing.Point(0, 436);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(165, 69);
+            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.Text = "Actualizar";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.ibtnUpdate_Click);
             // 
             // ibtnExit
             // 
             this.ibtnExit.BackColor = System.Drawing.Color.Transparent;
             this.ibtnExit.FlatAppearance.BorderSize = 0;
+            this.ibtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.ibtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
             this.ibtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ibtnExit.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.ibtnExit.ForeColor = System.Drawing.Color.Black;
@@ -322,7 +328,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton ibtnExit;
-        private FontAwesome.Sharp.IconButton ibtnUpdate;
+        private FontAwesome.Sharp.IconButton btnUpdate;
         private FontAwesome.Sharp.IconButton btnReport;
     }
 }

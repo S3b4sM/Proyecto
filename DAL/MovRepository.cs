@@ -14,14 +14,14 @@ namespace DAL
     public class MovRepository
     {
         private readonly string _connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)));User Id=proyecto;Password=sebas123;";
-        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat)
+        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, int id_pedido, string desc)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, ID_TIPO) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_tipo) RETURNING ID_MOVIMIENTO INTO :p_id";
+                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, ID_TIPO, ID_PEDIDO, DESCRIPCION) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_tipo, :p_id_pedido, :p_desc) RETURNING ID_MOVIMIENTO INTO :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_fecha", fecha));
@@ -29,6 +29,8 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", id_cat));
                         command.Parameters.Add(new OracleParameter("p_tipo", tipo));
+                        command.Parameters.Add(new OracleParameter("p_id_pedido", id_pedido));
+                        command.Parameters.Add(new OracleParameter("p_desc", desc));
                         OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
                         idParam.Direction = System.Data.ParameterDirection.Output;
                         command.Parameters.Add(idParam);
@@ -43,7 +45,9 @@ namespace DAL
                                 monto = monto,
                                 tipo = tipo,
                                 id_user = id_user,
-                                id_categoria = id_cat
+                                id_categoria = id_cat,
+                                id_pedido = id_pedido,
+                                descripcion = desc
                             };
                             return movimiento;
                         }

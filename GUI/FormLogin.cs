@@ -94,11 +94,11 @@ namespace GUI
                 txtpass.UseSystemPasswordChar = false;
             }
         }
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -123,7 +123,7 @@ namespace GUI
             main.FormClosed += Logout;
             main.Show();
         }
-        private void btnInfo_Click(object sender, EventArgs e)
+        private void btnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("¿Haz Olvidado tu Usuario/Contraseña?" +
                             "\n Por favor Contacte con un administrador", "Informacion",

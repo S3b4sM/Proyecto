@@ -13,9 +13,9 @@ namespace BLL
     public class MovService
     {
         MovRepository MovRepository = new MovRepository();
-        public Movimiento AgregarMov(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat)
+        public Movimiento AgregarMov(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, int id_pedido, string desc)
         {
-            return MovRepository.Agg(fecha, monto, tipo, id_user, id_cat);
+            return MovRepository.Agg(fecha, monto, tipo, id_user, id_cat, id_pedido, desc);
         }
         public DataTable CPI (int id) 
         {

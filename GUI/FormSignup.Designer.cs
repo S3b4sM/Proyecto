@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignup));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,13 +46,13 @@
             this.txtlastname = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
             this.btnback = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtDoc = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnback)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,6 +68,27 @@
             this.panel1.Size = new System.Drawing.Size(250, 294);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(60, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "MODISTAPP";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(161, 177);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // btnCerrar
             // 
@@ -109,7 +132,7 @@
             this.lblErrorMsg.ForeColor = System.Drawing.Color.DarkGray;
             this.lblErrorMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMsg.Image")));
             this.lblErrorMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMsg.Location = new System.Drawing.Point(281, 195);
+            this.lblErrorMsg.Location = new System.Drawing.Point(281, 203);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(72, 18);
             this.lblErrorMsg.TabIndex = 2;
@@ -128,7 +151,7 @@
             this.btnSignup.Location = new System.Drawing.Point(284, 239);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(422, 40);
-            this.btnSignup.TabIndex = 14;
+            this.btnSignup.TabIndex = 10;
             this.btnSignup.Text = "Registrarse";
             this.btnSignup.UseVisualStyleBackColor = false;
             this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
@@ -139,10 +162,10 @@
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtuser.Location = new System.Drawing.Point(282, 73);
+            this.txtuser.Location = new System.Drawing.Point(282, 105);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(201, 20);
-            this.txtuser.TabIndex = 10;
+            this.txtuser.TabIndex = 16;
             this.txtuser.Text = "Username";
             this.txtuser.Enter += new System.EventHandler(this.txt_Enter);
             this.txtuser.Leave += new System.EventHandler(this.txt_Leave);
@@ -153,7 +176,7 @@
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.DimGray;
-            this.txtpass.Location = new System.Drawing.Point(284, 146);
+            this.txtpass.Location = new System.Drawing.Point(284, 159);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(199, 20);
             this.txtpass.TabIndex = 12;
@@ -166,7 +189,7 @@
             this.groupBox3.BackColor = System.Drawing.Color.DimGray;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox3.Location = new System.Drawing.Point(283, 172);
+            this.groupBox3.Location = new System.Drawing.Point(283, 185);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox3.Size = new System.Drawing.Size(200, 1);
@@ -178,7 +201,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox2.Location = new System.Drawing.Point(282, 99);
+            this.groupBox2.Location = new System.Drawing.Point(282, 131);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox2.Size = new System.Drawing.Size(200, 1);
@@ -190,7 +213,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.DimGray;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox1.Location = new System.Drawing.Point(520, 99);
+            this.groupBox1.Location = new System.Drawing.Point(520, 131);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox1.Size = new System.Drawing.Size(200, 1);
@@ -202,11 +225,11 @@
             this.groupBox4.BackColor = System.Drawing.Color.DimGray;
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox4.Location = new System.Drawing.Point(521, 172);
+            this.groupBox4.Location = new System.Drawing.Point(521, 185);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox4.Size = new System.Drawing.Size(200, 1);
-            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             // 
             // txtlastname
@@ -215,7 +238,7 @@
             this.txtlastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtlastname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlastname.ForeColor = System.Drawing.Color.DimGray;
-            this.txtlastname.Location = new System.Drawing.Point(522, 146);
+            this.txtlastname.Location = new System.Drawing.Point(522, 159);
             this.txtlastname.Name = "txtlastname";
             this.txtlastname.Size = new System.Drawing.Size(215, 20);
             this.txtlastname.TabIndex = 13;
@@ -229,10 +252,10 @@
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtname.ForeColor = System.Drawing.Color.DimGray;
-            this.txtname.Location = new System.Drawing.Point(520, 73);
+            this.txtname.Location = new System.Drawing.Point(520, 105);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(217, 20);
-            this.txtname.TabIndex = 11;
+            this.txtname.TabIndex = 18;
             this.txtname.Text = "Primer Nombre";
             this.txtname.Enter += new System.EventHandler(this.txt_Enter);
             this.txtname.Leave += new System.EventHandler(this.txt_Leave);
@@ -249,26 +272,31 @@
             this.btnback.TabStop = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
-            // label2
+            // groupBox5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 177);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "FLOWENCE";
+            this.groupBox5.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox5.Location = new System.Drawing.Point(415, 90);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(200, 1);
+            this.groupBox5.TabIndex = 23;
+            this.groupBox5.TabStop = false;
             // 
-            // pictureBox1
+            // txtDoc
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 177);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.txtDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.txtDoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoc.ForeColor = System.Drawing.Color.DimGray;
+            this.txtDoc.Location = new System.Drawing.Point(415, 64);
+            this.txtDoc.Name = "txtDoc";
+            this.txtDoc.Size = new System.Drawing.Size(201, 20);
+            this.txtDoc.TabIndex = 22;
+            this.txtDoc.Text = "Documento";
+            this.txtDoc.Enter += new System.EventHandler(this.txt_Enter);
+            this.txtDoc.Leave += new System.EventHandler(this.txt_Leave);
             // 
             // FormSignup
             // 
@@ -276,6 +304,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(764, 291);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.txtDoc);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblErrorMsg);
@@ -300,10 +330,10 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormSignup_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnback)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +357,7 @@
         private System.Windows.Forms.PictureBox btnback;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtDoc;
     }
 }

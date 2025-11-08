@@ -39,15 +39,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnRegistro = new System.Windows.Forms.LinkLabel();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lblErrorMsg = new System.Windows.Forms.Label();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnInfo = new System.Windows.Forms.PictureBox();
+            this.btnMin = new FontAwesome.Sharp.IconButton();
+            this.btnHelp = new FontAwesome.Sharp.IconButton();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,9 +68,9 @@
             this.label2.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(62, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 21);
+            this.label2.Size = new System.Drawing.Size(116, 21);
             this.label2.TabIndex = 11;
-            this.label2.Text = "FLOWENCE";
+            this.label2.Text = "MODISTAPP";
             // 
             // pictureBox1
             // 
@@ -128,8 +125,9 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +169,7 @@
             // 
             this.btnRegistro.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnRegistro.AutoSize = true;
+            this.btnRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistro.Font = new System.Drawing.Font("Lucida Handwriting", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistro.LinkColor = System.Drawing.Color.DimGray;
             this.btnRegistro.Location = new System.Drawing.Point(464, 265);
@@ -181,18 +180,6 @@
             this.btnRegistro.TabStop = true;
             this.btnRegistro.Text = "Regristrarse";
             this.btnRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnregistro_LinkClicked);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(727, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 8;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblErrorMsg
             // 
@@ -208,29 +195,56 @@
             this.lblErrorMsg.Text = "ErrorMsg";
             this.lblErrorMsg.Visible = false;
             // 
-            // btnMinimizar
+            // btnMin
             // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(689, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(32, 32);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 7;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMin.BackColor = System.Drawing.Color.Transparent;
+            this.btnMin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMin.IconColor = System.Drawing.Color.Black;
+            this.btnMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMin.IconSize = 32;
+            this.btnMin.Location = new System.Drawing.Point(689, 3);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(32, 32);
+            this.btnMin.TabIndex = 11;
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
-            // btnInfo
+            // btnHelp
             // 
-            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(256, 3);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(32, 32);
-            this.btnInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnInfo.TabIndex = 10;
-            this.btnInfo.TabStop = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.btnHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.CircleQuestion;
+            this.btnHelp.IconColor = System.Drawing.Color.Black;
+            this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnHelp.IconSize = 32;
+            this.btnHelp.Location = new System.Drawing.Point(256, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(32, 32);
+            this.btnHelp.TabIndex = 12;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.Location = new System.Drawing.Point(727, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 13;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FormLogin
             // 
@@ -238,10 +252,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(764, 291);
-            this.Controls.Add(this.btnInfo);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnMin);
             this.Controls.Add(this.lblErrorMsg);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -262,9 +276,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,12 +291,12 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.LinkLabel btnRegistro;
-        private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label lblErrorMsg;
-        private System.Windows.Forms.PictureBox btnMinimizar;
-        private System.Windows.Forms.PictureBox btnInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton btnMin;
+        private FontAwesome.Sharp.IconButton btnHelp;
+        private FontAwesome.Sharp.IconButton btnClose;
     }
 }
 
