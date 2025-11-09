@@ -19,19 +19,19 @@ namespace BLL
         }
         public DataTable CPI (int id) 
         {
-            return MovRepository.CPI(id, 21);
+            return MovRepository.CPI(id, 1);
         }
         public DataTable CPE (int id)
         {
-            return MovRepository.CPE(id, 22);
+            return MovRepository.CPE(id, 2);
         }
         public decimal SumIngresos(int id_user)
         {
-            return MovRepository.SumIngresos(id_user, 21);
+            return MovRepository.SumIngresos(id_user, 1);
         }
         public decimal SumEgresos(int id_user)
         {
-            return MovRepository.SumEgresos(id_user, 22);
+            return MovRepository.SumEgresos(id_user, 2);
         }
         public bool Actualizar(Movimiento movimiento)
         {

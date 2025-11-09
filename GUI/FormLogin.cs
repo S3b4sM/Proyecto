@@ -15,6 +15,7 @@ namespace GUI
 {
     public partial class FormLogin : Form
     {
+        UserService user = new UserService();
         public FormLogin()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace GUI
                 MsgError("Por favor ingresa un usuario y/o una contraseña");
                 return;
             }
-            UserService user = new UserService();
             var username = user.ValidateUser(txtuser.Text, txtpass.Text);
             if (username != null)
             {

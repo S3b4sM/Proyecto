@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,13 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FormUpdate : Form
+    public partial class UserCMovs : UserControl
     {
         private int idMovimiento = -1;
         public readonly int Id;
-        private List<string> registros = new List<string>();
         MovService movService = new MovService();
         CategoriaService categoryServices = new CategoriaService();
-        public FormUpdate(int id)
+        public UserCMovs(int id)
         {
             InitializeComponent();
             this.Id = id;
@@ -221,6 +219,18 @@ namespace GUI
             cbxTipo.SelectedIndex = -1;
             cbxRazon.SelectedIndex = -1;
             idMovimiento = -1;
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
+            if (FormPrincipal != null)
+            {
+                FormPrincipal.AbrirUser(() => new UserCUpdate());
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

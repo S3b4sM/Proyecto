@@ -55,10 +55,10 @@ namespace DAL
                     {
                         OracleDataAdapter adapter = new OracleDataAdapter(command);
                         adapter.Fill(dataTable);
-                        DataRow placeholderRow = dataTable.NewRow();
-                        placeholderRow["ID_TIPO"] = 0;
-                        placeholderRow["NOMBRE"] = "Tipos";
-                        dataTable.Rows.InsertAt(placeholderRow, 0);
+                        //DataRow placeholderRow = dataTable.NewRow();
+                        //placeholderRow["ID_TIPO"] = 0;
+                        ////placeholderRow["NOMBRE"] = "Tipos";
+                        //dataTable.Rows.InsertAt(placeholderRow, 0);
                     }
                 }
                 catch (Exception ex)
@@ -91,7 +91,6 @@ namespace DAL
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al obtener categorías por tipo: " + ex.Message);
-                    // Aquí podrías lanzar una excepción o registrar el error
                 }
             }
             return dt;

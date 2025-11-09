@@ -28,10 +28,6 @@ namespace GUI
             lblErrorMsg.Visible = true;
         }
         #region funcionalidades del Form
-        private void FormSignup_Load(object sender, EventArgs e)
-        {
-
-        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -55,7 +51,6 @@ namespace GUI
                 txtlastname.Text.Trim(),
                 txtDoc.Text.Trim().Length > 0 ? Convert.ToInt32(txtDoc.Text.Trim()) : 0
             );
-
             if (newUser != null)
             {
                 MessageBox.Show("Usuario registrado con exito", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,6 +112,5 @@ namespace GUI
             this.Close();
         }
         #endregion
-
     }
 }

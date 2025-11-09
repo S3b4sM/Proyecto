@@ -326,7 +326,6 @@
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSignup";
-            this.Load += new System.EventHandler(this.FormSignup_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormSignup_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

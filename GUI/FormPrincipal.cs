@@ -60,17 +60,12 @@ namespace GUI
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
         #region Funcionalidades del Form 
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea salir del programa?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) 
             {
                 Application.Exit();
             }
-            
         }
         int lx, ly;
         int sw, sh;
@@ -114,11 +109,6 @@ namespace GUI
         {
             AbrirForm(() => new FormAgg(usuario.Id));
         }
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void ibtnExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -126,16 +116,11 @@ namespace GUI
                 this.Close();
             }
         }
-
         private void ibtnUpdate_Click(object sender, EventArgs e)
         {
-            AbrirForm(() => new FormUpdate(usuario.Id));
+            AbrirUser(() => new UserCUpdate());
         }
-
-        private void panelForms_Paint(object sender, PaintEventArgs e)
-        {
-
-        }        
+        #endregion
         private void AbrirForm<T>(Func<T> formFactory) where T : Form
         {
             Form formulario = panelForms.Controls.OfType<T>().FirstOrDefault();
@@ -157,6 +142,25 @@ namespace GUI
                 formulario.BringToFront();
             }
         }
-        #endregion
+        public void AbrirUser<T>(Func<T> formFactory) where T : System.Windows.Forms.UserControl
+        {
+            System.Windows.Forms.UserControl user = panelForms.Controls.OfType<T>().FirstOrDefault();
+
+            if (user == null)
+            {
+                user = formFactory();
+                user.BorderStyle = BorderStyle.None;
+                this.panelForms.Controls.Clear();
+                user.Dock = DockStyle.Fill;
+                panelForms.Controls.Add(user);
+                panelForms.Tag = user;
+                user.Show();
+                user.BringToFront();
+            }
+            else
+            {
+                user.BringToFront();
+            }
+        }
     }
 }

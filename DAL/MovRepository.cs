@@ -32,7 +32,7 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_id_pedido", id_pedido));
                         command.Parameters.Add(new OracleParameter("p_desc", desc));
                         OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
-                        idParam.Direction = System.Data.ParameterDirection.Output;
+                        idParam.Direction = ParameterDirection.Output;
                         command.Parameters.Add(idParam);
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)

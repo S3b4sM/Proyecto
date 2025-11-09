@@ -30,25 +30,25 @@
         {
             this.lblTipo = new System.Windows.Forms.Label();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
-            this.cbxRazon = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.cbxRazon = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTipo
@@ -76,32 +76,6 @@
             this.cbxTipo.TabIndex = 3;
             this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
             this.cbxTipo.SelectionChangeCommitted += new System.EventHandler(this.cbxTipo_SelectionChangeCommitted);
-            // 
-            // cbxRazon
-            // 
-            this.cbxRazon.AutoCompleteCustomSource.AddRange(new string[] {
-            "INGRESO",
-            "EGRESO"});
-            this.cbxRazon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.cbxRazon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRazon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxRazon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxRazon.Location = new System.Drawing.Point(72, 90);
-            this.cbxRazon.Name = "cbxRazon";
-            this.cbxRazon.Size = new System.Drawing.Size(133, 24);
-            this.cbxRazon.TabIndex = 3;
-            this.cbxRazon.SelectedIndexChanged += new System.EventHandler(this.cbxRazon_SelectedIndexChanged);
-            this.cbxRazon.SelectionChangeCommitted += new System.EventHandler(this.cbxRazon_SelectionChangeCommitted);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 32);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "RAZON";
             // 
             // label2
             // 
@@ -157,16 +131,6 @@
             this.panel4.Size = new System.Drawing.Size(257, 151);
             this.panel4.TabIndex = 17;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbxRazon);
-            this.panel1.Location = new System.Drawing.Point(523, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 151);
-            this.panel1.TabIndex = 18;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
@@ -196,6 +160,14 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(605, 165);
             this.panel5.TabIndex = 18;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(71, 50);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(482, 96);
+            this.txtDescripcion.TabIndex = 10;
             // 
             // label7
             // 
@@ -228,13 +200,40 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtDescripcion
+            // cbxRazon
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(71, 50);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(482, 96);
-            this.txtDescripcion.TabIndex = 10;
+            this.cbxRazon.AutoCompleteCustomSource.AddRange(new string[] {
+            "INGRESO",
+            "EGRESO"});
+            this.cbxRazon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
+            this.cbxRazon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRazon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxRazon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRazon.Location = new System.Drawing.Point(72, 90);
+            this.cbxRazon.Name = "cbxRazon";
+            this.cbxRazon.Size = new System.Drawing.Size(133, 24);
+            this.cbxRazon.TabIndex = 3;
+            this.cbxRazon.SelectionChangeCommitted += new System.EventHandler(this.cbxRazon_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(79, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 32);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "RAZON";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(247)))), ((int)(((byte)(236)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cbxRazon);
+            this.panel1.Location = new System.Drawing.Point(523, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(257, 151);
+            this.panel1.TabIndex = 18;
             // 
             // FormAgg
             // 
@@ -251,17 +250,16 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAgg";
             this.Text = "FormAgg";
-            this.Load += new System.EventHandler(this.FormAgg_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -269,19 +267,19 @@
         #endregion
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipo;
-        private System.Windows.Forms.ComboBox cbxRazon;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ComboBox cbxRazon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

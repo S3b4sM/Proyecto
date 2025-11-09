@@ -28,8 +28,8 @@ namespace GUI
             Llenarlbls();
             CPI.MouseClick += Chart_MouseClick;
             CPE.MouseClick += Chart_MouseClick;
-
         }
+        #region funcionalidades del form
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             DataTable dtIngresos = movService.CPI(Id);
@@ -58,13 +58,6 @@ namespace GUI
                 detalleMov = datos.DetalleMov;
                 llenardgv(detalleMov);
             }
-        }
-        private void llenardgv(DataTable detalleMov)
-        {
-            dgvMov.DataSource = detalleMov;
-            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvMov.Columns["id_movimiento"].Visible = false;
-            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         private void FormHome_Load(object sender, EventArgs e)
         {
@@ -129,6 +122,47 @@ namespace GUI
                 return;
             }
         }
+        private void Chart_MouseClick(object sender, MouseEventArgs e)
+        {
+            Chart clickedChart = sender as Chart;
+            if (clickedChart == null) 
+                return;
+            HitTestResult result = clickedChart.HitTest(e.X, e.Y);
+
+            if (result.ChartElementType == ChartElementType.DataPoint)
+            {
+                DataPoint clickedPoint = clickedChart.Series[result.Series.Name].Points[result.PointIndex];
+                string catClick = clickedPoint.AxisLabel;
+                DataView dv = detalleMov.DefaultView;
+                dv.RowFilter = $"CATEGORIA = '{catClick}'";
+                dgvMov.DataSource = dv.ToTable();
+            }
+        }
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            dgvMov.Columns.Clear();
+            dgvMov.DataSource = movService.DetalleMov(Id);
+            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
+        }
+        #endregion
+        public void Llenarlbls()
+        {
+            decimal SumIngresos = movService.SumIngresos(this.Id);
+            lblIngresos.Text = SumIngresos.ToString("C2");
+            decimal SumEgresos = movService.SumEgresos(this.Id);
+            lblEgresos.Text = SumEgresos.ToString("C2");
+            decimal Balance = SumIngresos - SumEgresos;
+            lblBalance.Text = Balance.ToString("C2");
+        }
+        private void llenardgv(DataTable detalleMov)
+        {
+            dgvMov.DataSource = detalleMov;
+            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
+        }
         public void cpi(DataTable dt)
         {
             DataTable dtIngresos = movService.CPI(this.Id);
@@ -159,43 +193,8 @@ namespace GUI
             sEgreso.YValueMembers = "TOTAL";
             CPE.Series.Add(sEgreso);
             CPE.DataBind();
-            //CPE.Titles.Add("Distribución de Egresos");
             CPE.Series["EGRESOS"].IsValueShownAsLabel = true;
-            //CPE.Series["EGRESOS"].Label = "#VALX";
             CPE.Series["EGRESOS"].LegendText = "#VALX";
-        }
-        public void Llenarlbls()
-        {
-            decimal SumIngresos = movService.SumIngresos(this.Id);
-            lblIngresos.Text = SumIngresos.ToString("C2");
-            decimal SumEgresos = movService.SumEgresos(this.Id);
-            lblEgresos.Text = SumEgresos.ToString("C2");
-            decimal Balance = SumIngresos - SumEgresos;
-            lblBalance.Text = Balance.ToString("C2");
-        }
-        private void Chart_MouseClick(object sender, MouseEventArgs e)
-        {
-            Chart clickedChart = sender as Chart;
-            if (clickedChart == null) 
-                return;
-            HitTestResult result = clickedChart.HitTest(e.X, e.Y);
-
-            if (result.ChartElementType == ChartElementType.DataPoint)
-            {
-                DataPoint clickedPoint = clickedChart.Series[result.Series.Name].Points[result.PointIndex];
-                string catClick = clickedPoint.AxisLabel;
-                DataView dv = detalleMov.DefaultView;
-                dv.RowFilter = $"CATEGORIA = '{catClick}'";
-                dgvMov.DataSource = dv.ToTable();
-            }
-        }
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            dgvMov.Columns.Clear();
-            dgvMov.DataSource = movService.DetalleMov(Id);
-            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvMov.Columns["id_movimiento"].Visible = false;
-            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
     }
 }
