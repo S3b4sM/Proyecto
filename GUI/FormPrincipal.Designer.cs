@@ -121,7 +121,7 @@
             this.btnHome.Location = new System.Drawing.Point(0, 145);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(220, 85);
+            this.btnHome.Size = new System.Drawing.Size(230, 85);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
