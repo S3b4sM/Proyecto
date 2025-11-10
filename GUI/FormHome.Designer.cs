@@ -335,7 +335,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMov.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMov.Location = new System.Drawing.Point(28, 52);
+            this.dgvMov.Location = new System.Drawing.Point(22, 54);
             this.dgvMov.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMov.MultiSelect = false;
             this.dgvMov.Name = "dgvMov";
