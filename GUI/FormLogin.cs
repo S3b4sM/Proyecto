@@ -135,5 +135,10 @@ namespace GUI
             lblErrorMsg.Text = "     " + Msg;
             lblErrorMsg.Visible = true;
         }
+
+        private void txtpass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

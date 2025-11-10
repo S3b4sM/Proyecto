@@ -196,5 +196,10 @@ namespace GUI
             CPE.Series["EGRESOS"].IsValueShownAsLabel = true;
             CPE.Series["EGRESOS"].LegendText = "#VALX";
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
