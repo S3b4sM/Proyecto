@@ -112,5 +112,20 @@ namespace GUI
             this.Close();
         }
         #endregion
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtDoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

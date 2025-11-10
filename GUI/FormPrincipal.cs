@@ -121,6 +121,11 @@ namespace GUI
             AbrirUser(() => new UserCUpdate());
         }
         #endregion
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void AbrirForm<T>(Func<T> formFactory) where T : Form
         {
             Form formulario = panelForms.Controls.OfType<T>().FirstOrDefault();
