@@ -30,5 +30,19 @@ namespace GUI
                 MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
+            if (FormPrincipal != null)
+            {
+                int id = FormPrincipal.usuario.Id;
+                FormPrincipal.AbrirUser(() => new UserCPedidos(id));
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

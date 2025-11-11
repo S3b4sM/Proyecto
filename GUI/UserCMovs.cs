@@ -59,6 +59,7 @@ namespace GUI
                         tipo = Convert.ToInt32(cbxTipo.SelectedValue),
                         razon = cbxRazon.Text,
                         id_categoria = Convert.ToInt32(cbxRazon.SelectedValue),
+                        descripcion = txtDescripcion.Text.Trim(),
                         id_user = this.Id
                     };
                     bool exito = movService.Actualizar(movimiento);
@@ -134,6 +135,7 @@ namespace GUI
                 idMovimiento = Convert.ToInt32(selectedRow.Cells["id_movimiento"].Value);
                 dtFecha.Value = Convert.ToDateTime(selectedRow.Cells["fecha"].Value);
                 txtMonto.Text = selectedRow.Cells["monto"].Value.ToString();
+                txtDescripcion.Text = selectedRow.Cells["descripcion"].Value.ToString();
                 string tipo = selectedRow.Cells["tipo"].Value.ToString();
                 foreach (var item in cbxTipo.Items)
                 {

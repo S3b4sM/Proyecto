@@ -14,7 +14,7 @@ namespace DAL
     public class MovRepository
     {
         private readonly string _connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)));User Id=proyecto;Password=sebas123;";
-        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, int id_pedido, string desc)
+        public Movimiento Agg(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, string desc)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
@@ -29,7 +29,6 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", id_cat));
                         command.Parameters.Add(new OracleParameter("p_tipo", tipo));
-                        command.Parameters.Add(new OracleParameter("p_id_pedido", id_pedido));
                         command.Parameters.Add(new OracleParameter("p_desc", desc));
                         OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
                         idParam.Direction = ParameterDirection.Output;
@@ -46,7 +45,6 @@ namespace DAL
                                 tipo = tipo,
                                 id_user = id_user,
                                 id_categoria = id_cat,
-                                id_pedido = id_pedido,
                                 descripcion = desc
                             };
                             return movimiento;
@@ -197,7 +195,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat WHERE ID_MOVIMIENTO = :p_id";
+                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat, DESCRIPCION = :p_desc WHERE ID_MOVIMIENTO = :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_fecha", movimiento.fecha));
@@ -205,6 +203,7 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_tipo", movimiento.tipo));
                         command.Parameters.Add(new OracleParameter("p_id_user", movimiento.id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", movimiento.id_categoria));
+                        command.Parameters.Add(new OracleParameter("p_desc", movimiento.descripcion));
                         command.Parameters.Add(new OracleParameter("p_id", movimiento.id));
                         int rowsAffected = command.ExecuteNonQuery();
                         return rowsAffected > 0;
@@ -247,7 +246,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
                                     FROM MOVIMIENTOS m
                                     JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
                                     JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
@@ -276,7 +275,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
                                     FROM MOVIMIENTOS m
                                     JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
                                     JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO

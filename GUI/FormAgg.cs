@@ -70,14 +70,12 @@ namespace GUI
                 DateTime fecha = dtFecha.Value;
                 int idUsuario = this.Id;
                 string desc = descripcion;
-                int id_pedido = 1;
                 movService.AgregarMov(
                     fecha: fecha,
                     monto: montoD,
                     tipo: idTipo,
                     id_cat: idCategoria,
                     id_user: idUsuario,
-                    id_pedido: id_pedido,
                     desc: descripcion
                 );
                 MessageBox.Show("Movimiento registrado con éxito.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -165,11 +165,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCAggPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCAggPedidos.Designer.cs">
+      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserCMovs.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserCMovs.Designer.cs">
       <DependentUpon>UserCMovs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCPedidos.Designer.cs">
+      <DependentUpon>UserCPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="UserCUpdate.cs">
       <SubType>UserControl</SubType>
@@ -200,8 +212,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserCAggPedidos.resx">
+      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserCMovs.resx">
       <DependentUpon>UserCMovs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCPedidos.resx">
+      <DependentUpon>UserCPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserCUpdate.resx">
       <DependentUpon>UserCUpdate.cs</DependentUpon>

@@ -32,8 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblErrorMsg = new System.Windows.Forms.Label();
             this.btnSignup = new System.Windows.Forms.Button();
@@ -48,10 +46,10 @@
             this.btnback = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDoc = new System.Windows.Forms.TextBox();
+            this.btnMin = new FontAwesome.Sharp.IconButton();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnback)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,9 +62,8 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 362);
+            this.panel1.Size = new System.Drawing.Size(250, 294);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -75,10 +72,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(80, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(60, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 23);
+            this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "MODISTAPP";
             // 
@@ -86,49 +82,21 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(45, 44);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(215, 218);
+            this.pictureBox1.Size = new System.Drawing.Size(161, 177);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(969, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 11;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(919, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(43, 39);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 10;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(544, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(408, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 44);
+            this.label1.Size = new System.Drawing.Size(251, 35);
             this.label1.TabIndex = 1;
             this.label1.Text = "REGISTRARSE";
             // 
@@ -139,10 +107,9 @@
             this.lblErrorMsg.ForeColor = System.Drawing.Color.Black;
             this.lblErrorMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMsg.Image")));
             this.lblErrorMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMsg.Location = new System.Drawing.Point(375, 250);
-            this.lblErrorMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorMsg.Location = new System.Drawing.Point(281, 203);
             this.lblErrorMsg.Name = "lblErrorMsg";
-            this.lblErrorMsg.Size = new System.Drawing.Size(91, 23);
+            this.lblErrorMsg.Size = new System.Drawing.Size(72, 18);
             this.lblErrorMsg.TabIndex = 2;
             this.lblErrorMsg.Text = "ErrorMsg";
             this.lblErrorMsg.Visible = false;
@@ -156,10 +123,9 @@
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.Black;
-            this.btnSignup.Location = new System.Drawing.Point(379, 294);
-            this.btnSignup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignup.Location = new System.Drawing.Point(284, 239);
             this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(563, 49);
+            this.btnSignup.Size = new System.Drawing.Size(422, 40);
             this.btnSignup.TabIndex = 10;
             this.btnSignup.Text = "Registrarse";
             this.btnSignup.UseVisualStyleBackColor = false;
@@ -171,10 +137,9 @@
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.Black;
-            this.txtuser.Location = new System.Drawing.Point(376, 129);
-            this.txtuser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtuser.Location = new System.Drawing.Point(282, 105);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(268, 24);
+            this.txtuser.Size = new System.Drawing.Size(201, 19);
             this.txtuser.TabIndex = 16;
             this.txtuser.Text = "Username";
             this.txtuser.Enter += new System.EventHandler(this.txt_Enter);
@@ -186,10 +151,9 @@
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.Black;
-            this.txtpass.Location = new System.Drawing.Point(379, 196);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpass.Location = new System.Drawing.Point(284, 159);
             this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(265, 24);
+            this.txtpass.Size = new System.Drawing.Size(199, 19);
             this.txtpass.TabIndex = 12;
             this.txtpass.Text = "Password";
             this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
@@ -201,11 +165,10 @@
             this.groupBox3.BackColor = System.Drawing.Color.DimGray;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox3.Location = new System.Drawing.Point(377, 228);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(283, 185);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(267, 1);
+            this.groupBox3.Size = new System.Drawing.Size(200, 1);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             // 
@@ -214,11 +177,10 @@
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox2.Location = new System.Drawing.Point(376, 161);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(282, 131);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Size = new System.Drawing.Size(267, 1);
+            this.groupBox2.Size = new System.Drawing.Size(200, 1);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
@@ -227,11 +189,10 @@
             this.groupBox1.BackColor = System.Drawing.Color.DimGray;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox1.Location = new System.Drawing.Point(693, 161);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(520, 131);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(267, 1);
+            this.groupBox1.Size = new System.Drawing.Size(200, 1);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -240,11 +201,10 @@
             this.groupBox4.BackColor = System.Drawing.Color.DimGray;
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox4.Location = new System.Drawing.Point(695, 228);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(521, 185);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(267, 1);
+            this.groupBox4.Size = new System.Drawing.Size(200, 1);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             // 
@@ -254,10 +214,9 @@
             this.txtlastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtlastname.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlastname.ForeColor = System.Drawing.Color.Black;
-            this.txtlastname.Location = new System.Drawing.Point(696, 196);
-            this.txtlastname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtlastname.Location = new System.Drawing.Point(522, 159);
             this.txtlastname.Name = "txtlastname";
-            this.txtlastname.Size = new System.Drawing.Size(287, 24);
+            this.txtlastname.Size = new System.Drawing.Size(215, 19);
             this.txtlastname.TabIndex = 13;
             this.txtlastname.Text = "Primer Apellido";
             this.txtlastname.Enter += new System.EventHandler(this.txt_Enter);
@@ -269,10 +228,9 @@
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtname.ForeColor = System.Drawing.Color.Black;
-            this.txtname.Location = new System.Drawing.Point(693, 129);
-            this.txtname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtname.Location = new System.Drawing.Point(520, 105);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(289, 24);
+            this.txtname.Size = new System.Drawing.Size(217, 19);
             this.txtname.TabIndex = 18;
             this.txtname.Text = "Primer Nombre";
             this.txtname.Enter += new System.EventHandler(this.txt_Enter);
@@ -282,10 +240,9 @@
             // 
             this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.Image = ((System.Drawing.Image)(resources.GetObject("btnback.Image")));
-            this.btnback.Location = new System.Drawing.Point(343, 0);
-            this.btnback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnback.Location = new System.Drawing.Point(257, 0);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(43, 39);
+            this.btnback.Size = new System.Drawing.Size(32, 32);
             this.btnback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnback.TabIndex = 21;
             this.btnback.TabStop = false;
@@ -296,11 +253,10 @@
             this.groupBox5.BackColor = System.Drawing.Color.DimGray;
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox5.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox5.Location = new System.Drawing.Point(553, 111);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Location = new System.Drawing.Point(415, 90);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox5.Size = new System.Drawing.Size(267, 1);
+            this.groupBox5.Size = new System.Drawing.Size(200, 1);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             // 
@@ -310,22 +266,57 @@
             this.txtDoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDoc.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoc.ForeColor = System.Drawing.Color.Black;
-            this.txtDoc.Location = new System.Drawing.Point(553, 79);
-            this.txtDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDoc.Location = new System.Drawing.Point(415, 64);
             this.txtDoc.Name = "txtDoc";
-            this.txtDoc.Size = new System.Drawing.Size(268, 24);
+            this.txtDoc.Size = new System.Drawing.Size(201, 19);
             this.txtDoc.TabIndex = 22;
             this.txtDoc.Text = "Documento";
             this.txtDoc.TextChanged += new System.EventHandler(this.txtDoc_TextChanged);
             this.txtDoc.Enter += new System.EventHandler(this.txt_Enter);
             this.txtDoc.Leave += new System.EventHandler(this.txt_Leave);
             // 
+            // btnMin
+            // 
+            this.btnMin.BackColor = System.Drawing.Color.Transparent;
+            this.btnMin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMin.IconColor = System.Drawing.Color.Black;
+            this.btnMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMin.IconSize = 32;
+            this.btnMin.Location = new System.Drawing.Point(689, 0);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(32, 32);
+            this.btnMin.TabIndex = 24;
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.Location = new System.Drawing.Point(727, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 25;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // FormSignup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(1019, 358);
+            this.ClientSize = new System.Drawing.Size(764, 291);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnMin);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.txtDoc);
             this.Controls.Add(this.btnback);
@@ -339,12 +330,9 @@
             this.Controls.Add(this.txtpass);
             this.Controls.Add(this.txtuser);
             this.Controls.Add(this.btnSignup);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSignup";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -353,8 +341,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnback)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -363,8 +349,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblErrorMsg;
         private System.Windows.Forms.Button btnSignup;
@@ -381,5 +365,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtDoc;
+        private FontAwesome.Sharp.IconButton btnMin;
+        private FontAwesome.Sharp.IconButton btnClose;
     }
 }

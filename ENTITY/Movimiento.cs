@@ -15,7 +15,6 @@ namespace ENTITY
         public int tipo { get; set; }
         public int id_user { get; set; }
         public int id_categoria { get; set; }
-        public int id_pedido { get; set; }
         public string descripcion { get; set; }
     }
 }
