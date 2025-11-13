@@ -110,6 +110,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Datos.cs" />
     <Compile Include="Movimiento.cs" />
+    <Compile Include="Pedidos.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

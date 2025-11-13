@@ -23,7 +23,7 @@ namespace GUI
         {
             InitializeComponent();
             this.Id = id;
-            LlenarCbxRazon();
+            CargarCat(true);
             LlenarCbxTipo();
             CargarMov();
         }
@@ -175,16 +175,24 @@ namespace GUI
             DataTable tipos = categoryServices.CargarTipos();
             if (tipos != null && tipos.Rows.Count > 0)
             {
-                tipos = categoryServices.CargarTipos();
+                DataRow defaultRow = tipos.NewRow();
+                defaultRow["ID_TIPO"] = 0;
+                defaultRow["NOMBRE"] = "Tipos";
+                tipos.Rows.InsertAt(defaultRow, 0);
                 cbxTipo.DataSource = tipos;
                 cbxTipo.DisplayMember = "NOMBRE";
                 cbxTipo.ValueMember = "ID_TIPO";
                 cbxTipo.SelectedIndex = 0;
-                this.ActiveControl = null;
             }
             else
             {
                 MessageBox.Show("Error al cargar los tipos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbxTipo.DataSource = null;
+                cbxTipo.Items.Clear();
+                cbxTipo.Items.Add(new { ID_TIPO = 0, NOMBRE = "No hay tipos disponibles" });
+                cbxTipo.DisplayMember = "NOMBRE";
+                cbxTipo.ValueMember = "ID_TIPO";
+                cbxTipo.SelectedIndex = 0;
             }
         }
         #endregion
@@ -193,24 +201,10 @@ namespace GUI
             dgvMovimientos.DataSource = movService.MostrarMovimientos(this.Id);
             dgvMovimientos.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMovimientos.Columns["id_movimiento"].Visible = false;
+            dgvMovimientos.Columns["NOMBRE_CLIENTE"].Visible = false;
+            dgvMovimientos.Columns["APELLIDO_CLIENTE"].Visible = false;
+            dgvMovimientos.Columns["id_user"].Visible = false;
             dgvMovimientos.Columns["monto"].DefaultCellStyle.Format = "C2";
-        }
-        private void LlenarCbxRazon()
-        {
-            DataTable categorias = categoryServices.CargarRazon();
-            if (categorias != null && categorias.Rows.Count > 0)
-            {
-                categorias = categoryServices.CargarRazon();
-                cbxRazon.DataSource = categorias;
-                cbxRazon.DisplayMember = "NOMBRE";
-                cbxRazon.ValueMember = "ID_CATEGORIA";
-                cbxRazon.SelectedIndex = 0;
-                this.ActiveControl = null;
-            }
-            else
-            {
-                MessageBox.Show("Error al cargar las categorías", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         private void RefreshDgv()
         {
@@ -232,6 +226,62 @@ namespace GUI
             else
             {
                 MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(cbxTipo.SelectedValue.ToString(), out int idTipoSeleccionado))
+            {
+                if (idTipoSeleccionado == 0)
+                {
+                    cbxRazon.DataSource = null;
+                    cbxRazon.Items.Clear();
+                    cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
+                    cbxRazon.DisplayMember = "NOMBRE";
+                    cbxRazon.ValueMember = "ID_CATEGORIA";
+                    cbxRazon.SelectedIndex = 0;
+
+                }
+                else
+                {
+                    bool esIngreso = (idTipoSeleccionado == 1);
+                    CargarCat(esIngreso);
+                }
+            }
+            else
+            {
+                cbxRazon.DataSource = null;
+                cbxRazon.Items.Clear();
+                cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
+                cbxRazon.DisplayMember = "NOMBRE";
+                cbxRazon.ValueMember = "ID_CATEGORIA";
+                cbxRazon.SelectedIndex = 0;
+            }
+        }
+        private void CargarCat(bool esIngreso)
+        {
+            DataTable categorias = categoryServices.CatPorTipo(esIngreso);
+            cbxRazon.DataSource = null;
+            cbxRazon.Items.Clear();
+            if (categorias != null && categorias.Rows.Count > 0)
+            {
+                DataRow defaultRow = categorias.NewRow();
+                defaultRow["ID_CATEGORIA"] = 0;
+                defaultRow["NOMBRE"] = "Razon";
+                categorias.Rows.InsertAt(defaultRow, 0);
+                cbxRazon.DataSource = categorias;
+                cbxRazon.DisplayMember = "NOMBRE";
+                cbxRazon.ValueMember = "ID_CATEGORIA";
+                cbxRazon.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show($"No hay categorías disponibles para el tipo {(esIngreso ? "Ingreso" : "Egreso")}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
+                cbxRazon.DisplayMember = "NOMBRE";
+                cbxRazon.ValueMember = "ID_CATEGORIA";
+                cbxRazon.SelectedIndex = 0;
             }
         }
     }

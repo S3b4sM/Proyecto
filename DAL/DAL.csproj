@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="CategoriaRepository.cs" />
     <Compile Include="MovRepository.cs" />
+    <Compile Include="PedidosRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>

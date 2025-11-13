@@ -246,10 +246,8 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
-                                    FROM MOVIMIENTOS m
-                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
-                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
+                    string query = @"SELECT *
+                                    FROM V_MOVIMIENTOS_DETALLADOS
                                     WHERE ID_USER = :p_id_user 
                                     ORDER BY FECHA DESC";
                     using (OracleCommand command = new OracleCommand(query, connection))
@@ -267,34 +265,42 @@ namespace DAL
                 return dataTable;
             }
         }
-        public DataTable DetalleMov(int id_user)
+        public List<Movimiento> DetalleMov(int id_user)
         {
+            List<Movimiento> listaMovimientos = new List<Movimiento>();
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
-                DataTable dataTable = new DataTable();
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
-                                    FROM MOVIMIENTOS m
-                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
-                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
-                                    WHERE m.ID_USER = :p_id_user
-                                    ORDER BY m.FECHA DESC";
-                    using (OracleCommand command = new OracleCommand(query, connection))
+                    using (OracleCommand command = new OracleCommand("SP_GET_MOVIMIENTOS_CLIENTE", connection))
                     {
-                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
-                        OracleDataAdapter adapter = new OracleDataAdapter(command);
-                        adapter.Fill(dataTable);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("p_id_cliente", OracleDbType.Int32).Value = id_user;
+                        command.Parameters.Add("p_cursor_lista", OracleDbType.RefCursor, ParameterDirection.Output);
+                        using (OracleDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Movimiento mov = new Movimiento
+                                {
+                                    fecha = reader.GetDateTime(reader.GetOrdinal("FECHA")),
+                                    tipo = reader.GetInt32(reader.GetOrdinal("TIPO")),
+                                    id_categoria = reader.GetInt32(reader.GetOrdinal("CATEGORIA")),
+                                    monto = reader.GetDecimal(reader.GetOrdinal("MONTO")),
+                                    descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? "" : reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                                };
+                                
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al conectar a la base de datos/mostrar detalle del movimiento: " + ex.Message);
-                    return null;
+                    Console.WriteLine("Error al ejecutar SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
                 }
-                return dataTable;
             }
+            return listaMovimientos;
         }
     }
 }

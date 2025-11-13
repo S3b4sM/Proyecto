@@ -74,7 +74,6 @@
             this.dgvMovimientos.Location = new System.Drawing.Point(12, 359);
             this.dgvMovimientos.MultiSelect = false;
             this.dgvMovimientos.Name = "dgvMovimientos";
-            this.dgvMovimientos.ReadOnly = true;
             this.dgvMovimientos.RowHeadersVisible = false;
             this.dgvMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMovimientos.Size = new System.Drawing.Size(911, 239);

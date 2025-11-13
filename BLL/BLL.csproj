@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="CategoriaService.cs" />
     <Compile Include="MovService.cs" />
+    <Compile Include="PedidosService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

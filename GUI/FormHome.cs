@@ -34,7 +34,7 @@ namespace GUI
         {
             DataTable dtIngresos = movService.CPI(Id);
             DataTable dtEgresos = movService.CPE(Id);
-            DataTable DetalleMov = movService.DetalleMov(Id);
+            DataTable DetalleMov = movService.MostrarMovimientos(Id);
             Datos datos = new Datos
             {
                 dIngresos = dtIngresos,
@@ -70,7 +70,7 @@ namespace GUI
         {
             try
             {
-                DataTable dtMov = movService.DetalleMov(this.Id);
+                DataTable dtMov = movService.MostrarMovimientos(Id);
                 if (dtMov == null || dtMov.Rows.Count == 0)
                 {
                     MessageBox.Show("No hay movimientos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -86,7 +86,7 @@ namespace GUI
                     //abre la vista para guardar el archivo
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
-                        Filter = "Archivo de Excel (*.xlsx)|*.xlsx", // solo permite guardar como .xlsx
+                        Filter = "Archivo de Excel (*.xlsx)|*.xlsx",
                         Title = "Guardar Reporte de Movimientos",
                         FileName = $"Movimientos_{DateTime.Now:yyyyMMdd}.xlsx" 
                     };
@@ -141,9 +141,12 @@ namespace GUI
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             dgvMov.Columns.Clear();
-            dgvMov.DataSource = movService.DetalleMov(Id);
+            dgvMov.DataSource = movService.MostrarMovimientos(Id);
             dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
+            dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
+            dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         #endregion
@@ -161,6 +164,9 @@ namespace GUI
             dgvMov.DataSource = detalleMov;
             dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMov.Columns["id_movimiento"].Visible = false;
+            dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
+            dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
+            dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         public void cpi(DataTable dt)
@@ -187,7 +193,7 @@ namespace GUI
             CPE.DataSource = dtEgresos;
             Series sEgreso = new Series("EGRESOS")
             {
-                ChartType = SeriesChartType.StackedColumn
+                ChartType = SeriesChartType.Pie
             };
             sEgreso.XValueMember = "NOMBRE";
             sEgreso.YValueMembers = "TOTAL";

@@ -45,11 +45,11 @@ namespace BLL
         {
             return MovRepository.MostrarMovimientos(id_user);
         }
-        public DataTable DetalleMov(int id_user)
+        public List<Movimiento> DetalleMov(int id_user)
         {
-            Datos datos = new Datos();
-            datos.DetalleMov = MovRepository.DetalleMov(id_user);
-            return datos.DetalleMov;
+            List<Movimiento> listaMovimientos = new List<Movimiento>();
+            listaMovimientos = MovRepository.DetalleMov(id_user);
+            return listaMovimientos;
         }
     }
 }
