@@ -58,12 +58,13 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 294);
+            this.panel1.Size = new System.Drawing.Size(333, 362);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -72,19 +73,23 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 177);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label2.Location = new System.Drawing.Point(80, 218);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(144, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "MODISTAPP";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 44);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(215, 218);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -93,10 +98,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(408, 9);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label1.Location = new System.Drawing.Point(544, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 35);
+            this.label1.Size = new System.Drawing.Size(307, 44);
             this.label1.TabIndex = 1;
             this.label1.Text = "REGISTRARSE";
             // 
@@ -107,25 +113,27 @@
             this.lblErrorMsg.ForeColor = System.Drawing.Color.Black;
             this.lblErrorMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMsg.Image")));
             this.lblErrorMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMsg.Location = new System.Drawing.Point(281, 203);
+            this.lblErrorMsg.Location = new System.Drawing.Point(375, 250);
+            this.lblErrorMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorMsg.Name = "lblErrorMsg";
-            this.lblErrorMsg.Size = new System.Drawing.Size(72, 18);
+            this.lblErrorMsg.Size = new System.Drawing.Size(91, 23);
             this.lblErrorMsg.TabIndex = 2;
             this.lblErrorMsg.Text = "ErrorMsg";
             this.lblErrorMsg.Visible = false;
             // 
             // btnSignup
             // 
-            this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.btnSignup.FlatAppearance.BorderSize = 0;
             this.btnSignup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnSignup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignup.ForeColor = System.Drawing.Color.Black;
-            this.btnSignup.Location = new System.Drawing.Point(284, 239);
+            this.btnSignup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.btnSignup.Location = new System.Drawing.Point(379, 294);
+            this.btnSignup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(422, 40);
+            this.btnSignup.Size = new System.Drawing.Size(563, 49);
             this.btnSignup.TabIndex = 10;
             this.btnSignup.Text = "Registrarse";
             this.btnSignup.UseVisualStyleBackColor = false;
@@ -136,10 +144,11 @@
             this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.ForeColor = System.Drawing.Color.Black;
-            this.txtuser.Location = new System.Drawing.Point(282, 105);
+            this.txtuser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.txtuser.Location = new System.Drawing.Point(376, 129);
+            this.txtuser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(201, 19);
+            this.txtuser.Size = new System.Drawing.Size(268, 24);
             this.txtuser.TabIndex = 16;
             this.txtuser.Text = "Username";
             this.txtuser.Enter += new System.EventHandler(this.txt_Enter);
@@ -150,10 +159,11 @@
             this.txtpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.ForeColor = System.Drawing.Color.Black;
-            this.txtpass.Location = new System.Drawing.Point(284, 159);
+            this.txtpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.txtpass.Location = new System.Drawing.Point(379, 196);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(199, 19);
+            this.txtpass.Size = new System.Drawing.Size(265, 24);
             this.txtpass.TabIndex = 12;
             this.txtpass.Text = "Password";
             this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
@@ -165,10 +175,11 @@
             this.groupBox3.BackColor = System.Drawing.Color.DimGray;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox3.Location = new System.Drawing.Point(283, 185);
+            this.groupBox3.Location = new System.Drawing.Point(377, 228);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(200, 1);
+            this.groupBox3.Size = new System.Drawing.Size(267, 1);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             // 
@@ -177,10 +188,11 @@
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox2.Location = new System.Drawing.Point(282, 131);
+            this.groupBox2.Location = new System.Drawing.Point(376, 161);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Size = new System.Drawing.Size(200, 1);
+            this.groupBox2.Size = new System.Drawing.Size(267, 1);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
@@ -189,10 +201,11 @@
             this.groupBox1.BackColor = System.Drawing.Color.DimGray;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox1.Location = new System.Drawing.Point(520, 131);
+            this.groupBox1.Location = new System.Drawing.Point(693, 161);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(200, 1);
+            this.groupBox1.Size = new System.Drawing.Size(267, 1);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -201,10 +214,11 @@
             this.groupBox4.BackColor = System.Drawing.Color.DimGray;
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox4.Location = new System.Drawing.Point(521, 185);
+            this.groupBox4.Location = new System.Drawing.Point(695, 228);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(200, 1);
+            this.groupBox4.Size = new System.Drawing.Size(267, 1);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             // 
@@ -213,10 +227,11 @@
             this.txtlastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.txtlastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtlastname.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlastname.ForeColor = System.Drawing.Color.Black;
-            this.txtlastname.Location = new System.Drawing.Point(522, 159);
+            this.txtlastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.txtlastname.Location = new System.Drawing.Point(696, 196);
+            this.txtlastname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtlastname.Name = "txtlastname";
-            this.txtlastname.Size = new System.Drawing.Size(215, 19);
+            this.txtlastname.Size = new System.Drawing.Size(287, 24);
             this.txtlastname.TabIndex = 13;
             this.txtlastname.Text = "Primer Apellido";
             this.txtlastname.Enter += new System.EventHandler(this.txt_Enter);
@@ -227,10 +242,11 @@
             this.txtname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.txtname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtname.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.ForeColor = System.Drawing.Color.Black;
-            this.txtname.Location = new System.Drawing.Point(520, 105);
+            this.txtname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.txtname.Location = new System.Drawing.Point(693, 129);
+            this.txtname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(217, 19);
+            this.txtname.Size = new System.Drawing.Size(289, 24);
             this.txtname.TabIndex = 18;
             this.txtname.Text = "Primer Nombre";
             this.txtname.Enter += new System.EventHandler(this.txt_Enter);
@@ -240,9 +256,10 @@
             // 
             this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.Image = ((System.Drawing.Image)(resources.GetObject("btnback.Image")));
-            this.btnback.Location = new System.Drawing.Point(257, 0);
+            this.btnback.Location = new System.Drawing.Point(343, 0);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(32, 32);
+            this.btnback.Size = new System.Drawing.Size(43, 39);
             this.btnback.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnback.TabIndex = 21;
             this.btnback.TabStop = false;
@@ -253,10 +270,11 @@
             this.groupBox5.BackColor = System.Drawing.Color.DimGray;
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox5.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox5.Location = new System.Drawing.Point(415, 90);
+            this.groupBox5.Location = new System.Drawing.Point(553, 111);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox5.Size = new System.Drawing.Size(200, 1);
+            this.groupBox5.Size = new System.Drawing.Size(267, 1);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             // 
@@ -265,10 +283,11 @@
             this.txtDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.txtDoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDoc.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoc.ForeColor = System.Drawing.Color.Black;
-            this.txtDoc.Location = new System.Drawing.Point(415, 64);
+            this.txtDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.txtDoc.Location = new System.Drawing.Point(553, 79);
+            this.txtDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDoc.Name = "txtDoc";
-            this.txtDoc.Size = new System.Drawing.Size(201, 19);
+            this.txtDoc.Size = new System.Drawing.Size(268, 24);
             this.txtDoc.TabIndex = 22;
             this.txtDoc.Text = "Documento";
             this.txtDoc.TextChanged += new System.EventHandler(this.txtDoc_TextChanged);
@@ -285,9 +304,10 @@
             this.btnMin.IconColor = System.Drawing.Color.Black;
             this.btnMin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMin.IconSize = 32;
-            this.btnMin.Location = new System.Drawing.Point(689, 0);
+            this.btnMin.Location = new System.Drawing.Point(919, 0);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(32, 32);
+            this.btnMin.Size = new System.Drawing.Size(43, 39);
             this.btnMin.TabIndex = 24;
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -302,19 +322,20 @@
             this.btnClose.IconColor = System.Drawing.Color.Black;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 32;
-            this.btnClose.Location = new System.Drawing.Point(727, 0);
+            this.btnClose.Location = new System.Drawing.Point(969, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.Size = new System.Drawing.Size(43, 39);
             this.btnClose.TabIndex = 25;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FormSignup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(764, 291);
+            this.ClientSize = new System.Drawing.Size(1019, 358);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.groupBox5);
@@ -332,7 +353,9 @@
             this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSignup";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

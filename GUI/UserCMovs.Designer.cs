@@ -60,10 +60,11 @@
             this.dtFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(72, 86);
+            this.dtFecha.Location = new System.Drawing.Point(96, 106);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtFecha.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(133, 23);
+            this.dtFecha.Size = new System.Drawing.Size(176, 26);
             this.dtFecha.TabIndex = 27;
             this.dtFecha.Value = new System.DateTime(2025, 10, 11, 12, 40, 46, 0);
             // 
@@ -73,9 +74,10 @@
             this.txtMonto.BackColor = System.Drawing.Color.White;
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(78, 86);
+            this.txtMonto.Location = new System.Drawing.Point(104, 106);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(92, 23);
+            this.txtMonto.Size = new System.Drawing.Size(122, 26);
             this.txtMonto.TabIndex = 26;
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -89,9 +91,10 @@
             this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTipo.Location = new System.Drawing.Point(78, 68);
+            this.cbxTipo.Location = new System.Drawing.Point(104, 84);
+            this.cbxTipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(92, 24);
+            this.cbxTipo.Size = new System.Drawing.Size(121, 28);
             this.cbxTipo.TabIndex = 24;
             this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
             this.cbxTipo.SelectionChangeCommitted += new System.EventHandler(this.cbxTipo_SelectionChangeCommitted);
@@ -99,16 +102,18 @@
             // dgvMovimientos
             // 
             this.dgvMovimientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.dgvMovimientos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.dgvMovimientos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovimientos.Location = new System.Drawing.Point(12, 463);
+            this.dgvMovimientos.Location = new System.Drawing.Point(16, 570);
+            this.dgvMovimientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMovimientos.MultiSelect = false;
             this.dgvMovimientos.Name = "dgvMovimientos";
             this.dgvMovimientos.ReadOnly = true;
             this.dgvMovimientos.RowHeadersVisible = false;
+            this.dgvMovimientos.RowHeadersWidth = 51;
             this.dgvMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMovimientos.Size = new System.Drawing.Size(911, 141);
+            this.dgvMovimientos.Size = new System.Drawing.Size(1215, 174);
             this.dgvMovimientos.TabIndex = 22;
             this.dgvMovimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimientos_CellContentClick);
             // 
@@ -122,50 +127,57 @@
             this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
             this.btnBack.IconColor = System.Drawing.Color.Black;
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.Location = new System.Drawing.Point(12, 3);
+            this.btnBack.Location = new System.Drawing.Point(16, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(76, 48);
+            this.btnBack.Size = new System.Drawing.Size(101, 59);
             this.btnBack.TabIndex = 33;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.cbxTipo);
-            this.panel4.Location = new System.Drawing.Point(94, 3);
+            this.panel4.Location = new System.Drawing.Point(125, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(257, 130);
+            this.panel4.Size = new System.Drawing.Size(343, 160);
             this.panel4.TabIndex = 34;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(83, 9);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label3.Location = new System.Drawing.Point(111, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 33);
+            this.label3.Size = new System.Drawing.Size(104, 39);
             this.label3.TabIndex = 9;
             this.label3.Text = "TIPO";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cbxRazon);
-            this.panel1.Location = new System.Drawing.Point(632, 3);
+            this.panel1.Location = new System.Drawing.Point(843, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 120);
+            this.panel1.Size = new System.Drawing.Size(343, 148);
             this.panel1.TabIndex = 25;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(79, 9);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label5.Location = new System.Drawing.Point(105, 11);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 33);
+            this.label5.Size = new System.Drawing.Size(143, 39);
             this.label5.TabIndex = 10;
             this.label5.Text = "RAZON";
             // 
@@ -179,20 +191,22 @@
             this.cbxRazon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRazon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxRazon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.cbxRazon.Location = new System.Drawing.Point(72, 68);
+            this.cbxRazon.Location = new System.Drawing.Point(96, 84);
+            this.cbxRazon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxRazon.Name = "cbxRazon";
-            this.cbxRazon.Size = new System.Drawing.Size(133, 24);
+            this.cbxRazon.Size = new System.Drawing.Size(176, 28);
             this.cbxRazon.TabIndex = 25;
             this.cbxRazon.SelectionChangeCommitted += new System.EventHandler(this.cbxRazon_SelectionChangeCommitted);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtMonto);
-            this.panel2.Location = new System.Drawing.Point(94, 147);
+            this.panel2.Location = new System.Drawing.Point(125, 181);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 133);
+            this.panel2.Size = new System.Drawing.Size(343, 164);
             this.panel2.TabIndex = 35;
             // 
             // label1
@@ -200,20 +214,23 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 22);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label1.Location = new System.Drawing.Point(87, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 33);
+            this.label1.Size = new System.Drawing.Size(154, 39);
             this.label1.TabIndex = 11;
             this.label1.Text = "MONTO";
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.dtFecha);
-            this.panel3.Location = new System.Drawing.Point(632, 147);
+            this.panel3.Location = new System.Drawing.Point(843, 181);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(257, 133);
+            this.panel3.Size = new System.Drawing.Size(343, 164);
             this.panel3.TabIndex = 36;
             // 
             // label2
@@ -221,37 +238,43 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(79, 22);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label2.Location = new System.Drawing.Point(105, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 33);
+            this.label2.Size = new System.Drawing.Size(143, 39);
             this.label2.TabIndex = 12;
             this.label2.Text = "FECHA";
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
             this.panel5.Controls.Add(this.txtDescripcion);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(245, 299);
+            this.panel5.Location = new System.Drawing.Point(327, 368);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(487, 158);
+            this.panel5.Size = new System.Drawing.Size(649, 194);
             this.panel5.TabIndex = 37;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(47, 50);
+            this.txtDescripcion.Location = new System.Drawing.Point(63, 62);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(394, 90);
+            this.txtDescripcion.Size = new System.Drawing.Size(524, 110);
             this.txtDescripcion.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(140, 8);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label7.Location = new System.Drawing.Point(187, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 33);
+            this.label7.Size = new System.Drawing.Size(272, 39);
             this.label7.TabIndex = 9;
             this.label7.Text = "DESCRIPCION";
             // 
@@ -263,13 +286,15 @@
             this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(94, 372);
+            this.iconButton1.Location = new System.Drawing.Point(125, 458);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(111, 67);
+            this.iconButton1.Size = new System.Drawing.Size(148, 82);
             this.iconButton1.TabIndex = 38;
             this.iconButton1.Text = "Actualizar";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -284,13 +309,15 @@
             this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton2.Location = new System.Drawing.Point(778, 372);
+            this.iconButton2.Location = new System.Drawing.Point(1037, 458);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(111, 67);
+            this.iconButton2.Size = new System.Drawing.Size(148, 82);
             this.iconButton2.TabIndex = 39;
             this.iconButton2.Text = "Eliminar";
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -299,9 +326,9 @@
             // 
             // UserCMovs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.panel5);
@@ -311,8 +338,9 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvMovimientos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserCMovs";
-            this.Size = new System.Drawing.Size(935, 610);
+            this.Size = new System.Drawing.Size(1247, 751);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
