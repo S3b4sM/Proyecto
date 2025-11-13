@@ -201,9 +201,9 @@ namespace GUI
             dgvMovimientos.DataSource = movService.MostrarMovimientos(this.Id);
             dgvMovimientos.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMovimientos.Columns["id_movimiento"].Visible = false;
-            dgvMovimientos.Columns["NOMBRE_CLIENTE"].Visible = false;
-            dgvMovimientos.Columns["APELLIDO_CLIENTE"].Visible = false;
-            dgvMovimientos.Columns["id_user"].Visible = false;
+            //dgvMovimientos.Columns["NOMBRE_CLIENTE"].Visible = false;
+            //dgvMovimientos.Columns["APELLIDO_CLIENTE"].Visible = false;
+            //dgvMovimientos.Columns["id_user"].Visible = false;
             dgvMovimientos.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         private void RefreshDgv()

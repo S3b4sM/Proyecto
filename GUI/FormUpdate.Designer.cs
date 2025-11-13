@@ -42,6 +42,7 @@
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.oracleDataAdapter1 = new Oracle.ManagedDataAccess.Client.OracleDataAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovimientos)).BeginInit();
             this.SuspendLayout();
@@ -244,5 +245,6 @@
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Button btnEliminar;
+        private Oracle.ManagedDataAccess.Client.OracleDataAdapter oracleDataAdapter1;
     }
 }

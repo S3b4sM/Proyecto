@@ -144,9 +144,9 @@ namespace GUI
             dgvMov.DataSource = movService.MostrarMovimientos(Id);
             dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMov.Columns["id_movimiento"].Visible = false;
-            dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
-            dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
-            dgvMov.Columns["id_user"].Visible = false;
+            //dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
+            //dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
+            //dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         #endregion
@@ -164,9 +164,9 @@ namespace GUI
             dgvMov.DataSource = detalleMov;
             dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvMov.Columns["id_movimiento"].Visible = false;
-            dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
-            dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
-            dgvMov.Columns["id_user"].Visible = false;
+            //dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
+            //dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
+            //dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         public void cpi(DataTable dt)

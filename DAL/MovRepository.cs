@@ -246,10 +246,16 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT *
-                                    FROM V_MOVIMIENTOS_DETALLADOS
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
+                                    FROM MOVIMIENTOS m
+                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
+                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
                                     WHERE ID_USER = :p_id_user 
                                     ORDER BY FECHA DESC";
+                                    //@"SELECT *
+                                    //FROM V_MOVIMIENTOS_DETALLADOS
+                                    //WHERE ID_USER = :p_id_user 
+                                    //ORDER BY FECHA DESC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
