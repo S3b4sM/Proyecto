@@ -20,7 +20,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO PEDIDOS (ID_USER, DESCRIPCION, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e, ) RETURNING ID_MOVIMIENTO INTO :p_id";
+                    string query = "INSERT INTO PEDIDOS (ID_USER, DESCRIPCION, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e ) RETURNING ID_PEDIDO INTO :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -58,8 +58,91 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al conectar a la base de datos/agregar el movimiento: " + ex.Message);
+                    Console.WriteLine("Error al conectar a la base de datos/agregar el pedido: " + ex.Message);
                     return null;
+                }
+            }
+        }
+        public DataTable MostrarPedidos(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                DataTable dataTable = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT p.ID_PEDIDO, p.descripcion, p.precio_total, p.abono, p.estado,
+                                    p.fecha_inicio as INICIO, p.fecha_entrega AS ENTREGA, p.id_user
+                                    FROM PEDIDOS p
+                                    JOIN users u ON p.id_user = u.userid
+                                    WHERE p.id_user = :p_id_user 
+                                    ORDER BY FECHA_INICIO DESC";
+                    //@"SELECT *
+                    //FROM V_PEDIDOS_DETALLE
+                    //WHERE ID_USER = :p_id_user 
+                    //ORDER BY FECHA_INICIO DESC";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dataTable);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/mostrar pedidos: " + ex.Message);
+                    return null;
+                }
+                return dataTable;
+            }
+        }
+        public bool ActualizarPedido(Pedidos pedidos)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "UPDATE PEDIDOS SET DESCRIPCION = :p_desc, PRECIO_TOTAL = :p_precioT, ABONO = :p_abono, ESTADO = :p_estado, FECHA_INICIO = :p_fecha_p, FECHA_ENTREGA = :p_fecha_e WHERE ID_PEDIDO = :p_id_pedido";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_desc", pedidos.descripcion));
+                        command.Parameters.Add(new OracleParameter("p_precioT", pedidos.precio_total));
+                        command.Parameters.Add(new OracleParameter("p_abono", pedidos.abono));
+                        command.Parameters.Add(new OracleParameter("p_estado", pedidos.estado));
+                        command.Parameters.Add(new OracleParameter("p_fecha_p", pedidos.fecha_pedido));
+                        command.Parameters.Add(new OracleParameter("p_fecha_e", pedidos.fecha_entrega));
+                        command.Parameters.Add(new OracleParameter("p_id_pedido", pedidos.id_pedido));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/actualizar el pedido: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+        public bool EliminarPedido(int id_pedido)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM PEDIDOS WHERE ID_PEDIDO = :p_id_pedido";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_pedido", id_pedido));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/eliminar el pedido: " + ex.Message);
+                    return false;
                 }
             }
         }

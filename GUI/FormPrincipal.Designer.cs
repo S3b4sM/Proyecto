@@ -58,10 +58,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Lucida Fax", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.lblName.Location = new System.Drawing.Point(4, 60);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(3, 49);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(63, 20);
+            this.lblName.Size = new System.Drawing.Size(51, 16);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "label1";
             // 
@@ -73,9 +72,8 @@
             this.panelContenedor.Controls.Add(this.panel_Title);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1467, 788);
+            this.panelContenedor.Size = new System.Drawing.Size(1100, 640);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelForms
@@ -84,10 +82,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.panelForms.Location = new System.Drawing.Point(228, 50);
-            this.panelForms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelForms.Location = new System.Drawing.Point(171, 41);
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(1239, 737);
+            this.panelForms.Size = new System.Drawing.Size(929, 599);
             this.panelForms.TabIndex = 2;
             // 
             // panelMenu
@@ -102,9 +99,8 @@
             this.panelMenu.Controls.Add(this.ibtnExit);
             this.panelMenu.Controls.Add(this.lblName);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(229, 788);
+            this.panelMenu.Size = new System.Drawing.Size(172, 640);
             this.panelMenu.TabIndex = 1;
             // 
             // btnMovimiento
@@ -120,12 +116,11 @@
             this.btnMovimiento.IconColor = System.Drawing.Color.Black;
             this.btnMovimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMovimiento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMovimiento.Location = new System.Drawing.Point(0, 266);
-            this.btnMovimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMovimiento.Location = new System.Drawing.Point(0, 216);
             this.btnMovimiento.Name = "btnMovimiento";
-            this.btnMovimiento.Size = new System.Drawing.Size(229, 85);
+            this.btnMovimiento.Size = new System.Drawing.Size(172, 69);
             this.btnMovimiento.TabIndex = 0;
-            this.btnMovimiento.Text = "Agg Movimiento";
+            this.btnMovimiento.Text = "Movimientos";
             this.btnMovimiento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMovimiento.UseVisualStyleBackColor = false;
             this.btnMovimiento.Click += new System.EventHandler(this.btnMovimientos_Click);
@@ -143,10 +138,9 @@
             this.btnHome.IconColor = System.Drawing.Color.Black;
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnHome.Location = new System.Drawing.Point(0, 145);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Location = new System.Drawing.Point(0, 118);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(229, 85);
+            this.btnHome.Size = new System.Drawing.Size(172, 69);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -166,10 +160,9 @@
             this.btnPedidos.IconColor = System.Drawing.Color.Black;
             this.btnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 396);
-            this.btnPedidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 322);
             this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(229, 85);
+            this.btnPedidos.Size = new System.Drawing.Size(172, 69);
             this.btnPedidos.TabIndex = 5;
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -189,10 +182,9 @@
             this.btnUpdate.IconColor = System.Drawing.Color.Black;
             this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 529);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 430);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(229, 85);
+            this.btnUpdate.Size = new System.Drawing.Size(172, 69);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -212,10 +204,9 @@
             this.ibtnExit.IconColor = System.Drawing.Color.Black;
             this.ibtnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ibtnExit.Location = new System.Drawing.Point(0, 692);
-            this.ibtnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ibtnExit.Location = new System.Drawing.Point(0, 562);
             this.ibtnExit.Name = "ibtnExit";
-            this.ibtnExit.Size = new System.Drawing.Size(229, 87);
+            this.ibtnExit.Size = new System.Drawing.Size(172, 71);
             this.ibtnExit.TabIndex = 0;
             this.ibtnExit.Text = "Cerrar Sesion";
             this.ibtnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -232,10 +223,9 @@
             this.panel_Title.Controls.Add(this.btnMin);
             this.panel_Title.Controls.Add(this.btnCerrar);
             this.panel_Title.Controls.Add(this.btnMax);
-            this.panel_Title.Location = new System.Drawing.Point(228, 0);
-            this.panel_Title.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_Title.Location = new System.Drawing.Point(171, 0);
             this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(1239, 57);
+            this.panel_Title.Size = new System.Drawing.Size(929, 46);
             this.panel_Title.TabIndex = 0;
             this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Title_MouseMove);
             // 
@@ -246,10 +236,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label3.Location = new System.Drawing.Point(539, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(404, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(233, 47);
+            this.label3.Size = new System.Drawing.Size(186, 38);
             this.label3.TabIndex = 4;
             this.label3.Text = "ModistApp";
             // 
@@ -258,10 +247,9 @@
             this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestart.Image = ((System.Drawing.Image)(resources.GetObject("btnRestart.Image")));
-            this.btnRestart.Location = new System.Drawing.Point(1129, 2);
-            this.btnRestart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestart.Location = new System.Drawing.Point(847, 2);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(43, 39);
+            this.btnRestart.Size = new System.Drawing.Size(32, 32);
             this.btnRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRestart.TabIndex = 3;
             this.btnRestart.TabStop = false;
@@ -273,10 +261,9 @@
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(1079, 2);
-            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMin.Location = new System.Drawing.Point(809, 2);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(43, 39);
+            this.btnMin.Size = new System.Drawing.Size(32, 32);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 0;
             this.btnMin.TabStop = false;
@@ -287,10 +274,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1180, 2);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(885, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
+            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
@@ -301,10 +287,9 @@
             this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(1129, 2);
-            this.btnMax.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMax.Location = new System.Drawing.Point(847, 2);
             this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(43, 39);
+            this.btnMax.Size = new System.Drawing.Size(32, 32);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMax.TabIndex = 1;
             this.btnMax.TabStop = false;
@@ -312,14 +297,13 @@
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 788);
+            this.ClientSize = new System.Drawing.Size(1100, 640);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(867, 492);
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";

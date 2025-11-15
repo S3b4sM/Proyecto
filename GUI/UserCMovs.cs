@@ -284,5 +284,48 @@ namespace GUI
                 cbxRazon.SelectedIndex = 0;
             }
         }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtMonto.Text.Contains(e.KeyChar.ToString()) && txtMonto.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMonto_Leave(object sender, EventArgs e)
+        {
+            string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
+
+            decimal monto;
+            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            {
+                txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
+            }
+            else
+            {
+                txtMonto.Text = "0.00";
+                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

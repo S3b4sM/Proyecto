@@ -20,6 +20,7 @@ namespace GUI
     {
         public readonly int Id;
         MovService movService = new MovService();
+        PedidosService pedidosService = new PedidosService();
         private DataTable detalleMov; 
         public FormHome(int Id)
         {
@@ -35,11 +36,13 @@ namespace GUI
             DataTable dtIngresos = movService.CPI(Id);
             DataTable dtEgresos = movService.CPE(Id);
             DataTable DetalleMov = movService.MostrarMovimientos(Id);
+            DataTable DetallePed = pedidosService.MostrarPedidos(Id);
             Datos datos = new Datos
             {
                 dIngresos = dtIngresos,
                 dEgresos = dtEgresos,
-                DetalleMov = DetalleMov
+                DetalleMov = DetalleMov,
+                DetallePed = DetallePed
             };
             e.Result = datos;
         }
@@ -56,9 +59,13 @@ namespace GUI
                 cpi(datos.dIngresos);
                 cpe(datos.dEgresos);
                 detalleMov = datos.DetalleMov;
-                llenardgv(detalleMov);
+                llenardgvMovs(detalleMov);
+                llenardgvPed(datos.DetallePed);
             }
         }
+
+        
+
         private void FormHome_Load(object sender, EventArgs e)
         {
             if (!backgroundWorker1.IsBusy)
@@ -159,7 +166,7 @@ namespace GUI
             decimal Balance = SumIngresos - SumEgresos;
             lblBalance.Text = Balance.ToString("C2");
         }
-        private void llenardgv(DataTable detalleMov)
+        private void llenardgvMovs(DataTable detalleMov)
         {
             dgvMov.DataSource = detalleMov;
             dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -168,6 +175,16 @@ namespace GUI
             //dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
             //dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
+        }
+        private void llenardgvPed(DataTable detallePed)
+        {
+            dgvPedidos.DataSource = detallePed;
+            dgvPedidos.Columns["inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvPedidos.Columns["entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvPedidos.Columns["id_pedido"].Visible = false;
+            dgvPedidos.Columns["id_user"].Visible = false;
+            dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";
+            dgvPedidos.Columns["abono"].DefaultCellStyle.Format = "C2";
         }
         public void cpi(DataTable dt)
         {
