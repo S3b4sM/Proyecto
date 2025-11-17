@@ -117,15 +117,5 @@ namespace GUI
         {
 
         }
-
-        private void txtDoc_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtpass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

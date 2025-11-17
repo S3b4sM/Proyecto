@@ -243,7 +243,7 @@
             this.lblIngresos.Font = new System.Drawing.Font("Lucida Fax", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(168)))), ((int)(((byte)(124)))));
             this.lblIngresos.Location = new System.Drawing.Point(83, 68);
-            this.lblIngresos.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.lblIngresos.Margin = new System.Windows.Forms.Padding(10);
             this.lblIngresos.Name = "lblIngresos";
             this.lblIngresos.Size = new System.Drawing.Size(96, 32);
             this.lblIngresos.TabIndex = 1;

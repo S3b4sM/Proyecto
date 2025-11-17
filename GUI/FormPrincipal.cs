@@ -87,7 +87,14 @@ namespace GUI
             btnMax.Visible = true;
             btnRestart.Visible = false;
         }
-        private void btnMin_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea salir del programa?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+        private void btnMini_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

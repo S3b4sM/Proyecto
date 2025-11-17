@@ -30,7 +30,7 @@ namespace GUI
             dtFechaI.Value = DateTime.Today;
             dtFechaE.Value = DateTime.Today.AddDays(7);
         }
-
+        #region funcionalidades del form
         private void btnBack_Click(object sender, EventArgs e)
         {
             FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
@@ -96,7 +96,6 @@ namespace GUI
                         MessageBox.Show("No se pudo actualizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
             }
             catch (Exception x)
             {
@@ -105,25 +104,6 @@ namespace GUI
                 return;
             }
         }
-        private void CargarPed()
-        {
-            try
-            {
-                dgvPedidos.DataSource = pedidosService.MostrarPedidos(this.Id);
-                dgvPedidos.Columns["inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvPedidos.Columns["entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvPedidos.Columns["id_pedido"].Visible = false;
-                dgvPedidos.Columns["id_user"].Visible = false;
-                dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";
-                dgvPedidos.Columns["precio_total"].HeaderText = "TOTAL";
-                dgvPedidos.Columns["abono"].DefaultCellStyle.Format = "C2";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los pedidos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -158,6 +138,110 @@ namespace GUI
                 throw;
             }
         }
+        private void dgvPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0) return;
+                DataGridViewRow selectedRow = dgvPedidos.Rows[e.RowIndex];
+                idPedido = Convert.ToInt32(selectedRow.Cells["id_pedido"].Value);
+                txtDescripcion.Text = selectedRow.Cells["descripcion"].Value?.ToString() ?? string.Empty;
+                var abonoVal = selectedRow.Cells["abono"].Value;
+                var totalVal = selectedRow.Cells["precio_total"].Value;
+                txtAbono.Text = abonoVal != null ? Convert.ToDecimal(abonoVal).ToString(CultureInfo.InvariantCulture) : string.Empty;
+                txtTotal.Text = totalVal != null ? Convert.ToDecimal(totalVal).ToString(CultureInfo.InvariantCulture) : string.Empty;
+                cbxEstado.Text = selectedRow.Cells["estado"].Value?.ToString() ?? string.Empty;
+                dtFechaI.Value = Convert.ToDateTime(selectedRow.Cells["inicio"].Value);
+                dtFechaE.Value = Convert.ToDateTime(selectedRow.Cells["entrega"].Value);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+        private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtTotal.Text.Contains(e.KeyChar.ToString()) && txtTotal.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtTotal_Leave(object sender, EventArgs e)
+        {
+            string textoLimpio = txtTotal.Text.Trim().Replace(',', '.');
+
+            decimal monto;
+            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            {
+                txtTotal.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
+            }
+            else
+            {
+                txtTotal.Text = "0.00";
+                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void txtAbono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtAbono.Text.Contains(e.KeyChar.ToString()) && txtAbono.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtAbono_Leave(object sender, EventArgs e)
+        {
+            string textoLimpio = txtAbono.Text.Trim().Replace(',', '.');
+
+            decimal monto;
+            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            {
+                txtAbono.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
+            }
+            else
+            {
+                txtAbono.Text = "0.00";
+                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
         private void LlenarCbxEstado()
         {
             var estado = new List<object>
@@ -185,28 +269,23 @@ namespace GUI
             dtFechaI.Value = DateTime.Today;
             dtFechaE.Value = DateTime.Today.AddDays(7);
         }
-
-        private void dgvPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CargarPed()
         {
             try
             {
-                if (e.RowIndex < 0) return;
-                DataGridViewRow selectedRow = dgvPedidos.Rows[e.RowIndex];
-                idPedido = Convert.ToInt32(selectedRow.Cells["id_pedido"].Value);
-                txtDescripcion.Text = selectedRow.Cells["descripcion"].Value?.ToString() ?? string.Empty;
-                var abonoVal = selectedRow.Cells["abono"].Value;
-                var totalVal = selectedRow.Cells["precio_total"].Value;
-                txtAbono.Text = abonoVal != null ? Convert.ToDecimal(abonoVal).ToString(CultureInfo.InvariantCulture) : string.Empty;
-                txtTotal.Text = totalVal != null ? Convert.ToDecimal(totalVal).ToString(CultureInfo.InvariantCulture) : string.Empty;
-                cbxEstado.Text = selectedRow.Cells["estado"].Value?.ToString() ?? string.Empty;
-                dtFechaI.Value = Convert.ToDateTime(selectedRow.Cells["inicio"].Value);
-                dtFechaE.Value = Convert.ToDateTime(selectedRow.Cells["entrega"].Value);
+                dgvPedidos.DataSource = pedidosService.MostrarPedidos(this.Id);
+                dgvPedidos.Columns["inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["id_pedido"].Visible = false;
+                dgvPedidos.Columns["id_user"].Visible = false;
+                dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";
+                dgvPedidos.Columns["precio_total"].HeaderText = "TOTAL";
+                dgvPedidos.Columns["abono"].DefaultCellStyle.Format = "C2";
             }
             catch (Exception ex)
             {
-                return;
+                MessageBox.Show("Error al cargar los pedidos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
     }
 }

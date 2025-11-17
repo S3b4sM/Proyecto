@@ -40,17 +40,13 @@
             this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.panel_Title = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRestart = new System.Windows.Forms.PictureBox();
-            this.btnMin = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnMax = new System.Windows.Forms.PictureBox();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
+            this.btnMini = new FontAwesome.Sharp.IconButton();
+            this.btnRestart = new FontAwesome.Sharp.IconButton();
+            this.btnMax = new FontAwesome.Sharp.IconButton();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel_Title.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -218,11 +214,11 @@
             this.panel_Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.panel_Title.Controls.Add(this.label3);
             this.panel_Title.Controls.Add(this.btnRestart);
-            this.panel_Title.Controls.Add(this.btnMin);
-            this.panel_Title.Controls.Add(this.btnCerrar);
             this.panel_Title.Controls.Add(this.btnMax);
+            this.panel_Title.Controls.Add(this.btnMini);
+            this.panel_Title.Controls.Add(this.btnClose);
+            this.panel_Title.Controls.Add(this.label3);
             this.panel_Title.Location = new System.Drawing.Point(171, 0);
             this.panel_Title.Name = "panel_Title";
             this.panel_Title.Size = new System.Drawing.Size(929, 46);
@@ -242,57 +238,73 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "ModistApp";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.Location = new System.Drawing.Point(885, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMini
+            // 
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
+            this.btnMini.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMini.FlatAppearance.BorderSize = 0;
+            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMini.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMini.IconColor = System.Drawing.Color.Black;
+            this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMini.IconSize = 32;
+            this.btnMini.Location = new System.Drawing.Point(807, 2);
+            this.btnMini.Name = "btnMini";
+            this.btnMini.Size = new System.Drawing.Size(32, 32);
+            this.btnMini.TabIndex = 14;
+            this.btnMini.UseVisualStyleBackColor = false;
+            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
+            // 
             // btnRestart
             // 
-            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Image = ((System.Drawing.Image)(resources.GetObject("btnRestart.Image")));
-            this.btnRestart.Location = new System.Drawing.Point(847, 2);
+            this.btnRestart.BackColor = System.Drawing.Color.Transparent;
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnRestart.FlatAppearance.BorderSize = 0;
+            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnRestart.IconColor = System.Drawing.Color.Black;
+            this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRestart.IconSize = 32;
+            this.btnRestart.Location = new System.Drawing.Point(847, 6);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(32, 32);
-            this.btnRestart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestart.TabIndex = 3;
-            this.btnRestart.TabStop = false;
+            this.btnRestart.TabIndex = 15;
+            this.btnRestart.UseVisualStyleBackColor = false;
             this.btnRestart.Visible = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
-            // btnMin
-            // 
-            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(809, 2);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(32, 32);
-            this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMin.TabIndex = 0;
-            this.btnMin.TabStop = false;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(885, 2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 2;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // btnMax
             // 
-            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(847, 2);
+            this.btnMax.BackColor = System.Drawing.Color.Transparent;
+            this.btnMax.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMax.FlatAppearance.BorderSize = 0;
+            this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.btnMax.IconColor = System.Drawing.Color.Black;
+            this.btnMax.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMax.IconSize = 32;
+            this.btnMax.Location = new System.Drawing.Point(847, 5);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(32, 32);
-            this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMax.TabIndex = 1;
-            this.btnMax.TabStop = false;
+            this.btnMax.TabIndex = 16;
+            this.btnMax.UseVisualStyleBackColor = false;
             this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // FormPrincipal
@@ -312,10 +324,6 @@
             this.panelMenu.PerformLayout();
             this.panel_Title.ResumeLayout(false);
             this.panel_Title.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,10 +334,6 @@
         private System.Windows.Forms.Panel panel_Title;
         private System.Windows.Forms.Panel panelForms;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox btnMax;
-        private System.Windows.Forms.PictureBox btnMin;
-        private System.Windows.Forms.PictureBox btnRestart;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton ibtnExit;
@@ -337,5 +341,9 @@
         private FontAwesome.Sharp.IconButton btnPedidos;
         private FontAwesome.Sharp.IconButton btnHome;
         private FontAwesome.Sharp.IconButton btnMovimiento;
+        private FontAwesome.Sharp.IconButton btnClose;
+        private FontAwesome.Sharp.IconButton btnMini;
+        private FontAwesome.Sharp.IconButton btnRestart;
+        private FontAwesome.Sharp.IconButton btnMax;
     }
 }

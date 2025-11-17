@@ -206,6 +206,8 @@
             this.txtAbono.Name = "txtAbono";
             this.txtAbono.Size = new System.Drawing.Size(92, 22);
             this.txtAbono.TabIndex = 4;
+            this.txtAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbono_KeyPress);
+            this.txtAbono.Leave += new System.EventHandler(this.txtAbono_Leave);
             // 
             // panel1
             // 
@@ -272,6 +274,8 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(105, 22);
             this.txtTotal.TabIndex = 5;
+            this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotal_KeyPress);
+            this.txtTotal.Leave += new System.EventHandler(this.txtTotal_Leave);
             // 
             // dgvPedidos
             // 

@@ -63,9 +63,6 @@ namespace GUI
                 llenardgvPed(datos.DetallePed);
             }
         }
-
-        
-
         private void FormHome_Load(object sender, EventArgs e)
         {
             if (!backgroundWorker1.IsBusy)
@@ -78,6 +75,7 @@ namespace GUI
             try
             {
                 DataTable dtMov = movService.MostrarMovimientos(Id);
+                DataTable dtPed = pedidosService.MostrarPedidos(Id);
                 if (dtMov == null || dtMov.Rows.Count == 0)
                 {
                     MessageBox.Show("No hay movimientos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -90,12 +88,17 @@ namespace GUI
                     {
                         dtMov.Columns.Remove("ID_MOVIMIENTO");
                     }
+                    if(dtPed.Columns.Contains("ID_PEDIDO"))
+                    {
+                        dtPed.Columns.Remove("ID_PEDIDO");
+                        dtPed.Columns.Remove("ID_USER");
+                    }
                     //abre la vista para guardar el archivo
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "Archivo de Excel (*.xlsx)|*.xlsx",
-                        Title = "Guardar Reporte de Movimientos",
-                        FileName = $"Movimientos_{DateTime.Now:yyyyMMdd}.xlsx" 
+                        Title = "Guardar Reporte de Movimientos/Pedidos",
+                        FileName = $"Movimientos&Pedidos_{DateTime.Now:yyyyMMdd}.xlsx" 
                     };
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -110,6 +113,13 @@ namespace GUI
                                 ws.Column(1).Style.Numberformat.Format = "dd/MM/yyyy";
                                 ws.Column(2).Style.Numberformat.Format = "$ #,##0.00";
                                 ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                                ExcelWorksheet ws2 = pck.Workbook.Worksheets.Add("Pedidos");
+                                ws2.Cells["A1"].LoadFromDataTable(dtPed, true);
+                                ws2.Column(1).Style.Numberformat.Format = "$ #,##0.00";
+                                ws2.Column(2).Style.Numberformat.Format = "$ #,##0.00";
+                                ws2.Column(4).Style.Numberformat.Format = "dd/MM/yyyy";
+                                ws2.Column(5).Style.Numberformat.Format = "dd/MM/yyyy";
+                                ws2.Cells[ws2.Dimension.Address].AutoFitColumns();
                                 FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
                                 pck.SaveAs(fileInfo);
                             }
@@ -219,7 +229,8 @@ namespace GUI
             CPE.Series.Add(sEgreso);
             CPE.DataBind();
             CPE.Series["EGRESOS"].IsValueShownAsLabel = true;
-            CPE.Series["EGRESOS"].LegendText = "#VALX";
+            CPE.Series["EGRESOS"].Label = " ";
+            CPE.Series["EGRESOS"].LegendText = "#VALX (#PERCENT{P2})";
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
