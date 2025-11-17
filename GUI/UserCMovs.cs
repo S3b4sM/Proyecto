@@ -48,7 +48,7 @@ namespace GUI
                     string montoS = txtMonto.Text.Replace(',', '.');
                     if (!decimal.TryParse(montoS, NumberStyles.Any, CultureInfo.InvariantCulture, out montoD) || montoD <= 0)
                     {
-                        MessageBox.Show("Por favor, ingrese un monto numérico válido y mayor que cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Por favor, ingrese un monto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     var movimiento = new Movimiento
@@ -70,7 +70,7 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo actualizar el registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se pudo actualizar el Movimiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

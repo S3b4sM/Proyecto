@@ -82,9 +82,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.panelForms.Location = new System.Drawing.Point(171, 41);
+            this.panelForms.Location = new System.Drawing.Point(174, 41);
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(929, 599);
+            this.panelForms.Size = new System.Drawing.Size(926, 599);
             this.panelForms.TabIndex = 2;
             // 
             // panelMenu
@@ -100,7 +100,7 @@
             this.panelMenu.Controls.Add(this.lblName);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(172, 640);
+            this.panelMenu.Size = new System.Drawing.Size(173, 640);
             this.panelMenu.TabIndex = 1;
             // 
             // btnMovimiento

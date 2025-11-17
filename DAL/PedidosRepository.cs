@@ -71,8 +71,8 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT p.ID_PEDIDO, p.descripcion, p.precio_total, p.abono, p.estado,
-                                    p.fecha_inicio as INICIO, p.fecha_entrega AS ENTREGA, p.id_user
+                    string query = @"SELECT p.ID_PEDIDO, p.precio_total, p.abono, p.estado,
+                                    p.fecha_inicio as INICIO, p.fecha_entrega AS ENTREGA, p.id_user, p.descripcion
                                     FROM PEDIDOS p
                                     JOIN users u ON p.id_user = u.userid
                                     WHERE p.id_user = :p_id_user 

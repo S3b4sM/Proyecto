@@ -184,6 +184,8 @@ namespace GUI
             dgvPedidos.Columns["id_pedido"].Visible = false;
             dgvPedidos.Columns["id_user"].Visible = false;
             dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";
+            dgvPedidos.Columns["precio_total"].HeaderText = "TOTAL";
+            dgvPedidos.Columns["descripcion"].HeaderText = "DESCRIP";
             dgvPedidos.Columns["abono"].DefaultCellStyle.Format = "C2";
         }
         public void cpi(DataTable dt)
