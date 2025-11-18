@@ -246,16 +246,10 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
-                                    FROM MOVIMIENTOS m
-                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
-                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
-                                    WHERE ID_USER = :p_id_user 
-                                    ORDER BY FECHA DESC";
-                                    //@"SELECT *
-                                    //FROM V_MOVIMIENTOS_DETALLADOS
-                                    //WHERE ID_USER = :p_id_user 
-                                    //ORDER BY FECHA DESC";
+                    string query = @"SELECT *
+                                     FROM V_MOVIMIENTOS_DETALLADOS
+                                     WHERE ID_USER = :p_id_user 
+                                     ORDER BY FECHA DESC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -279,7 +273,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    using (OracleCommand command = new OracleCommand("SP_GET_MOVIMIENTOS_CLIENTE", connection))
+                    using (OracleCommand command = new OracleCommand("PKG_MODISTAPP.SP_GET_MOVIMIENTOS_CLIENTE", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("p_id_cliente", OracleDbType.Int32).Value = id_user;
@@ -288,22 +282,20 @@ namespace DAL
                         {
                             while (reader.Read())
                             {
-                                Movimiento mov = new Movimiento
-                                {
-                                    fecha = reader.GetDateTime(reader.GetOrdinal("FECHA")),
-                                    tipo = reader.GetInt32(reader.GetOrdinal("TIPO")),
-                                    id_categoria = reader.GetInt32(reader.GetOrdinal("CATEGORIA")),
-                                    monto = reader.GetDecimal(reader.GetOrdinal("MONTO")),
-                                    descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? "" : reader.GetString(reader.GetOrdinal("DESCRIPCION"))
-                                };
-                                
+                                Movimiento mov = new Movimiento();
+                                mov.fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
+                                mov.monto = reader.GetDecimal(reader.GetOrdinal("MONTO"));
+                                mov.descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION"))
+                                                  ? ""
+                                                  : reader.GetString(reader.GetOrdinal("DESCRIPCION"));
+                                listaMovimientos.Add(mov);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al ejecutar SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
+                    Console.WriteLine("Error al ejecutar PKG_MODISTAPP.SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
                 }
             }
             return listaMovimientos;

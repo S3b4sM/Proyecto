@@ -93,15 +93,19 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo actualizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se pudo actualizar el pedido. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine("Error crítico: " + ex.Message);
+                MessageBox.Show("No se puede actualizar: El monto del abono supera al precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             catch (Exception x)
             {
-                Console.WriteLine("Error al actualizar el movimiento: " + x.Message);
-                MessageBox.Show("Error al actualizar el pedido: " + x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                Console.WriteLine("Error crítico: " + x.Message);
+                MessageBox.Show("Ocurrió un error inesperado al actualizar: " + x.Message, "Error del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -274,8 +278,10 @@ namespace GUI
             try
             {
                 dgvPedidos.DataSource = pedidosService.MostrarPedidos(this.Id);
-                dgvPedidos.Columns["inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvPedidos.Columns["entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["fecha_inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["fecha_inicio"].HeaderText = "INICIO";
+                dgvPedidos.Columns["fecha_entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["fecha_entrega"].HeaderText = "ENTREGA";
                 dgvPedidos.Columns["id_pedido"].Visible = false;
                 dgvPedidos.Columns["id_user"].Visible = false;
                 dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";

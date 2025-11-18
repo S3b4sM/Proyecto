@@ -50,15 +50,24 @@ namespace DAL
                             };
                             return pedidos;
                         }
-                        else
-                        {
-                            return null;
-                        }
+                        return null;
+                    }
+                }
+                catch (OracleException ex)
+                {
+                    if (ex.Number == 20002)
+                    {
+                        throw new InvalidOperationException(ex.Message);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error de Oracle al agregar pedido: " + ex.Message);
+                        return null;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al conectar a la base de datos/agregar el pedido: " + ex.Message);
+                    Console.WriteLine("Error general al agregar el pedido: " + ex.Message);
                     return null;
                 }
             }
@@ -71,16 +80,10 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT p.ID_PEDIDO, p.precio_total, p.abono, p.estado,
-                                    p.fecha_inicio as INICIO, p.fecha_entrega AS ENTREGA, p.id_user, p.descripcion
-                                    FROM PEDIDOS p
-                                    JOIN users u ON p.id_user = u.userid
-                                    WHERE p.id_user = :p_id_user 
+                    string query = @"SELECT *
+                                    FROM V_PEDIDOS_DETALLE
+                                    WHERE ID_USER = :p_id_user 
                                     ORDER BY FECHA_INICIO DESC";
-                    //@"SELECT *
-                    //FROM V_PEDIDOS_DETALLE
-                    //WHERE ID_USER = :p_id_user 
-                    //ORDER BY FECHA_INICIO DESC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -115,6 +118,18 @@ namespace DAL
                         command.Parameters.Add(new OracleParameter("p_id_pedido", pedidos.id_pedido));
                         int rowsAffected = command.ExecuteNonQuery();
                         return rowsAffected > 0;
+                    }
+                }
+                catch (OracleException ex)
+                {
+                    if (ex.Number == 20002)
+                    {
+                        throw new InvalidOperationException(ex.Message);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error de Oracle al actualizar pedido: " + ex.Message);
+                        return false;
                     }
                 }
                 catch (Exception ex)

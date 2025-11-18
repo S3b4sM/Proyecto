@@ -136,7 +136,7 @@ namespace GUI
                 }
                 decimal abono;
                 string abonoS = txtAbono.Text.Replace(',', '.');
-                if (!decimal.TryParse(abonoS, NumberStyles.Any, CultureInfo.InvariantCulture, out abono) || abono < 0 || abono > precioT)
+                if (!decimal.TryParse(abonoS, NumberStyles.Any, CultureInfo.InvariantCulture, out abono) || abono < 0 /*|| abono > precioT*/)
                 {
                     MessageBox.Show("Por favor, ingrese un abono válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -161,10 +161,15 @@ namespace GUI
                 dtFechaE.Value = DateTime.Today.AddDays(7);
                 cbxEstado.SelectedIndex = 0;
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                Console.WriteLine("Error al registrar movimiento: " + ex.ToString());
-                MessageBox.Show("Ocurrió un error al agregar el pedido: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error crítico: " + ex.Message);
+                MessageBox.Show("El monto del abono supera al precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine("Error crítico: " + x.Message);
+                MessageBox.Show("Ocurrió un error inesperado al actualizar: " + x.Message, "Error del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void txtDescripcion_Enter(object sender, EventArgs e)
