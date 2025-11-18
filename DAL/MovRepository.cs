@@ -21,43 +21,42 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, ID_TIPO, ID_PEDIDO, DESCRIPCION) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_tipo, :p_id_pedido, :p_desc) RETURNING ID_MOVIMIENTO INTO :p_id";
-                    using (OracleCommand command = new OracleCommand(query, connection))
+                    using (OracleCommand command = new OracleCommand("PKG_MODISTAPP.SP_REGISTRAR_MOVIMIENTO", connection))
                     {
-                        command.Parameters.Add(new OracleParameter("p_fecha", fecha));
-                        command.Parameters.Add(new OracleParameter("p_monto", monto));
-                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
-                        command.Parameters.Add(new OracleParameter("p_id_cat", id_cat));
-                        command.Parameters.Add(new OracleParameter("p_tipo", tipo));
-                        command.Parameters.Add(new OracleParameter("p_desc", desc));
-                        OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("p_fecha", OracleDbType.Date).Value = fecha;
+                        command.Parameters.Add("p_monto", OracleDbType.Decimal).Value = monto;
+                        command.Parameters.Add("p_id_USER", OracleDbType.Int32).Value = id_user;
+                        command.Parameters.Add("p_id_categoria", OracleDbType.Int32).Value = id_cat;
+                        command.Parameters.Add("p_id_tipo", OracleDbType.Int32).Value = tipo;
+                        command.Parameters.Add("p_desc", OracleDbType.Varchar2).Value = desc;
+                        OracleParameter idParam = new OracleParameter("p_id_nuevo_out", OracleDbType.Int32);
                         idParam.Direction = ParameterDirection.Output;
                         command.Parameters.Add(idParam);
-                        int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                        command.ExecuteNonQuery();
+                        int nuevoId = 0;
+                        if (idParam.Value != null && idParam.Value != DBNull.Value)
                         {
-                            int movimientoId = Convert.ToInt32(idParam.Value.ToString());
-                            Movimiento movimiento = new Movimiento
+                            if (int.TryParse(idParam.Value.ToString(), out int idConvertido))
                             {
-                                id = movimientoId,
-                                fecha = fecha,
-                                monto = monto,
-                                tipo = tipo,
-                                id_user = id_user,
-                                id_categoria = id_cat,
-                                descripcion = desc
-                            };
-                            return movimiento;
+                                nuevoId = idConvertido;
+                            }
                         }
-                        else
+                        return new Movimiento
                         {
-                            return null;
-                        }
+                            id = nuevoId,
+                            fecha = fecha,
+                            monto = monto,
+                            tipo = tipo,
+                            id_user = id_user,
+                            id_categoria = id_cat,
+                            descripcion = desc
+                        };
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al conectar a la base de datos/agregar el movimiento: " + ex.Message);
+                    Console.WriteLine("Error en SP_REGISTRAR_MOVIMIENTO: " + ex.Message);
                     return null;
                 }
             }
@@ -267,7 +266,7 @@ namespace DAL
         }
         public List<Movimiento> DetalleMov(int id_user)
         {
-            List<Movimiento> listaMovimientos = new List<Movimiento>();
+            List<Movimiento> lista = new List<Movimiento>();
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
@@ -276,29 +275,30 @@ namespace DAL
                     using (OracleCommand command = new OracleCommand("PKG_MODISTAPP.SP_GET_MOVIMIENTOS_CLIENTE", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("p_id_cliente", OracleDbType.Int32).Value = id_user;
+                        command.Parameters.Add("p_id_user", OracleDbType.Int32).Value = id_user;
                         command.Parameters.Add("p_cursor_lista", OracleDbType.RefCursor, ParameterDirection.Output);
                         using (OracleDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 Movimiento mov = new Movimiento();
-                                mov.fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
-                                mov.monto = reader.GetDecimal(reader.GetOrdinal("MONTO"));
-                                mov.descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION"))
-                                                  ? ""
-                                                  : reader.GetString(reader.GetOrdinal("DESCRIPCION"));
-                                listaMovimientos.Add(mov);
+                                if (!reader.IsDBNull(reader.GetOrdinal("ID_MOVIMIENTO")))
+                                    mov.id = reader.GetInt32(reader.GetOrdinal("ID_MOVIMIENTO"));
+                                if (!reader.IsDBNull(reader.GetOrdinal("FECHA")))
+                                    mov.fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
+                                if (!reader.IsDBNull(reader.GetOrdinal("MONTO")))
+                                    mov.monto = reader.GetDecimal(reader.GetOrdinal("MONTO"));
+                                lista.Add(mov);
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al ejecutar PKG_MODISTAPP.SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
+                    Console.WriteLine("Error en SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
                 }
             }
-            return listaMovimientos;
+            return lista;
         }
     }
 }
