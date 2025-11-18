@@ -50,7 +50,7 @@ namespace DAL
                     return null;
                 }
             }
-        }           
+        }  
         public Usuario Register(string user, string pass, string firstName, string lastName, int document)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
