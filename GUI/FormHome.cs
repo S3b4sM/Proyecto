@@ -189,10 +189,8 @@ namespace GUI
         private void llenardgvPed(DataTable detallePed)
         {
             dgvPedidos.DataSource = detallePed;
-            dgvPedidos.Columns["fecha_inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvPedidos.Columns["fecha_inicio"].HeaderText = "INICIO"; 
-            dgvPedidos.Columns["fecha_entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvPedidos.Columns["fecha_entrega"].HeaderText = "ENTREGA";
+            dgvPedidos.Columns["INICIO"].DefaultCellStyle.Format = "dd/MM/yyyy"; 
+            dgvPedidos.Columns["ENTREGA"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvPedidos.Columns["id_pedido"].Visible = false;
             dgvPedidos.Columns["id_user"].Visible = false;
             dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";

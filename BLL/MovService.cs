@@ -45,11 +45,5 @@ namespace BLL
         {
             return MovRepository.MostrarMovimientos(id_user);
         }
-        public List<Movimiento> DetalleMov(int id_user)
-        {
-            List<Movimiento> listaMovimientos = new List<Movimiento>();
-            listaMovimientos = MovRepository.DetalleMov(id_user);
-            return listaMovimientos;
-        }
     }
 }

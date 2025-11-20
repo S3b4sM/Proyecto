@@ -21,16 +21,16 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    using (OracleCommand command = new OracleCommand("PKG_MODISTAPP.SP_REGISTRAR_MOVIMIENTO", connection))
+                    string query = "INSERT INTO Movimientos (FECHA, MONTO, ID_USER, ID_CATEGORIA, ID_TIPO, DESCRIPCION) VALUES (:p_fecha, :p_monto, :p_id_user, :p_id_cat, :p_tipo, :p_desc) RETURNING ID_MOVIMIENTO INTO :p_id";
+                    using (OracleCommand command = new OracleCommand(query, connection))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("p_fecha", OracleDbType.Date).Value = fecha;
                         command.Parameters.Add("p_monto", OracleDbType.Decimal).Value = monto;
                         command.Parameters.Add("p_id_USER", OracleDbType.Int32).Value = id_user;
                         command.Parameters.Add("p_id_categoria", OracleDbType.Int32).Value = id_cat;
                         command.Parameters.Add("p_id_tipo", OracleDbType.Int32).Value = tipo;
                         command.Parameters.Add("p_desc", OracleDbType.Varchar2).Value = desc;
-                        OracleParameter idParam = new OracleParameter("p_id_nuevo_out", OracleDbType.Int32);
+                        OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
                         idParam.Direction = ParameterDirection.Output;
                         command.Parameters.Add(idParam);
                         command.ExecuteNonQuery();
@@ -245,10 +245,12 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT *
-                                     FROM V_MOVIMIENTOS_DETALLADOS
-                                     WHERE ID_USER = :p_id_user 
-                                     ORDER BY FECHA DESC";
+                    string query = @"SELECT m.ID_MOVIMIENTO, m.FECHA, m.MONTO, t.NOMBRE as TIPO, c.NOMBRE as CATEGORIA, m.DESCRIPCION
+                                    FROM MOVIMIENTOS m
+                                    JOIN CATEGORIAS c ON m.ID_CATEGORIA = c.ID_CATEGORIA
+                                    JOIN TIPOS t ON m.ID_TIPO = t.ID_TIPO
+                                    WHERE ID_USER = :p_id_user 
+                                    ORDER BY FECHA DESC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -263,42 +265,6 @@ namespace DAL
                 }
                 return dataTable;
             }
-        }
-        public List<Movimiento> DetalleMov(int id_user)
-        {
-            List<Movimiento> lista = new List<Movimiento>();
-            using (OracleConnection connection = new OracleConnection(_connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (OracleCommand command = new OracleCommand("PKG_MODISTAPP.SP_GET_MOVIMIENTOS_CLIENTE", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("p_id_user", OracleDbType.Int32).Value = id_user;
-                        command.Parameters.Add("p_cursor_lista", OracleDbType.RefCursor, ParameterDirection.Output);
-                        using (OracleDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Movimiento mov = new Movimiento();
-                                if (!reader.IsDBNull(reader.GetOrdinal("ID_MOVIMIENTO")))
-                                    mov.id = reader.GetInt32(reader.GetOrdinal("ID_MOVIMIENTO"));
-                                if (!reader.IsDBNull(reader.GetOrdinal("FECHA")))
-                                    mov.fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
-                                if (!reader.IsDBNull(reader.GetOrdinal("MONTO")))
-                                    mov.monto = reader.GetDecimal(reader.GetOrdinal("MONTO"));
-                                lista.Add(mov);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error en SP_GET_MOVIMIENTOS_CLIENTE: " + ex.Message);
-                }
-            }
-            return lista;
         }
     }
 }

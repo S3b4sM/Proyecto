@@ -55,10 +55,6 @@ namespace DAL
                     {
                         OracleDataAdapter adapter = new OracleDataAdapter(command);
                         adapter.Fill(dataTable);
-                        //DataRow placeholderRow = dataTable.NewRow();
-                        //placeholderRow["ID_TIPO"] = 0;
-                        ////placeholderRow["NOMBRE"] = "Tipos";
-                        //dataTable.Rows.InsertAt(placeholderRow, 0);
                     }
                 }
                 catch (Exception ex)

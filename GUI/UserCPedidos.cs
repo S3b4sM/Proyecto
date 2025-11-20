@@ -278,10 +278,8 @@ namespace GUI
             try
             {
                 dgvPedidos.DataSource = pedidosService.MostrarPedidos(this.Id);
-                dgvPedidos.Columns["fecha_inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvPedidos.Columns["fecha_inicio"].HeaderText = "INICIO";
-                dgvPedidos.Columns["fecha_entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvPedidos.Columns["fecha_entrega"].HeaderText = "ENTREGA";
+                dgvPedidos.Columns["inicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvPedidos.Columns["entrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgvPedidos.Columns["id_pedido"].Visible = false;
                 dgvPedidos.Columns["id_user"].Visible = false;
                 dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";

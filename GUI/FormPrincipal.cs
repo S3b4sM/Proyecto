@@ -23,6 +23,7 @@ namespace GUI
             this.usuario = username;
             AbrirForm(() => new FormHome(username.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
+            this.WindowState = FormWindowState.Maximized;
         }
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;

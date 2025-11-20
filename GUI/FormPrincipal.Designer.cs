@@ -39,11 +39,11 @@
             this.btnUpdate = new FontAwesome.Sharp.IconButton();
             this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.panel_Title = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnClose = new FontAwesome.Sharp.IconButton();
-            this.btnMini = new FontAwesome.Sharp.IconButton();
             this.btnRestart = new FontAwesome.Sharp.IconButton();
             this.btnMax = new FontAwesome.Sharp.IconButton();
+            this.btnMini = new FontAwesome.Sharp.IconButton();
+            this.btnClose = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel_Title.SuspendLayout();
@@ -69,7 +69,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1100, 640);
+            this.panelContenedor.Size = new System.Drawing.Size(1366, 768);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelForms
@@ -80,7 +80,7 @@
             this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
             this.panelForms.Location = new System.Drawing.Point(174, 41);
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(926, 599);
+            this.panelForms.Size = new System.Drawing.Size(1192, 727);
             this.panelForms.TabIndex = 2;
             // 
             // panelMenu
@@ -96,7 +96,7 @@
             this.panelMenu.Controls.Add(this.lblName);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(173, 640);
+            this.panelMenu.Size = new System.Drawing.Size(173, 768);
             this.panelMenu.TabIndex = 1;
             // 
             // btnMovimiento
@@ -112,7 +112,7 @@
             this.btnMovimiento.IconColor = System.Drawing.Color.Black;
             this.btnMovimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMovimiento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMovimiento.Location = new System.Drawing.Point(0, 216);
+            this.btnMovimiento.Location = new System.Drawing.Point(0, 232);
             this.btnMovimiento.Name = "btnMovimiento";
             this.btnMovimiento.Size = new System.Drawing.Size(172, 69);
             this.btnMovimiento.TabIndex = 0;
@@ -134,11 +134,11 @@
             this.btnHome.IconColor = System.Drawing.Color.Black;
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnHome.Location = new System.Drawing.Point(0, 118);
+            this.btnHome.Location = new System.Drawing.Point(0, 100);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(172, 69);
             this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
+            this.btnHome.Text = "Inicio";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -156,7 +156,7 @@
             this.btnPedidos.IconColor = System.Drawing.Color.Black;
             this.btnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 322);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 380);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(172, 69);
             this.btnPedidos.TabIndex = 5;
@@ -178,7 +178,7 @@
             this.btnUpdate.IconColor = System.Drawing.Color.Black;
             this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 430);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 506);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(172, 69);
             this.btnUpdate.TabIndex = 0;
@@ -200,7 +200,7 @@
             this.ibtnExit.IconColor = System.Drawing.Color.Black;
             this.ibtnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ibtnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ibtnExit.Location = new System.Drawing.Point(0, 562);
+            this.ibtnExit.Location = new System.Drawing.Point(0, 647);
             this.ibtnExit.Name = "ibtnExit";
             this.ibtnExit.Size = new System.Drawing.Size(172, 71);
             this.ibtnExit.TabIndex = 0;
@@ -221,56 +221,9 @@
             this.panel_Title.Controls.Add(this.label3);
             this.panel_Title.Location = new System.Drawing.Point(171, 0);
             this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(929, 46);
+            this.panel_Title.Size = new System.Drawing.Size(1195, 46);
             this.panel_Title.TabIndex = 0;
             this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Title_MouseMove);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label3.Location = new System.Drawing.Point(404, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 38);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "ModistApp";
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
-            this.btnClose.IconColor = System.Drawing.Color.Black;
-            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClose.IconSize = 32;
-            this.btnClose.Location = new System.Drawing.Point(885, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(32, 32);
-            this.btnClose.TabIndex = 15;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnMini
-            // 
-            this.btnMini.BackColor = System.Drawing.Color.Transparent;
-            this.btnMini.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMini.FlatAppearance.BorderSize = 0;
-            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMini.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMini.IconColor = System.Drawing.Color.Black;
-            this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMini.IconSize = 32;
-            this.btnMini.Location = new System.Drawing.Point(807, 2);
-            this.btnMini.Name = "btnMini";
-            this.btnMini.Size = new System.Drawing.Size(32, 32);
-            this.btnMini.TabIndex = 14;
-            this.btnMini.UseVisualStyleBackColor = false;
-            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
             // 
             // btnRestart
             // 
@@ -282,12 +235,11 @@
             this.btnRestart.IconColor = System.Drawing.Color.Black;
             this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestart.IconSize = 32;
-            this.btnRestart.Location = new System.Drawing.Point(847, 6);
+            this.btnRestart.Location = new System.Drawing.Point(1113, 3);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(32, 32);
             this.btnRestart.TabIndex = 15;
             this.btnRestart.UseVisualStyleBackColor = false;
-            this.btnRestart.Visible = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnMax
@@ -300,18 +252,66 @@
             this.btnMax.IconColor = System.Drawing.Color.Black;
             this.btnMax.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMax.IconSize = 32;
-            this.btnMax.Location = new System.Drawing.Point(847, 5);
+            this.btnMax.Location = new System.Drawing.Point(1113, 3);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(32, 32);
             this.btnMax.TabIndex = 16;
             this.btnMax.UseVisualStyleBackColor = false;
+            this.btnMax.Visible = false;
             this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnMini
+            // 
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
+            this.btnMini.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMini.FlatAppearance.BorderSize = 0;
+            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMini.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMini.IconColor = System.Drawing.Color.Black;
+            this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMini.IconSize = 32;
+            this.btnMini.Location = new System.Drawing.Point(1075, 3);
+            this.btnMini.Name = "btnMini";
+            this.btnMini.Size = new System.Drawing.Size(32, 32);
+            this.btnMini.TabIndex = 14;
+            this.btnMini.UseVisualStyleBackColor = false;
+            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.Location = new System.Drawing.Point(1151, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.label3.Location = new System.Drawing.Point(404, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 37);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "MiTallerPro";
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 640);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
