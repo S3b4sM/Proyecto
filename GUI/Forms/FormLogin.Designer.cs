@@ -38,7 +38,6 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnRegistro = new System.Windows.Forms.LinkLabel();
             this.lblErrorMsg = new System.Windows.Forms.Label();
             this.btnMin = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -90,7 +89,7 @@
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.txtuser.Location = new System.Drawing.Point(286, 58);
+            this.txtuser.Location = new System.Drawing.Point(286, 64);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(424, 19);
             this.txtuser.TabIndex = 1;
@@ -104,7 +103,7 @@
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.txtpass.Location = new System.Drawing.Point(288, 131);
+            this.txtpass.Location = new System.Drawing.Point(288, 137);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(422, 19);
             this.txtpass.TabIndex = 2;
@@ -134,7 +133,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnLogin.Location = new System.Drawing.Point(288, 217);
+            this.btnLogin.Location = new System.Drawing.Point(288, 236);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(422, 40);
@@ -148,7 +147,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox2.Location = new System.Drawing.Point(286, 84);
+            this.groupBox2.Location = new System.Drawing.Point(286, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox2.Size = new System.Drawing.Size(423, 1);
@@ -160,28 +159,12 @@
             this.groupBox3.BackColor = System.Drawing.Color.DimGray;
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox3.Location = new System.Drawing.Point(287, 157);
+            this.groupBox3.Location = new System.Drawing.Point(287, 163);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox3.Size = new System.Drawing.Size(423, 1);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            // 
-            // btnRegistro
-            // 
-            this.btnRegistro.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnRegistro.AutoSize = true;
-            this.btnRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistro.Font = new System.Drawing.Font("Lucida Fax", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistro.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnRegistro.Location = new System.Drawing.Point(464, 265);
-            this.btnRegistro.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(94, 16);
-            this.btnRegistro.TabIndex = 0;
-            this.btnRegistro.TabStop = true;
-            this.btnRegistro.Text = "Regristrarse";
-            this.btnRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnregistro_LinkClicked);
             // 
             // lblErrorMsg
             // 
@@ -190,7 +173,7 @@
             this.lblErrorMsg.ForeColor = System.Drawing.Color.Black;
             this.lblErrorMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMsg.Image")));
             this.lblErrorMsg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMsg.Location = new System.Drawing.Point(285, 180);
+            this.lblErrorMsg.Location = new System.Drawing.Point(285, 186);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(72, 18);
             this.lblErrorMsg.TabIndex = 9;
@@ -258,7 +241,6 @@
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.lblErrorMsg);
-            this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
@@ -292,7 +274,6 @@
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.LinkLabel btnRegistro;
         private System.Windows.Forms.Label lblErrorMsg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;

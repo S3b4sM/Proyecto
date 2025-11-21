@@ -127,75 +127,78 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAgg.cs">
+    <Compile Include="Forms\FormAgg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgg.Designer.cs">
+    <Compile Include="Forms\FormAgg.Designer.cs">
       <DependentUpon>FormAgg.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHome.cs">
+    <Compile Include="Forms\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHome.Designer.cs">
+    <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSignup.cs">
+    <Compile Include="Forms\FormSignup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSignup.Designer.cs">
+    <Compile Include="Forms\FormSignup.Designer.cs">
       <DependentUpon>FormSignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserCAggPedidos.cs">
+    <Compile Include="UserControl\UserCAggPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserCAggPedidos.Designer.cs">
+    <Compile Include="UserControl\UserCAggPedidos.Designer.cs">
       <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCMovs.cs">
+    <Compile Include="UserControl\UserCMovs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserCMovs.Designer.cs">
+    <Compile Include="UserControl\UserCMovs.Designer.cs">
       <DependentUpon>UserCMovs.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCPedidos.cs">
+    <Compile Include="UserControl\UserCPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserCPedidos.Designer.cs">
+    <Compile Include="UserControl\UserCPedidos.Designer.cs">
       <DependentUpon>UserCPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCUpdate.cs">
+    <Compile Include="UserControl\UserCUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserCUpdate.Designer.cs">
+    <Compile Include="UserControl\UserCUpdate.Designer.cs">
       <DependentUpon>UserCUpdate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormAgg.resx">
+    <EmbeddedResource Include="Forms\FormAgg.resx">
       <DependentUpon>FormAgg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormHome.resx">
+    <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSignup.resx">
+    <EmbeddedResource Include="Forms\FormSignup.resx">
       <DependentUpon>FormSignup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -203,16 +206,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCAggPedidos.resx">
+    <EmbeddedResource Include="UserControl\UserCAggPedidos.resx">
       <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCMovs.resx">
+    <EmbeddedResource Include="UserControl\UserCMovs.resx">
       <DependentUpon>UserCMovs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCPedidos.resx">
+    <EmbeddedResource Include="UserControl\UserCPedidos.resx">
       <DependentUpon>UserCPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCUpdate.resx">
+    <EmbeddedResource Include="UserControl\UserCUpdate.resx">
       <DependentUpon>UserCUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
@@ -252,9 +255,7 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="IMG\logout.png" />
   </ItemGroup>

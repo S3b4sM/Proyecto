@@ -23,7 +23,7 @@ namespace GUI
             this.usuario = username;
             AbrirForm(() => new FormHome(username.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
-            this.WindowState = FormWindowState.Maximized;
+            Maximizar();
         }
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
@@ -107,7 +107,7 @@ namespace GUI
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void btnHome_Click(object sender, EventArgs e)
         {   
             AbrirForm(() => new FormHome(usuario.Id));
@@ -154,6 +154,17 @@ namespace GUI
                 formulario.BringToFront();
             }
         }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void AbrirUser<T>(Func<T> formFactory) where T : System.Windows.Forms.UserControl
         {
             System.Windows.Forms.UserControl user = panelForms.Controls.OfType<T>().FirstOrDefault();
@@ -173,6 +184,17 @@ namespace GUI
             {
                 user.BringToFront();
             }
+        }
+        private void Maximizar()
+        {
+            lx = this.Location.X;
+            ly = this.Location.Y;
+            sw = this.Size.Width;
+            sh = this.Size.Height;
+            btnMax.Visible = false;
+            btnRestart.Visible = true;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
         }
     }
 }
