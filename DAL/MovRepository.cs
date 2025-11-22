@@ -56,7 +56,7 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error en SP_REGISTRAR_MOVIMIENTO: " + ex.Message);
+                    Console.WriteLine("Error en registrar movimiento: " + ex.Message);
                     return null;
                 }
             }

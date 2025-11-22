@@ -33,10 +33,10 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnInicio = new GUI.NewButton();
             this.btnClientes = new GUI.NewButton();
             this.btnPedidos = new GUI.NewButton();
             this.btnMov = new GUI.NewButton();
-            this.btnInicio = new GUI.NewButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.panel_Title = new System.Windows.Forms.Panel();
@@ -102,6 +102,32 @@
             this.panelMenu.Size = new System.Drawing.Size(174, 768);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnInicio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnInicio.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnInicio.BorderRadius = 20;
+            this.btnInicio.BorderSize = 0;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnInicio.ForeColor = System.Drawing.Color.Black;
+            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            this.btnInicio.IconColor = System.Drawing.Color.Black;
+            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnInicio.Location = new System.Drawing.Point(9, 141);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(155, 69);
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInicio.TextColor = System.Drawing.Color.Black;
+            this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnClientes
             // 
@@ -181,32 +207,6 @@
             this.btnMov.UseVisualStyleBackColor = false;
             this.btnMov.Click += new System.EventHandler(this.btnMovimientos_Click);
             // 
-            // btnInicio
-            // 
-            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnInicio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnInicio.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnInicio.BorderRadius = 20;
-            this.btnInicio.BorderSize = 0;
-            this.btnInicio.FlatAppearance.BorderSize = 0;
-            this.btnInicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnInicio.ForeColor = System.Drawing.Color.Black;
-            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnInicio.IconColor = System.Drawing.Color.Black;
-            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInicio.Location = new System.Drawing.Point(9, 141);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(155, 69);
-            this.btnInicio.TabIndex = 0;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInicio.TextColor = System.Drawing.Color.Black;
-            this.btnInicio.UseVisualStyleBackColor = false;
-            this.btnInicio.Click += new System.EventHandler(this.btnHome_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -270,7 +270,7 @@
             this.btnRestart.IconColor = System.Drawing.Color.Black;
             this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestart.IconSize = 32;
-            this.btnRestart.Location = new System.Drawing.Point(1125, 3);
+            this.btnRestart.Location = new System.Drawing.Point(1125, 0);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(32, 32);
             this.btnRestart.TabIndex = 15;
@@ -307,7 +307,7 @@
             this.btnMini.IconColor = System.Drawing.Color.Black;
             this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMini.IconSize = 32;
-            this.btnMini.Location = new System.Drawing.Point(1087, 3);
+            this.btnMini.Location = new System.Drawing.Point(1087, 0);
             this.btnMini.Name = "btnMini";
             this.btnMini.Size = new System.Drawing.Size(32, 32);
             this.btnMini.TabIndex = 14;
@@ -325,7 +325,7 @@
             this.btnClose.IconColor = System.Drawing.Color.Black;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClose.IconSize = 32;
-            this.btnClose.Location = new System.Drawing.Point(1163, 3);
+            this.btnClose.Location = new System.Drawing.Point(1163, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(32, 32);
             this.btnClose.TabIndex = 15;
@@ -351,7 +351,7 @@
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(900, 700);
+            this.MinimumSize = new System.Drawing.Size(900, 718);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";

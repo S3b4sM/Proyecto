@@ -29,6 +29,7 @@ namespace GUI
             Llenarlbls();
             CPI.MouseClick += Chart_MouseClick;
             CPE.MouseClick += Chart_MouseClick;
+            PanelPed.MouseClick += FiltrarPedidos_MouseClick;
         }
         #region funcionalidades del form
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -166,6 +167,15 @@ namespace GUI
             //dgvMov.Columns["id_user"].Visible = false;
             dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
+        private void FiltrarPedidos_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel click = sender as Panel;
+            if (click == null) return;
+            DataView dv = (dgvPedidos.DataSource as DataTable).DefaultView;
+            dv.RowFilter = "ESTADO =  Pendiente";
+            dgvPedidos.DataSource = dv.ToTable();
+
+        }
         #endregion
         public void Llenarlbls()
         {
@@ -175,6 +185,8 @@ namespace GUI
             lblEgresos.Text = SumEgresos.ToString("C2");
             decimal Balance = SumIngresos - SumEgresos;
             lblBalance.Text = Balance.ToString("C2");
+            int PedidosPendientes = pedidosService.PedPendientes(this.Id);
+            lblPedPendientes.Text = PedidosPendientes.ToString();
         }
         private void llenardgvMovs(DataTable detalleMov)
         {

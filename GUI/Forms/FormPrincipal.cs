@@ -162,7 +162,7 @@ namespace GUI
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         public void AbrirUser<T>(Func<T> formFactory) where T : System.Windows.Forms.UserControl

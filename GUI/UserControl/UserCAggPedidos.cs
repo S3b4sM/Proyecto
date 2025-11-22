@@ -150,7 +150,7 @@ namespace GUI
                     precioT: precioT,
                     abono: abono,
                     estado: cbxEstado.Text,
-                    fecha_pedido: dtFechaI.Value,
+                    fecha_inicio: dtFechaI.Value,
                     fecha_entrega: dtFechaE.Value
                 );
                 MessageBox.Show("Pedido agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

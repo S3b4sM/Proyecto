@@ -142,5 +142,30 @@ namespace DAL
                 }
             }
         }
+
+        public int PedPendientes(int id)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT COUNT(*) 
+                                    FROM PEDIDOS 
+                                    WHERE ID_USER = :p_id_user AND ESTADO IN ('Pendiente', 'En Proceso')";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id));
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/contar pedidos pendientes: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
     }
 }
