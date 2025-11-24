@@ -27,9 +27,17 @@ namespace GUI
             InitializeComponent();
             this.Id = Id;
             Llenarlbls();
+            Filtro();
+            
+        }
+
+        private void Filtro()
+        {
             CPI.MouseClick += Chart_MouseClick;
             CPE.MouseClick += Chart_MouseClick;
             PanelPed.MouseClick += FiltrarPedidos_MouseClick;
+            lblPedPendientes.MouseClick += FiltrarPedidos_MouseClick;
+            lblPed.MouseClick += FiltrarPedidos_MouseClick;
         }
         #region funcionalidades del form
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -158,23 +166,26 @@ namespace GUI
         }
         private void btnBorrar_Click(object sender, EventArgs e)
         {
+            //Movs
             dgvMov.Columns.Clear();
-            dgvMov.DataSource = movService.MostrarMovimientos(Id);
-            dgvMov.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvMov.Columns["id_movimiento"].Visible = false;
-            //dgvMov.Columns["NOMBRE_CLIENTE"].Visible = false;
-            //dgvMov.Columns["APELLIDO_CLIENTE"].Visible = false;
-            //dgvMov.Columns["id_user"].Visible = false;
-            dgvMov.Columns["monto"].DefaultCellStyle.Format = "C2";
+            llenardgvMovs(movService.MostrarMovimientos(Id));
+            //Pedidos
+            dgvPedidos.Columns.Clear();
+            llenardgvPed(pedidosService.MostrarPedidos(Id));
         }
         private void FiltrarPedidos_MouseClick(object sender, MouseEventArgs e)
         {
-            Panel click = sender as Panel;
-            if (click == null) return;
-            DataView dv = (dgvPedidos.DataSource as DataTable).DefaultView;
-            dv.RowFilter = "ESTADO =  Pendiente";
-            dgvPedidos.DataSource = dv.ToTable();
-
+            if (dgvPedidos.DataSource == null) return;
+            DataTable dt = dgvPedidos.DataSource as DataTable;
+            if (dt == null && dgvPedidos.DataSource is BindingSource bs)
+            {
+                dt = bs.DataSource as DataTable;
+            }
+            if (dt == null) return;
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = "ESTADO = 'Pendiente' OR ESTADO = 'En Proceso'";
+            dgvPedidos.DataSource = dv;
+            dgvPedidos.Refresh();
         }
         #endregion
         public void Llenarlbls()

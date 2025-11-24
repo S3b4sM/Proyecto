@@ -164,7 +164,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panelForms;
         private FontAwesome.Sharp.IconButton btnMovs;
         private FontAwesome.Sharp.IconButton btnPedidos;
     }

@@ -165,28 +165,46 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl\UserCAggPedidos.cs">
+    <Compile Include="UserControls\UserCAggPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserCAggPedidos.Designer.cs">
+    <Compile Include="UserControls\UserCAggPedidos.Designer.cs">
       <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserCMovs.cs">
+    <Compile Include="UserControls\UserCClientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserCMovs.Designer.cs">
+    <Compile Include="UserControls\UserCClientes.Designer.cs">
+      <DependentUpon>UserCClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserCEditMovs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCEditMovs.Designer.cs">
+      <DependentUpon>UserCEditMovs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserCEditPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCEditPedidos.Designer.cs">
+      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserCMovs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCMovs.Designer.cs">
       <DependentUpon>UserCMovs.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserCPedidos.cs">
+    <Compile Include="UserControls\UserCPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserCPedidos.Designer.cs">
+    <Compile Include="UserControls\UserCPedidos.Designer.cs">
       <DependentUpon>UserCPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserCUpdate.cs">
+    <Compile Include="UserControls\UserCUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserCUpdate.Designer.cs">
+    <Compile Include="UserControls\UserCUpdate.Designer.cs">
       <DependentUpon>UserCUpdate.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\FormAgg.resx">
@@ -209,16 +227,25 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UserCAggPedidos.resx">
+    <EmbeddedResource Include="UserControls\UserCAggPedidos.resx">
       <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UserCMovs.resx">
+    <EmbeddedResource Include="UserControls\UserCClientes.resx">
+      <DependentUpon>UserCClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCEditMovs.resx">
+      <DependentUpon>UserCEditMovs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCEditPedidos.resx">
+      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCMovs.resx">
       <DependentUpon>UserCMovs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UserCPedidos.resx">
+    <EmbeddedResource Include="UserControls\UserCPedidos.resx">
       <DependentUpon>UserCPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UserCUpdate.resx">
+    <EmbeddedResource Include="UserControls\UserCUpdate.resx">
       <DependentUpon>UserCUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />

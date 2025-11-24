@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UserCMovs : UserControl
+    public partial class UserCEditMovs : UserControl
     {
         private int idMovimiento = -1;
         public readonly int Id;
         MovService movService = new MovService();
         CategoriaService categoryServices = new CategoriaService();
-        public UserCMovs(int id)
+        public UserCEditMovs(int id)
         {
             InitializeComponent();
             this.Id = id;

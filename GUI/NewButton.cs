@@ -16,6 +16,7 @@ namespace GUI
         private int borderSize = 0;
         private int borderRadius = 0;
         private Color borderColor = Color.PaleVioletRed;
+        private Control cachedParent;
 
         //Properties
         [Category("RJ Code Advance")]
@@ -106,19 +107,21 @@ namespace GUI
             {
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - borderSize))
-                using (Pen penSurface = new Pen(this.Parent.BackColor, smoothSize))
-                using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
-                    pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    //Button surface
-                    this.Region = new Region(pathSurface);
-                    //Draw surface border for HD result
-                    pevent.Graphics.DrawPath(penSurface, pathSurface);
-
-                    //Button border                    
-                    if (borderSize >= 1)
-                        //Draw control border
-                        pevent.Graphics.DrawPath(penBorder, pathBorder);
+                    Color parentBackColor = (this.Parent != null) ? this.Parent.BackColor : Color.Transparent;
+                    using (Pen penSurface = new Pen(parentBackColor, smoothSize))
+                    using (Pen penBorder = new Pen(borderColor, borderSize))
+                    {
+                        pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                        //Button surface
+                        this.Region = new Region(pathSurface);
+                        //Draw surface border for HD result
+                        pevent.Graphics.DrawPath(penSurface, pathSurface);
+                        //Button border
+                        if (borderSize >= 1)
+                            //Draw control border
+                            pevent.Graphics.DrawPath(penBorder, pathBorder);
+                    }
                 }
             }
             else //Normal button
@@ -137,10 +140,46 @@ namespace GUI
                 }
             }
         }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            if (this.Parent != null)
+            {
+                OnParentChanged(EventArgs.Empty);
+            }
+        }
+
+        protected override void OnParentChanged(EventArgs e)
+        {
+            if (cachedParent != null)
+            {
+                try
+                {
+                    cachedParent.BackColorChanged -= Container_BackColorChanged;
+                }
+                catch {  }
+            }
+
+            cachedParent = this.Parent;
+            if (cachedParent != null)
+            {
+                cachedParent.BackColorChanged += Container_BackColorChanged;
+            }
+            base.OnParentChanged(e);
+        }
+
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            if (cachedParent != null)
+            {
+                try
+                {
+                    cachedParent.BackColorChanged -= Container_BackColorChanged;
+                }
+                catch {  }
+            }
+            base.OnHandleDestroyed(e);
         }
 
         private void Container_BackColorChanged(object sender, EventArgs e)

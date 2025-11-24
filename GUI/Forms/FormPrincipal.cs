@@ -1,4 +1,5 @@
 ﻿using ENTITY;
+using GUI.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,6 +100,13 @@ namespace GUI
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void ibtnExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
         private void panel_Title_MouseMove(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -115,25 +123,18 @@ namespace GUI
         }
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
-            AbrirForm(() => new FormAgg(usuario.Id));
-        }
-        private void ibtnExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Desea cerrar sesion?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-        private void ibtnUpdate_Click(object sender, EventArgs e)
-        {
-            AbrirUser(() => new UserCUpdate());
+            AbrirUser(() => new UserCMovs(usuario.Id));
         }
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-            AbrirUser(() => new UserCAggPedidos(usuario.Id));
+            AbrirUser(() => new UserCPedidos(usuario.Id));
+        }
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirUser(() => new UserCClientes(usuario.Id));
         }
         #endregion
-        private void AbrirForm<T>(Func<T> formFactory) where T : Form
+        public void AbrirForm<T>(Func<T> formFactory) where T : Form
         {
             Form formulario = panelForms.Controls.OfType<T>().FirstOrDefault();
 
@@ -154,17 +155,6 @@ namespace GUI
                 formulario.BringToFront();
             }
         }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         public void AbrirUser<T>(Func<T> formFactory) where T : System.Windows.Forms.UserControl
         {
             System.Windows.Forms.UserControl user = panelForms.Controls.OfType<T>().FirstOrDefault();

@@ -33,12 +33,12 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCerrar = new GUI.NewButton();
             this.btnInicio = new GUI.NewButton();
             this.btnClientes = new GUI.NewButton();
             this.btnPedidos = new GUI.NewButton();
             this.btnMov = new GUI.NewButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ibtnExit = new FontAwesome.Sharp.IconButton();
             this.panel_Title = new System.Windows.Forms.Panel();
             this.btnRestart = new FontAwesome.Sharp.IconButton();
             this.btnMax = new FontAwesome.Sharp.IconButton();
@@ -89,19 +89,45 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(56)))), ((int)(((byte)(85)))));
+            this.panelMenu.Controls.Add(this.btnCerrar);
             this.panelMenu.Controls.Add(this.btnInicio);
             this.panelMenu.Controls.Add(this.btnClientes);
             this.panelMenu.Controls.Add(this.btnPedidos);
             this.panelMenu.Controls.Add(this.btnMov);
             this.panelMenu.Controls.Add(this.groupBox3);
-            this.panelMenu.Controls.Add(this.ibtnExit);
             this.panelMenu.Controls.Add(this.lblName);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(174, 768);
             this.panelMenu.TabIndex = 1;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 20;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.btnCerrar.IconColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCerrar.Location = new System.Drawing.Point(3, 686);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(164, 71);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar Sesion";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCerrar.TextColor = System.Drawing.Color.Black;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.ibtnExit_Click);
             // 
             // btnInicio
             // 
@@ -119,7 +145,7 @@
             this.btnInicio.IconColor = System.Drawing.Color.Black;
             this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInicio.Location = new System.Drawing.Point(9, 141);
+            this.btnInicio.Location = new System.Drawing.Point(9, 160);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(155, 69);
             this.btnInicio.TabIndex = 0;
@@ -145,7 +171,7 @@
             this.btnClientes.IconColor = System.Drawing.Color.Black;
             this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClientes.Location = new System.Drawing.Point(9, 504);
+            this.btnClientes.Location = new System.Drawing.Point(9, 520);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(155, 69);
             this.btnClientes.TabIndex = 1;
@@ -171,7 +197,7 @@
             this.btnPedidos.IconColor = System.Drawing.Color.Black;
             this.btnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPedidos.Location = new System.Drawing.Point(9, 384);
+            this.btnPedidos.Location = new System.Drawing.Point(9, 400);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(155, 69);
             this.btnPedidos.TabIndex = 1;
@@ -197,7 +223,7 @@
             this.btnMov.IconColor = System.Drawing.Color.Black;
             this.btnMov.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMov.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMov.Location = new System.Drawing.Point(9, 264);
+            this.btnMov.Location = new System.Drawing.Point(9, 279);
             this.btnMov.Name = "btnMov";
             this.btnMov.Size = new System.Drawing.Size(155, 69);
             this.btnMov.TabIndex = 7;
@@ -219,29 +245,6 @@
             this.groupBox3.Size = new System.Drawing.Size(173, 1);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
-            // 
-            // ibtnExit
-            // 
-            this.ibtnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibtnExit.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnExit.FlatAppearance.BorderSize = 0;
-            this.ibtnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.ibtnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.ibtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibtnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ibtnExit.ForeColor = System.Drawing.Color.Black;
-            this.ibtnExit.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
-            this.ibtnExit.IconColor = System.Drawing.Color.Black;
-            this.ibtnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ibtnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ibtnExit.Location = new System.Drawing.Point(0, 686);
-            this.ibtnExit.Name = "ibtnExit";
-            this.ibtnExit.Size = new System.Drawing.Size(176, 71);
-            this.ibtnExit.TabIndex = 0;
-            this.ibtnExit.Text = "Cerrar Sesion";
-            this.ibtnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ibtnExit.UseVisualStyleBackColor = false;
-            this.ibtnExit.Click += new System.EventHandler(this.ibtnExit_Click);
             // 
             // panel_Title
             // 
@@ -335,11 +338,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(404, 3);
+            this.label3.Location = new System.Drawing.Point(587, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 37);
+            this.label3.Size = new System.Drawing.Size(174, 37);
             this.label3.TabIndex = 4;
             this.label3.Text = "MiTallerPro";
             // 
@@ -371,7 +374,6 @@
         private System.Windows.Forms.Panel panelForms;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label lblName;
-        private FontAwesome.Sharp.IconButton ibtnExit;
         private FontAwesome.Sharp.IconButton btnClose;
         private FontAwesome.Sharp.IconButton btnMini;
         private FontAwesome.Sharp.IconButton btnRestart;
@@ -382,5 +384,6 @@
         private NewButton btnPedidos;
         private NewButton btnClientes;
         private System.Windows.Forms.Label label3;
+        private NewButton btnCerrar;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class UserCMovs
+    partial class UserCEditMovs
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

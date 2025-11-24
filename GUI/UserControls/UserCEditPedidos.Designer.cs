@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class UserCPedidos
+    partial class UserCEditPedidos
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

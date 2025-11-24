@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UserCPedidos : UserControl
+    public partial class UserCEditPedidos : UserControl
     {
         private int idPedido = -1;
         public readonly int Id;
         PedidosService pedidosService = new PedidosService();
-        public UserCPedidos(int id)
+        public UserCEditPedidos(int id)
         {
             InitializeComponent();
             this.Id = id;
