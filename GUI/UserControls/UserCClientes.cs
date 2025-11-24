@@ -18,5 +18,18 @@ namespace GUI.UserControls
             InitializeComponent();
             this.id = id;
         }
+
+        private void btnEditClientes_Click(object sender, EventArgs e)
+        {
+            FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+            if (formPrincipal != null)
+            {
+                formPrincipal.AbrirUser(() => new UserCAggPedidos(id));
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

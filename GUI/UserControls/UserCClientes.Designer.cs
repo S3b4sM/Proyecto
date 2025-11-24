@@ -30,11 +30,11 @@
         {
             this.newPanel2 = new GUI.NewPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnEditClientes = new GUI.NewButton();
             this.newPanel1 = new GUI.NewPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnEditClientes = new GUI.NewButton();
             this.btnAggClientes = new GUI.NewButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.newPanel2.SuspendLayout();
             this.newPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,30 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "GESTIONAR CLIENTES";
             // 
+            // btnEditClientes
+            // 
+            this.btnEditClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditClientes.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnEditClientes.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEditClientes.BorderRadius = 20;
+            this.btnEditClientes.BorderSize = 0;
+            this.btnEditClientes.FlatAppearance.BorderSize = 0;
+            this.btnEditClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEditClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.btnEditClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditClientes.ForeColor = System.Drawing.Color.White;
+            this.btnEditClientes.IconChar = FontAwesome.Sharp.IconChar.UserGear;
+            this.btnEditClientes.IconColor = System.Drawing.Color.Black;
+            this.btnEditClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditClientes.IconSize = 64;
+            this.btnEditClientes.Location = new System.Drawing.Point(82, 75);
+            this.btnEditClientes.Name = "btnEditClientes";
+            this.btnEditClientes.Size = new System.Drawing.Size(277, 89);
+            this.btnEditClientes.TabIndex = 30;
+            this.btnEditClientes.TextColor = System.Drawing.Color.White;
+            this.btnEditClientes.UseVisualStyleBackColor = false;
+            this.btnEditClientes.Click += new System.EventHandler(this.btnEditClientes_Click);
+            // 
             // newPanel1
             // 
             this.newPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
@@ -89,40 +113,6 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "AGREGAR CLIENTES";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(255, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(723, 47);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "GESTION Y  ACTUALIZACIÓN DE CLIENTES";
-            // 
-            // btnEditClientes
-            // 
-            this.btnEditClientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditClientes.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnEditClientes.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEditClientes.BorderRadius = 20;
-            this.btnEditClientes.BorderSize = 0;
-            this.btnEditClientes.FlatAppearance.BorderSize = 0;
-            this.btnEditClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnEditClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
-            this.btnEditClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditClientes.ForeColor = System.Drawing.Color.White;
-            this.btnEditClientes.IconChar = FontAwesome.Sharp.IconChar.UserGear;
-            this.btnEditClientes.IconColor = System.Drawing.Color.Black;
-            this.btnEditClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditClientes.IconSize = 64;
-            this.btnEditClientes.Location = new System.Drawing.Point(82, 75);
-            this.btnEditClientes.Name = "btnEditClientes";
-            this.btnEditClientes.Size = new System.Drawing.Size(277, 89);
-            this.btnEditClientes.TabIndex = 30;
-            this.btnEditClientes.TextColor = System.Drawing.Color.White;
-            this.btnEditClientes.UseVisualStyleBackColor = false;
-            // 
             // btnAggClientes
             // 
             this.btnAggClientes.BackColor = System.Drawing.Color.Transparent;
@@ -145,6 +135,17 @@
             this.btnAggClientes.TabIndex = 24;
             this.btnAggClientes.TextColor = System.Drawing.Color.White;
             this.btnAggClientes.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(255, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(723, 47);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "GESTION Y  ACTUALIZACIÓN DE CLIENTES";
             // 
             // UserCClientes
             // 

@@ -43,40 +43,39 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExcel = new System.Windows.Forms.Button();
             this.CPI = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.CPE = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblEgresos = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblBalance = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.newPanel4 = new GUI.NewPanel();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.newPanel3 = new GUI.NewPanel();
+            this.lblEgresos = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.newPanel2 = new GUI.NewPanel();
             this.lblIngresos = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dgvMov = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PanelPed = new GUI.NewPanel();
             this.lblPedPendientes = new System.Windows.Forms.Label();
             this.lblPed = new System.Windows.Forms.Label();
-            this.PanelPed = new GUI.NewPanel();
-            this.newPanel2 = new GUI.NewPanel();
-            this.newPanel3 = new GUI.NewPanel();
-            this.newPanel4 = new GUI.NewPanel();
+            this.panel5 = new GUI.NewPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.panel1 = new GUI.NewPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvMov = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.CPI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CPE)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMov)).BeginInit();
+            this.newPanel4.SuspendLayout();
+            this.newPanel3.SuspendLayout();
+            this.newPanel2.SuspendLayout();
+            this.PanelPed.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
-            this.PanelPed.SuspendLayout();
-            this.newPanel2.SuspendLayout();
-            this.newPanel3.SuspendLayout();
-            this.newPanel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMov)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcel
@@ -91,7 +90,7 @@
             this.btnExcel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.Transparent;
             this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
-            this.btnExcel.Location = new System.Drawing.Point(1074, 129);
+            this.btnExcel.Location = new System.Drawing.Point(1074, 131);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(95, 49);
             this.btnExcel.TabIndex = 12;
@@ -115,7 +114,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.CPI.Legends.Add(legend1);
-            this.CPI.Location = new System.Drawing.Point(12, 173);
+            this.CPI.Location = new System.Drawing.Point(12, 185);
             this.CPI.Name = "CPI";
             this.CPI.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
@@ -155,7 +154,7 @@
             legend2.Name = "Legend1";
             legend2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.CPE.Legends.Add(legend2);
-            this.CPE.Location = new System.Drawing.Point(12, 474);
+            this.CPE.Location = new System.Drawing.Point(12, 467);
             this.CPE.Name = "CPE";
             this.CPE.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
@@ -173,30 +172,50 @@
             title2.Text = "Distribucion de Egresos";
             this.CPE.Titles.Add(title2);
             // 
-            // label2
+            // btnBorrar
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(86, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "EGRESOS";
+            this.btnBorrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBorrar.FlatAppearance.BorderSize = 0;
+            this.btnBorrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(108)))), ((int)(((byte)(122)))));
+            this.btnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.Color.Black;
+            this.btnBorrar.Location = new System.Drawing.Point(517, 397);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(140, 64);
+            this.btnBorrar.TabIndex = 13;
+            this.btnBorrar.Text = "Borrar Filtros";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
-            // lblEgresos
+            // newPanel4
             // 
-            this.lblEgresos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblEgresos.AutoSize = true;
-            this.lblEgresos.Font = new System.Drawing.Font("Lucida Fax", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEgresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.lblEgresos.Location = new System.Drawing.Point(86, 65);
-            this.lblEgresos.Name = "lblEgresos";
-            this.lblEgresos.Size = new System.Drawing.Size(96, 32);
-            this.lblEgresos.TabIndex = 2;
-            this.lblEgresos.Text = "label6";
-            this.lblEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.newPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.newPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newPanel4.BorderRadius = 25;
+            this.newPanel4.BorderSize = 0;
+            this.newPanel4.Controls.Add(this.lblBalance);
+            this.newPanel4.Controls.Add(this.label4);
+            this.newPanel4.Location = new System.Drawing.Point(916, 12);
+            this.newPanel4.Name = "newPanel4";
+            this.newPanel4.Size = new System.Drawing.Size(265, 114);
+            this.newPanel4.TabIndex = 20;
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.Black;
+            this.lblBalance.Location = new System.Drawing.Point(74, 65);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(90, 37);
+            this.lblBalance.TabIndex = 3;
+            this.lblBalance.Text = "label7";
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -210,35 +229,74 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "CLIENTES";
             // 
-            // lblBalance
+            // newPanel3
             // 
-            this.lblBalance.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Lucida Fax", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lblBalance.Location = new System.Drawing.Point(75, 65);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(96, 32);
-            this.lblBalance.TabIndex = 3;
-            this.lblBalance.Text = "label7";
-            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.newPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.newPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newPanel3.BorderRadius = 25;
+            this.newPanel3.BorderSize = 0;
+            this.newPanel3.Controls.Add(this.lblEgresos);
+            this.newPanel3.Controls.Add(this.label2);
+            this.newPanel3.Location = new System.Drawing.Point(617, 12);
+            this.newPanel3.Name = "newPanel3";
+            this.newPanel3.Size = new System.Drawing.Size(289, 114);
+            this.newPanel3.TabIndex = 21;
             // 
-            // btnBorrar
+            // lblEgresos
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBorrar.FlatAppearance.BorderSize = 0;
-            this.btnBorrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(108)))), ((int)(((byte)(122)))));
-            this.btnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Font = new System.Drawing.Font("Century", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnBorrar.Location = new System.Drawing.Point(609, 383);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(140, 69);
-            this.btnBorrar.TabIndex = 13;
-            this.btnBorrar.Text = "Borrar Filtros";
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            this.lblEgresos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblEgresos.AutoSize = true;
+            this.lblEgresos.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEgresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.lblEgresos.Location = new System.Drawing.Point(85, 65);
+            this.lblEgresos.Name = "lblEgresos";
+            this.lblEgresos.Size = new System.Drawing.Size(90, 37);
+            this.lblEgresos.TabIndex = 2;
+            this.lblEgresos.Text = "label6";
+            this.lblEgresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(86, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "EGRESOS";
+            // 
+            // newPanel2
+            // 
+            this.newPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.newPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newPanel2.BorderRadius = 25;
+            this.newPanel2.BorderSize = 0;
+            this.newPanel2.Controls.Add(this.lblIngresos);
+            this.newPanel2.Controls.Add(this.label1);
+            this.newPanel2.Location = new System.Drawing.Point(317, 12);
+            this.newPanel2.Name = "newPanel2";
+            this.newPanel2.Size = new System.Drawing.Size(289, 114);
+            this.newPanel2.TabIndex = 20;
+            // 
+            // lblIngresos
+            // 
+            this.lblIngresos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblIngresos.AutoSize = true;
+            this.lblIngresos.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresos.ForeColor = System.Drawing.Color.Lime;
+            this.lblIngresos.Location = new System.Drawing.Point(69, 65);
+            this.lblIngresos.Margin = new System.Windows.Forms.Padding(10);
+            this.lblIngresos.Name = "lblIngresos";
+            this.lblIngresos.Size = new System.Drawing.Size(90, 37);
+            this.lblIngresos.TabIndex = 1;
+            this.lblIngresos.Text = "label5";
+            this.lblIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -252,169 +310,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INGRESOS";
             // 
-            // lblIngresos
+            // PanelPed
             // 
-            this.lblIngresos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblIngresos.AutoSize = true;
-            this.lblIngresos.Font = new System.Drawing.Font("Lucida Fax", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresos.ForeColor = System.Drawing.Color.Green;
-            this.lblIngresos.Location = new System.Drawing.Point(82, 65);
-            this.lblIngresos.Margin = new System.Windows.Forms.Padding(10);
-            this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(96, 32);
-            this.lblIngresos.TabIndex = 1;
-            this.lblIngresos.Text = "label5";
-            this.lblIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dgvMov);
-            this.panel1.Location = new System.Drawing.Point(468, 467);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 210);
-            this.panel1.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(244, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 31);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "MOVIMIENTOS";
-            // 
-            // dgvMov
-            // 
-            this.dgvMov.AllowUserToAddRows = false;
-            this.dgvMov.AllowUserToResizeRows = false;
-            this.dgvMov.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMov.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            this.dgvMov.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvMov.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvMov.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMov.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMov.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMov.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMov.EnableHeadersVisualStyles = false;
-            this.dgvMov.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            this.dgvMov.Location = new System.Drawing.Point(22, 44);
-            this.dgvMov.MultiSelect = false;
-            this.dgvMov.Name = "dgvMov";
-            this.dgvMov.ReadOnly = true;
-            this.dgvMov.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMov.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvMov.RowHeadersVisible = false;
-            this.dgvMov.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            this.dgvMov.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvMov.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(108)))), ((int)(((byte)(145)))));
-            this.dgvMov.RowTemplate.ReadOnly = true;
-            this.dgvMov.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMov.Size = new System.Drawing.Size(622, 150);
-            this.dgvMov.TabIndex = 17;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.dgvPedidos);
-            this.panel5.Location = new System.Drawing.Point(468, 181);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(665, 210);
-            this.panel5.TabIndex = 17;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(280, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 31);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "PEDIDOS";
-            // 
-            // dgvPedidos
-            // 
-            this.dgvPedidos.AllowUserToResizeRows = false;
-            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvPedidos.EnableHeadersVisualStyles = false;
-            this.dgvPedidos.Location = new System.Drawing.Point(22, 41);
-            this.dgvPedidos.MultiSelect = false;
-            this.dgvPedidos.Name = "dgvPedidos";
-            this.dgvPedidos.ReadOnly = true;
-            this.dgvPedidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvPedidos.RowHeadersVisible = false;
-            this.dgvPedidos.RowHeadersWidth = 51;
-            this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(622, 150);
-            this.dgvPedidos.TabIndex = 17;
+            this.PanelPed.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.PanelPed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.PanelPed.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.PanelPed.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.PanelPed.BorderRadius = 25;
+            this.PanelPed.BorderSize = 0;
+            this.PanelPed.Controls.Add(this.lblPedPendientes);
+            this.PanelPed.Controls.Add(this.lblPed);
+            this.PanelPed.Location = new System.Drawing.Point(12, 12);
+            this.PanelPed.Name = "PanelPed";
+            this.PanelPed.Size = new System.Drawing.Size(289, 114);
+            this.PanelPed.TabIndex = 19;
             // 
             // lblPedPendientes
             // 
             this.lblPedPendientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPedPendientes.AutoSize = true;
-            this.lblPedPendientes.Font = new System.Drawing.Font("Lucida Fax", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedPendientes.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPedPendientes.ForeColor = System.Drawing.Color.Black;
-            this.lblPedPendientes.Location = new System.Drawing.Point(104, 65);
+            this.lblPedPendientes.Location = new System.Drawing.Point(100, 65);
             this.lblPedPendientes.Margin = new System.Windows.Forms.Padding(10);
             this.lblPedPendientes.Name = "lblPedPendientes";
-            this.lblPedPendientes.Size = new System.Drawing.Size(96, 32);
+            this.lblPedPendientes.Size = new System.Drawing.Size(90, 37);
             this.lblPedPendientes.TabIndex = 2;
             this.lblPedPendientes.Text = "label5";
             this.lblPedPendientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -431,65 +351,150 @@
             this.lblPed.TabIndex = 2;
             this.lblPed.Text = "PEDIDOS PENDIENTES";
             // 
-            // PanelPed
+            // panel5
             // 
-            this.PanelPed.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PanelPed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.PanelPed.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.PanelPed.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.PanelPed.BorderRadius = 25;
-            this.PanelPed.BorderSize = 0;
-            this.PanelPed.Controls.Add(this.lblPedPendientes);
-            this.PanelPed.Controls.Add(this.lblPed);
-            this.PanelPed.Location = new System.Drawing.Point(12, 12);
-            this.PanelPed.Name = "PanelPed";
-            this.PanelPed.Size = new System.Drawing.Size(289, 114);
-            this.PanelPed.TabIndex = 19;
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.panel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.panel5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.panel5.BorderRadius = 20;
+            this.panel5.BorderSize = 0;
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.dgvPedidos);
+            this.panel5.Location = new System.Drawing.Point(468, 185);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(701, 210);
+            this.panel5.TabIndex = 17;
             // 
-            // newPanel2
+            // label5
             // 
-            this.newPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.newPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newPanel2.BorderRadius = 25;
-            this.newPanel2.BorderSize = 0;
-            this.newPanel2.Controls.Add(this.lblIngresos);
-            this.newPanel2.Controls.Add(this.label1);
-            this.newPanel2.Location = new System.Drawing.Point(317, 12);
-            this.newPanel2.Name = "newPanel2";
-            this.newPanel2.Size = new System.Drawing.Size(289, 114);
-            this.newPanel2.TabIndex = 20;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(309, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 31);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "PEDIDOS";
             // 
-            // newPanel3
+            // dgvPedidos
             // 
-            this.newPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.newPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newPanel3.BorderRadius = 25;
-            this.newPanel3.BorderSize = 0;
-            this.newPanel3.Controls.Add(this.lblEgresos);
-            this.newPanel3.Controls.Add(this.label2);
-            this.newPanel3.Location = new System.Drawing.Point(617, 12);
-            this.newPanel3.Name = "newPanel3";
-            this.newPanel3.Size = new System.Drawing.Size(289, 114);
-            this.newPanel3.TabIndex = 21;
+            this.dgvPedidos.AllowUserToResizeRows = false;
+            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPedidos.EnableHeadersVisualStyles = false;
+            this.dgvPedidos.Location = new System.Drawing.Point(22, 41);
+            this.dgvPedidos.MultiSelect = false;
+            this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.ReadOnly = true;
+            this.dgvPedidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPedidos.RowHeadersVisible = false;
+            this.dgvPedidos.RowHeadersWidth = 51;
+            this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedidos.Size = new System.Drawing.Size(622, 150);
+            this.dgvPedidos.TabIndex = 17;
             // 
-            // newPanel4
+            // panel1
             // 
-            this.newPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.newPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(135)))), ((int)(((byte)(170)))));
-            this.newPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newPanel4.BorderRadius = 25;
-            this.newPanel4.BorderSize = 0;
-            this.newPanel4.Controls.Add(this.lblBalance);
-            this.newPanel4.Controls.Add(this.label4);
-            this.newPanel4.Location = new System.Drawing.Point(916, 12);
-            this.newPanel4.Name = "newPanel4";
-            this.newPanel4.Size = new System.Drawing.Size(265, 114);
-            this.newPanel4.TabIndex = 20;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.panel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.panel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.panel1.BorderRadius = 20;
+            this.panel1.BorderSize = 0;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dgvMov);
+            this.panel1.Location = new System.Drawing.Point(468, 467);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(701, 210);
+            this.panel1.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(286, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 31);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "MOVIMIENTOS";
+            // 
+            // dgvMov
+            // 
+            this.dgvMov.AllowUserToAddRows = false;
+            this.dgvMov.AllowUserToResizeRows = false;
+            this.dgvMov.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMov.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.dgvMov.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMov.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvMov.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMov.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvMov.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMov.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvMov.EnableHeadersVisualStyles = false;
+            this.dgvMov.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.dgvMov.Location = new System.Drawing.Point(22, 44);
+            this.dgvMov.MultiSelect = false;
+            this.dgvMov.Name = "dgvMov";
+            this.dgvMov.ReadOnly = true;
+            this.dgvMov.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMov.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvMov.RowHeadersVisible = false;
+            this.dgvMov.RowHeadersWidth = 51;
+            this.dgvMov.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
+            this.dgvMov.RowTemplate.ReadOnly = true;
+            this.dgvMov.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMov.Size = new System.Drawing.Size(622, 150);
+            this.dgvMov.TabIndex = 17;
             // 
             // FormHome
             // 
@@ -514,20 +519,20 @@
             this.Load += new System.EventHandler(this.FormHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CPI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CPE)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMov)).EndInit();
+            this.newPanel4.ResumeLayout(false);
+            this.newPanel4.PerformLayout();
+            this.newPanel3.ResumeLayout(false);
+            this.newPanel3.PerformLayout();
+            this.newPanel2.ResumeLayout(false);
+            this.newPanel2.PerformLayout();
+            this.PanelPed.ResumeLayout(false);
+            this.PanelPed.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
-            this.PanelPed.ResumeLayout(false);
-            this.PanelPed.PerformLayout();
-            this.newPanel2.ResumeLayout(false);
-            this.newPanel2.PerformLayout();
-            this.newPanel3.ResumeLayout(false);
-            this.newPanel3.PerformLayout();
-            this.newPanel4.ResumeLayout(false);
-            this.newPanel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMov)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -544,10 +549,10 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblIngresos;
-        private System.Windows.Forms.Panel panel1;
+        private NewPanel panel1;
         private System.Windows.Forms.DataGridView dgvMov;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
+        private NewPanel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvPedidos;
         private System.Windows.Forms.Label lblPed;

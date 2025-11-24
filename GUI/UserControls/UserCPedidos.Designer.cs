@@ -32,8 +32,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.newPanel1 = new GUI.NewPanel();
-            this.newPanel2 = new GUI.NewPanel();
             this.btnAggPed = new GUI.NewButton();
+            this.newPanel2 = new GUI.NewPanel();
             this.btnEditPedidos = new GUI.NewButton();
             this.newPanel1.SuspendLayout();
             this.newPanel2.SuspendLayout();
@@ -86,20 +86,6 @@
             this.newPanel1.Size = new System.Drawing.Size(414, 185);
             this.newPanel1.TabIndex = 22;
             // 
-            // newPanel2
-            // 
-            this.newPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.newPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newPanel2.BorderRadius = 20;
-            this.newPanel2.BorderSize = 0;
-            this.newPanel2.Controls.Add(this.label3);
-            this.newPanel2.Controls.Add(this.btnEditPedidos);
-            this.newPanel2.Location = new System.Drawing.Point(647, 243);
-            this.newPanel2.Name = "newPanel2";
-            this.newPanel2.Size = new System.Drawing.Size(414, 185);
-            this.newPanel2.TabIndex = 23;
-            // 
             // btnAggPed
             // 
             this.btnAggPed.BackColor = System.Drawing.Color.Transparent;
@@ -124,6 +110,20 @@
             this.btnAggPed.UseVisualStyleBackColor = false;
             this.btnAggPed.Click += new System.EventHandler(this.btnAggPed_Click);
             // 
+            // newPanel2
+            // 
+            this.newPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.newPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newPanel2.BorderRadius = 20;
+            this.newPanel2.BorderSize = 0;
+            this.newPanel2.Controls.Add(this.label3);
+            this.newPanel2.Controls.Add(this.btnEditPedidos);
+            this.newPanel2.Location = new System.Drawing.Point(647, 243);
+            this.newPanel2.Name = "newPanel2";
+            this.newPanel2.Size = new System.Drawing.Size(414, 185);
+            this.newPanel2.TabIndex = 23;
+            // 
             // btnEditPedidos
             // 
             this.btnEditPedidos.BackColor = System.Drawing.Color.Transparent;
@@ -146,6 +146,7 @@
             this.btnEditPedidos.TabIndex = 24;
             this.btnEditPedidos.TextColor = System.Drawing.Color.White;
             this.btnEditPedidos.UseVisualStyleBackColor = false;
+            this.btnEditPedidos.Click += new System.EventHandler(this.btnEditPedidos_Click);
             // 
             // UserCPedidos
             // 

@@ -20,7 +20,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO PEDIDOS (ID_USER, DESCRIPCION, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e ) RETURNING ID_PEDIDO INTO :p_id";
+                    string query = "INSERT INTO PEDIDOS (ID_USER, OBSERVACIONES, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e ) RETURNING ID_PEDIDO INTO :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -71,12 +71,15 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT p.ID_PEDIDO, p.precio_total, p.abono, p.estado,
-                                    p.fecha_inicio as INICIO, p.fecha_entrega AS ENTREGA, p.id_user, p.descripcion
+                    string query = @"SELECT p.ID_PEDIDO, c.documento AS ""Doc. Cliente"", c.nombre AS ""Nombre Cliente"",
+                                    p.estado AS ""Estado"", p.fecha_entrega, p.precio_total AS ""Total"", p.fecha_inicio,
+                                    p.abono AS ""Abonado"", (p.precio_total - p.abono) AS ""Saldo Pendiente"", p.observaciones AS ""Obser""
                                     FROM PEDIDOS p
-                                    JOIN users u ON p.id_user = u.userid
-                                    WHERE p.id_user = :p_id_user 
-                                    ORDER BY FECHA_INICIO DESC";
+                                    JOIN clientes c ON p.ID_CLIENTE = c.documento
+                                    JOIN users u ON p.ID_USER = u.userid
+                                    WHERE p.estado NOT IN ('Entregado')
+                                    AND p.ID_USER = :p_id_user
+                                    ORDER BY p.fecha_entrega ASC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_id_user", id_user));
@@ -99,7 +102,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE PEDIDOS SET DESCRIPCION = :p_desc, PRECIO_TOTAL = :p_precioT, ABONO = :p_abono, ESTADO = :p_estado, FECHA_INICIO = :p_fecha_p, FECHA_ENTREGA = :p_fecha_e WHERE ID_PEDIDO = :p_id_pedido";
+                    string query = "UPDATE PEDIDOS SET OBSERVACIONES = :p_desc, PRECIO_TOTAL = :p_precioT, ABONO = :p_abono, ESTADO = :p_estado, FECHA_INICIO = :p_fecha_p, FECHA_ENTREGA = :p_fecha_e WHERE ID_PEDIDO = :p_id_pedido";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_desc", pedidos.descripcion));

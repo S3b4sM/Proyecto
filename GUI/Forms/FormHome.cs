@@ -211,15 +211,40 @@ namespace GUI
         }
         private void llenardgvPed(DataTable detallePed)
         {
+            if (detallePed == null)
+            {
+                dgvPedidos.DataSource = new DataTable();
+                return;
+            }
             dgvPedidos.DataSource = detallePed;
-            dgvPedidos.Columns["INICIO"].DefaultCellStyle.Format = "dd/MM/yyyy"; 
-            dgvPedidos.Columns["ENTREGA"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvPedidos.Columns["id_pedido"].Visible = false;
-            dgvPedidos.Columns["id_user"].Visible = false;
-            dgvPedidos.Columns["precio_total"].DefaultCellStyle.Format = "C2";
-            dgvPedidos.Columns["precio_total"].HeaderText = "TOTAL";
-            dgvPedidos.Columns["descripcion"].HeaderText = "DESCRIP";
-            dgvPedidos.Columns["abono"].DefaultCellStyle.Format = "C2";
+            Func<string[], DataGridViewColumn> FindColumn = (names) =>
+            {
+                foreach (DataGridViewColumn col in dgvPedidos.Columns)
+                {
+                    foreach (var name in names)
+                    {
+                        if (string.Equals(col.Name, name, StringComparison.OrdinalIgnoreCase))
+                            return col;
+                    }
+                }
+                return null;
+            };
+            var colFecha = FindColumn(new[] { "fecha_entrega", "Fecha_Entrega", "FECHA_ENTREGA", "fechaEntrega", "FechaEntrega" });
+            if (colFecha != null)
+            {
+                colFecha.DefaultCellStyle.Format = "dd/MM/yyyy";
+                colFecha.HeaderText = "Fecha Entrega";
+            }
+            var colIdPedido = FindColumn(new[] { "id_pedido", "ID_PEDIDO", "Id_Pedido" });
+            if (colIdPedido != null) colIdPedido.Visible = false;
+            var colFechaInicio = FindColumn(new[] { "fecha_inicio", "Fecha_Inicio", "FECHA_INICIO", "fechaInicio", "FechaInicio" });
+            if (colFechaInicio != null) colFechaInicio.Visible = false;
+            //var colIdUser = FindColumn(new[] { "id_user", "ID_USER", "Id_User", "ID_USUARIO" });
+            //if (colIdUser != null) colIdUser.Visible = false;
+            var colTotal = FindColumn(new[] { "Total", "TOTAL", "precio_total", "PRECIO_TOTAL" });
+            if (colTotal != null) colTotal.DefaultCellStyle.Format = "C2";
+            var colAbonado = FindColumn(new[] { "Abonado", "ABONADO", "abono", "ABONO" });
+            if (colAbonado != null) colAbonado.DefaultCellStyle.Format = "C2";
         }
         public void cpi(DataTable dt)
         {
