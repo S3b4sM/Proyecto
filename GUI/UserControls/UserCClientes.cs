@@ -31,5 +31,18 @@ namespace GUI.UserControls
                 MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnAggClientes_Click(object sender, EventArgs e)
+        {
+            FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+            if (formPrincipal != null) 
+            {
+                formPrincipal.AbrirUser(() => new UserCAggClientes(id));
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

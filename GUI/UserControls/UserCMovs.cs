@@ -24,7 +24,20 @@ namespace GUI.UserControls
             FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
             if (FormPrincipal != null)
             {
-                FormPrincipal.AbrirForm(() => new FormAgg(id));
+                FormPrincipal.AbrirUser(() => new UserCAggMovs(id));
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEditMov_Click(object sender, EventArgs e)
+        {
+            FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
+            if (FormPrincipal != null)
+            {
+                FormPrincipal.AbrirUser(() => new UserCEditMovs(id));
             }
             else
             {

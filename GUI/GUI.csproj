@@ -127,12 +127,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormAgg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormAgg.Designer.cs">
-      <DependentUpon>FormAgg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,8 +157,26 @@
     <Compile Include="NewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NewTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewTextBox.Designer.cs">
+      <DependentUpon>NewTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UserCAggClientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCAggClientes.Designer.cs">
+      <DependentUpon>UserCAggClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserCAggMovs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCAggMovs.Designer.cs">
+      <DependentUpon>UserCAggMovs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserCAggPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,9 +219,6 @@
     <Compile Include="UserControls\UserCUpdate.Designer.cs">
       <DependentUpon>UserCUpdate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\FormAgg.resx">
-      <DependentUpon>FormAgg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,10 +231,19 @@
     <EmbeddedResource Include="Forms\FormSignup.resx">
       <DependentUpon>FormSignup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewTextBox.resx">
+      <DependentUpon>NewTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCAggClientes.resx">
+      <DependentUpon>UserCAggClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCAggMovs.resx">
+      <DependentUpon>UserCAggMovs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserCAggPedidos.resx">
       <DependentUpon>UserCAggPedidos.cs</DependentUpon>

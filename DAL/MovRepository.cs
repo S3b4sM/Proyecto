@@ -194,14 +194,14 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_TIPO = :p_tipo, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat, DESCRIPCION = :p_desc WHERE ID_MOVIMIENTO = :p_id";
+                    string query = "UPDATE MOVIMIENTOS SET FECHA = :p_fecha, MONTO = :p_monto, ID_USER = :p_id_user, ID_CATEGORIA = :p_id_cat, ID_TIPO = :p_tipo, DESCRIPCION = :p_desc WHERE ID_MOVIMIENTO = :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add(new OracleParameter("p_fecha", movimiento.fecha));
                         command.Parameters.Add(new OracleParameter("p_monto", movimiento.monto));
-                        command.Parameters.Add(new OracleParameter("p_tipo", movimiento.tipo));
                         command.Parameters.Add(new OracleParameter("p_id_user", movimiento.id_user));
                         command.Parameters.Add(new OracleParameter("p_id_cat", movimiento.id_categoria));
+                        command.Parameters.Add(new OracleParameter("p_tipo", movimiento.tipo));
                         command.Parameters.Add(new OracleParameter("p_desc", movimiento.descripcion));
                         command.Parameters.Add(new OracleParameter("p_id", movimiento.id));
                         int rowsAffected = command.ExecuteNonQuery();

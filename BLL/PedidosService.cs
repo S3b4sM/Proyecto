@@ -31,7 +31,7 @@ namespace BLL
                     if (abono > 0)
                     {
                         int idTipoIngreso = 1;
-                        int idCatAbonoPedido = 18;
+                        int idCatAbonoPedido = 17;
                         String descripcion = $"Abono inicial para pedido. Desc: {desc.Substring(0, Math.Min(desc.Length, 20))}...";
                         Movimiento movimientGuardado = movRepo.Agg(DateTime.Now, abono, idTipoIngreso, id_user, idCatAbonoPedido, descripcion);
 

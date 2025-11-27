@@ -1,5 +1,6 @@
 ﻿using BLL;
 using ENTITY;
+using GUI.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,14 +52,22 @@ namespace GUI
                         MessageBox.Show("Por favor, ingrese un monto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    int idTipoSeleccionado = Convert.ToInt32(cbxTipo.SelectedValue);
+                    int idCategoriaSeleccionada = Convert.ToInt32(cbxRazon.SelectedValue);
+                    if (idTipoSeleccionado <= 0 || idCategoriaSeleccionada <= 0)
+                    {
+                        MessageBox.Show("Por favor, asegúrese de seleccionar un 'Tipo' y una 'Razón' (Categoría) válidos de las listas.", "Validación requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (idCategoriaSeleccionada <= 0) cbxRazon.Focus();
+                        return;
+                    }
                     var movimiento = new Movimiento
                     {
                         id = idMovimiento,
                         fecha = dtFecha.Value,
                         monto = montoD,
-                        tipo = Convert.ToInt32(cbxTipo.SelectedValue),
+                        tipo = idTipoSeleccionado,
                         razon = cbxRazon.Text,
-                        id_categoria = Convert.ToInt32(cbxRazon.SelectedValue),
+                        id_categoria = idCategoriaSeleccionada,
                         descripcion = txtDescripcion.Text.Trim(),
                         id_user = this.Id
                     };
@@ -77,7 +86,7 @@ namespace GUI
             catch (Exception x)
             {
                 Console.WriteLine("Error al actualizar el movimiento: " + x.Message);
-                MessageBox.Show("Ocurrió un error inesperado al eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error inesperado al actualizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -127,8 +136,9 @@ namespace GUI
             cbxRazon.SelectionLength = 0;
             this.ActiveControl = null;
         }
-        private void dgvMovimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMovimientos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
             if (dgvMovimientos.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvMovimientos.SelectedRows[0];
@@ -170,62 +180,59 @@ namespace GUI
                 MessageBox.Show("Por favor, seleccione una fila para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void LlenarCbxTipo()
-        {
-            DataTable tipos = categoryServices.CargarTipos();
-            if (tipos != null && tipos.Rows.Count > 0)
-            {
-                DataRow defaultRow = tipos.NewRow();
-                defaultRow["ID_TIPO"] = 0;
-                defaultRow["NOMBRE"] = "Tipos";
-                tipos.Rows.InsertAt(defaultRow, 0);
-                cbxTipo.DataSource = tipos;
-                cbxTipo.DisplayMember = "NOMBRE";
-                cbxTipo.ValueMember = "ID_TIPO";
-                cbxTipo.SelectedIndex = 0;
-            }
-            else
-            {
-                MessageBox.Show("Error al cargar los tipos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cbxTipo.DataSource = null;
-                cbxTipo.Items.Clear();
-                cbxTipo.Items.Add(new { ID_TIPO = 0, NOMBRE = "No hay tipos disponibles" });
-                cbxTipo.DisplayMember = "NOMBRE";
-                cbxTipo.ValueMember = "ID_TIPO";
-                cbxTipo.SelectedIndex = 0;
-            }
-        }
-        #endregion
-        private void CargarMov()
-        {
-            dgvMovimientos.DataSource = movService.MostrarMovimientos(this.Id);
-            dgvMovimientos.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvMovimientos.Columns["id_movimiento"].Visible = false;
-            dgvMovimientos.Columns["monto"].DefaultCellStyle.Format = "C2";
-        }
-        private void RefreshDgv()
-        {
-            dgvMovimientos.DataSource = null;
-            dgvMovimientos.Rows.Clear();
-            CargarMov();
-            txtMonto.Clear();
-            cbxTipo.SelectedIndex = 0;
-            cbxRazon.SelectedIndex = 0;
-            idMovimiento = -1;
-        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
             if (FormPrincipal != null)
             {
-                FormPrincipal.AbrirUser(() => new UserCUpdate());
+                FormPrincipal.AbrirUser(() => new UserCMovs(Id));
             }
             else
             {
                 MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtMonto.Text.Contains(e.KeyChar.ToString()) && txtMonto.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtMonto_Leave(object sender, EventArgs e)
+        {
+            string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
 
+            decimal monto;
+            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            {
+                txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
+            }
+            else
+            {
+                txtMonto.Text = "0.00";
+                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (int.TryParse(cbxTipo.SelectedValue.ToString(), out int idTipoSeleccionado))
@@ -256,6 +263,49 @@ namespace GUI
                 cbxRazon.SelectedIndex = 0;
             }
         }
+        #endregion
+        private void CargarMov()
+        {
+            dgvMovimientos.DataSource = movService.MostrarMovimientos(this.Id);
+            dgvMovimientos.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMovimientos.Columns["id_movimiento"].Visible = false;
+            dgvMovimientos.Columns["monto"].DefaultCellStyle.Format = "C2";
+        }
+        private void RefreshDgv()
+        {
+            dgvMovimientos.DataSource = null;
+            dgvMovimientos.Rows.Clear();
+            CargarMov();
+            txtMonto.Clear();
+            cbxTipo.SelectedIndex = 0;
+            cbxRazon.SelectedIndex = 0;
+            idMovimiento = -1;
+        }
+        private void LlenarCbxTipo()
+        {
+            DataTable tipos = categoryServices.CargarTipos();
+            if (tipos != null && tipos.Rows.Count > 0)
+            {
+                DataRow defaultRow = tipos.NewRow();
+                defaultRow["ID_TIPO"] = 0;
+                defaultRow["NOMBRE"] = "Tipos";
+                tipos.Rows.InsertAt(defaultRow, 0);
+                cbxTipo.DataSource = tipos;
+                cbxTipo.DisplayMember = "NOMBRE";
+                cbxTipo.ValueMember = "ID_TIPO";
+                cbxTipo.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Error al cargar los tipos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbxTipo.DataSource = null;
+                cbxTipo.Items.Clear();
+                cbxTipo.Items.Add(new { ID_TIPO = 0, NOMBRE = "No hay tipos disponibles" });
+                cbxTipo.DisplayMember = "NOMBRE";
+                cbxTipo.ValueMember = "ID_TIPO";
+                cbxTipo.SelectedIndex = 0;
+            }
+        }
         private void CargarCat(bool esIngreso)
         {
             DataTable categorias = categoryServices.CatPorTipo(esIngreso);
@@ -279,49 +329,6 @@ namespace GUI
                 cbxRazon.DisplayMember = "NOMBRE";
                 cbxRazon.ValueMember = "ID_CATEGORIA";
                 cbxRazon.SelectedIndex = 0;
-            }
-        }
-
-        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (e.KeyChar == ',' || e.KeyChar == '.')
-            {
-                if (!txtMonto.Text.Contains(e.KeyChar.ToString()) && txtMonto.Text.Length > 0)
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtMonto_Leave(object sender, EventArgs e)
-        {
-            string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
-
-            decimal monto;
-            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
-            {
-                txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
-            }
-            else
-            {
-                txtMonto.Text = "0.00";
-                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -16,5 +16,6 @@ namespace ENTITY
         public int id_user { get; set; }
         public int id_categoria { get; set; }
         public string descripcion { get; set; }
+        public Movimiento() { }
     }
 }

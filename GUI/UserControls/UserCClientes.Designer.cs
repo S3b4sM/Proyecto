@@ -135,6 +135,7 @@
             this.btnAggClientes.TabIndex = 24;
             this.btnAggClientes.TextColor = System.Drawing.Color.White;
             this.btnAggClientes.UseVisualStyleBackColor = false;
+            this.btnAggClientes.Click += new System.EventHandler(this.btnAggClientes_Click);
             // 
             // label1
             // 

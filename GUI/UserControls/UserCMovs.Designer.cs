@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.newPanel2 = new GUI.NewPanel();
-            this.btnEditMov = new FontAwesome.Sharp.IconButton();
+            this.btnEditMov = new GUI.NewButton();
             this.label3 = new System.Windows.Forms.Label();
             this.newPanel1 = new GUI.NewPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,10 +56,15 @@
             // btnEditMov
             // 
             this.btnEditMov.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditMov.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnEditMov.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEditMov.BorderRadius = 20;
+            this.btnEditMov.BorderSize = 0;
             this.btnEditMov.FlatAppearance.BorderSize = 0;
             this.btnEditMov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.btnEditMov.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
             this.btnEditMov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditMov.ForeColor = System.Drawing.Color.White;
             this.btnEditMov.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
             this.btnEditMov.IconColor = System.Drawing.Color.Black;
             this.btnEditMov.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -68,7 +73,9 @@
             this.btnEditMov.Name = "btnEditMov";
             this.btnEditMov.Size = new System.Drawing.Size(277, 89);
             this.btnEditMov.TabIndex = 12;
+            this.btnEditMov.TextColor = System.Drawing.Color.White;
             this.btnEditMov.UseVisualStyleBackColor = false;
+            this.btnEditMov.Click += new System.EventHandler(this.btnEditMov_Click);
             // 
             // label3
             // 
@@ -163,7 +170,7 @@
         #endregion
 
         private NewPanel newPanel2;
-        private FontAwesome.Sharp.IconButton btnEditMov;
+        private NewButton btnEditMov;
         private System.Windows.Forms.Label label3;
         private NewPanel newPanel1;
         private System.Windows.Forms.Label label2;

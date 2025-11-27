@@ -1,5 +1,5 @@
-﻿using System;
-using System.CodeDom;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,25 +9,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
-using Microsoft.VisualBasic;
 
-namespace GUI
+namespace GUI.UserControls
 {
-    public partial class FormAgg : Form
+    public partial class UserCAggMovs : UserControl
     {
-        public readonly int Id;
         MovService movService = new MovService();
         CategoriaService catService = new CategoriaService();
-        public FormAgg(int Id)
+        private readonly int id;
+        public UserCAggMovs(int id)
         {
             InitializeComponent();
-            this.Id = Id;
+            this.id = id;
             LlenarCbxTipo();
             CargarCat(true);
             dtFecha.Value = DateTime.Today;
         }
-        #region Funcionalidades del Form
+        #region funcionalidades
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
+            if (FormPrincipal != null)
+            {
+                FormPrincipal.AbrirUser(() => new UserCMovs(id));
+            }
+            else
+            {
+                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void cbxTipo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             cbxTipo.SelectionLength = 0;
@@ -63,7 +73,7 @@ namespace GUI
                 int idTipo = Convert.ToInt32(cbxTipo.SelectedValue);
                 int idCategoria = Convert.ToInt32(cbxRazon.SelectedValue);
                 DateTime fecha = dtFecha.Value;
-                int idUsuario = this.Id;
+                int idUsuario = this.id;
                 string desc = descripcion;
                 movService.AgregarMov(
                     fecha: fecha,

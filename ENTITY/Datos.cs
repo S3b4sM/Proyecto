@@ -16,6 +16,6 @@ namespace ENTITY
         public decimal SumIngresos { get; set; }
         public decimal SumEgresos { get; set; }
         public decimal Balance { get; set; }
-
+        public Datos() { }
     }
 }

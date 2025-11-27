@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categoria.cs" />
+    <Compile Include="Clientes.cs" />
     <Compile Include="Datos.cs" />
     <Compile Include="Movimiento.cs" />
     <Compile Include="Pedidos.cs" />

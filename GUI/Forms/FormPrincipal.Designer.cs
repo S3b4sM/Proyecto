@@ -33,11 +33,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnCerrar = new GUI.NewButton();
-            this.btnInicio = new GUI.NewButton();
-            this.btnClientes = new GUI.NewButton();
-            this.btnPedidos = new GUI.NewButton();
-            this.btnMov = new GUI.NewButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel_Title = new System.Windows.Forms.Panel();
             this.btnRestart = new FontAwesome.Sharp.IconButton();
@@ -45,6 +40,11 @@
             this.btnMini = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnCerrar = new GUI.NewButton();
+            this.btnInicio = new GUI.NewButton();
+            this.btnClientes = new GUI.NewButton();
+            this.btnPedidos = new GUI.NewButton();
+            this.btnMov = new GUI.NewButton();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel_Title.SuspendLayout();
@@ -101,6 +101,120 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(174, 768);
             this.panelMenu.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(80)))));
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
+            this.groupBox3.Location = new System.Drawing.Point(0, 669);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Size = new System.Drawing.Size(173, 1);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            // 
+            // panel_Title
+            // 
+            this.panel_Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
+            this.panel_Title.Controls.Add(this.btnRestart);
+            this.panel_Title.Controls.Add(this.btnMax);
+            this.panel_Title.Controls.Add(this.btnMini);
+            this.panel_Title.Controls.Add(this.btnClose);
+            this.panel_Title.Controls.Add(this.label3);
+            this.panel_Title.Location = new System.Drawing.Point(171, 0);
+            this.panel_Title.Name = "panel_Title";
+            this.panel_Title.Size = new System.Drawing.Size(1195, 46);
+            this.panel_Title.TabIndex = 0;
+            this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Title_MouseMove);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestart.BackColor = System.Drawing.Color.Transparent;
+            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnRestart.FlatAppearance.BorderSize = 0;
+            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnRestart.IconColor = System.Drawing.Color.Black;
+            this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRestart.IconSize = 32;
+            this.btnRestart.Location = new System.Drawing.Point(1125, 0);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(32, 32);
+            this.btnRestart.TabIndex = 15;
+            this.btnRestart.UseVisualStyleBackColor = false;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMax.BackColor = System.Drawing.Color.Transparent;
+            this.btnMax.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMax.FlatAppearance.BorderSize = 0;
+            this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.btnMax.IconColor = System.Drawing.Color.Black;
+            this.btnMax.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMax.IconSize = 32;
+            this.btnMax.Location = new System.Drawing.Point(1125, 3);
+            this.btnMax.Name = "btnMax";
+            this.btnMax.Size = new System.Drawing.Size(32, 32);
+            this.btnMax.TabIndex = 16;
+            this.btnMax.UseVisualStyleBackColor = false;
+            this.btnMax.Visible = false;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnMini
+            // 
+            this.btnMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
+            this.btnMini.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnMini.FlatAppearance.BorderSize = 0;
+            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMini.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMini.IconColor = System.Drawing.Color.Black;
+            this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMini.IconSize = 32;
+            this.btnMini.Location = new System.Drawing.Point(1087, 0);
+            this.btnMini.Name = "btnMini";
+            this.btnMini.Size = new System.Drawing.Size(32, 32);
+            this.btnMini.TabIndex = 14;
+            this.btnMini.UseVisualStyleBackColor = false;
+            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnClose.IconColor = System.Drawing.Color.Black;
+            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClose.IconSize = 32;
+            this.btnClose.Location = new System.Drawing.Point(1163, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(587, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 37);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "MiTallerPro";
             // 
             // btnCerrar
             // 
@@ -232,119 +346,6 @@
             this.btnMov.TextColor = System.Drawing.Color.Black;
             this.btnMov.UseVisualStyleBackColor = false;
             this.btnMov.Click += new System.EventHandler(this.btnMovimientos_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(80)))));
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
-            this.groupBox3.Location = new System.Drawing.Point(0, 669);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(173, 1);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            // 
-            // panel_Title
-            // 
-            this.panel_Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
-            this.panel_Title.Controls.Add(this.btnRestart);
-            this.panel_Title.Controls.Add(this.btnMax);
-            this.panel_Title.Controls.Add(this.btnMini);
-            this.panel_Title.Controls.Add(this.btnClose);
-            this.panel_Title.Controls.Add(this.label3);
-            this.panel_Title.Location = new System.Drawing.Point(171, 0);
-            this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(1195, 46);
-            this.panel_Title.TabIndex = 0;
-            this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Title_MouseMove);
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestart.BackColor = System.Drawing.Color.Transparent;
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnRestart.FlatAppearance.BorderSize = 0;
-            this.btnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.btnRestart.IconColor = System.Drawing.Color.Black;
-            this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRestart.IconSize = 32;
-            this.btnRestart.Location = new System.Drawing.Point(1125, 0);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(32, 32);
-            this.btnRestart.TabIndex = 15;
-            this.btnRestart.UseVisualStyleBackColor = false;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
-            // 
-            // btnMax
-            // 
-            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMax.BackColor = System.Drawing.Color.Transparent;
-            this.btnMax.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMax.FlatAppearance.BorderSize = 0;
-            this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btnMax.IconColor = System.Drawing.Color.Black;
-            this.btnMax.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMax.IconSize = 32;
-            this.btnMax.Location = new System.Drawing.Point(1125, 3);
-            this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(32, 32);
-            this.btnMax.TabIndex = 16;
-            this.btnMax.UseVisualStyleBackColor = false;
-            this.btnMax.Visible = false;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
-            // 
-            // btnMini
-            // 
-            this.btnMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMini.BackColor = System.Drawing.Color.Transparent;
-            this.btnMini.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMini.FlatAppearance.BorderSize = 0;
-            this.btnMini.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMini.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMini.IconColor = System.Drawing.Color.Black;
-            this.btnMini.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMini.IconSize = 32;
-            this.btnMini.Location = new System.Drawing.Point(1087, 0);
-            this.btnMini.Name = "btnMini";
-            this.btnMini.Size = new System.Drawing.Size(32, 32);
-            this.btnMini.TabIndex = 14;
-            this.btnMini.UseVisualStyleBackColor = false;
-            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.IconChar = FontAwesome.Sharp.IconChar.Remove;
-            this.btnClose.IconColor = System.Drawing.Color.Black;
-            this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClose.IconSize = 32;
-            this.btnClose.Location = new System.Drawing.Point(1163, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(32, 32);
-            this.btnClose.TabIndex = 15;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(587, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 37);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "MiTallerPro";
             // 
             // FormPrincipal
             // 

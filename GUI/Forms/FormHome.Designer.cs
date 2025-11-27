@@ -331,7 +331,7 @@
             this.lblPedPendientes.AutoSize = true;
             this.lblPedPendientes.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPedPendientes.ForeColor = System.Drawing.Color.Black;
-            this.lblPedPendientes.Location = new System.Drawing.Point(100, 65);
+            this.lblPedPendientes.Location = new System.Drawing.Point(111, 65);
             this.lblPedPendientes.Margin = new System.Windows.Forms.Padding(10);
             this.lblPedPendientes.Name = "lblPedPendientes";
             this.lblPedPendientes.Size = new System.Drawing.Size(90, 37);
@@ -490,7 +490,6 @@
             this.dgvMov.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvMov.RowHeadersVisible = false;
             this.dgvMov.RowHeadersWidth = 51;
-            this.dgvMov.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
             this.dgvMov.RowTemplate.ReadOnly = true;
             this.dgvMov.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMov.Size = new System.Drawing.Size(622, 150);
