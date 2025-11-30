@@ -71,9 +71,9 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT p.ID_PEDIDO, c.documento AS ""Doc. Cliente"", c.nombre AS ""Nombre Cliente"",
+                    string query = @"SELECT p.ID_PEDIDO, c.documento AS ""Doc_Cliente"", c.nombre AS ""Nombre Cliente"",
                                     p.estado AS ""Estado"", p.fecha_entrega, p.precio_total AS ""Total"", p.fecha_inicio,
-                                    p.abono AS ""Abonado"", (p.precio_total - p.abono) AS ""Saldo Pendiente"", p.observaciones AS ""Obser""
+                                    p.abono AS ""Abonado"", (p.precio_total - p.abono) AS ""Saldo Pendiente"", p.observaciones AS ""Observaciones""
                                     FROM PEDIDOS p
                                     JOIN clientes c ON p.ID_CLIENTE = c.documento
                                     JOIN users u ON p.ID_USER = u.userid
@@ -145,7 +145,6 @@ namespace DAL
                 }
             }
         }
-
         public int PedPendientes(int id)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
@@ -166,6 +165,31 @@ namespace DAL
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al conectar a la base de datos/contar pedidos pendientes: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+        public int PedidosSemanal(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT COUNT(*) 
+                                    FROM PEDIDOS 
+                                    WHERE ID_USER = :p_id_user 
+                                    AND FECHA_INICIO >= TRUNC(SYSDATE, 'IW')";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/contar pedidos semanales: " + ex.Message);
                     return 0;
                 }
             }

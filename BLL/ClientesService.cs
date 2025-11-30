@@ -29,5 +29,13 @@ namespace BLL
         {
             return clientesRepository.MostrarClientes(id);
         }
+        public int ContarClientes(int id_user)
+        {
+            return clientesRepository.ContarClientes(id_user);
+        }
+        public int ClientesMes(int id_user)
+        {
+            return clientesRepository.ClientesMensuales(id_user);
+        }
     }
 }

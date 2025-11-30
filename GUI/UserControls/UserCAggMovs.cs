@@ -24,6 +24,7 @@ namespace GUI.UserControls
             LlenarCbxTipo();
             CargarCat(true);
             dtFecha.Value = DateTime.Today;
+            txtMonto.Text = "0.00";
         }
         #region funcionalidades
         private void btnBack_Click(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace GUI.UserControls
                     MessageBox.Show("Por favor, ingrese un monto válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string descripcion = txtDescripcion.Text.Trim();
+                    string descripcion = txtDescripcion.Text.Trim();
                 int idTipo = Convert.ToInt32(cbxTipo.SelectedValue);
                 int idCategoria = Convert.ToInt32(cbxRazon.SelectedValue);
                 DateTime fecha = dtFecha.Value;
@@ -84,10 +85,7 @@ namespace GUI.UserControls
                     desc: descripcion
                 );
                 MessageBox.Show("Movimiento registrado con éxito.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMonto.Clear();
-                txtDescripcion.Clear();
-                dtFecha.Value = DateTime.Today;
-                cbxTipo.SelectedIndex = 0;
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
@@ -154,9 +152,12 @@ namespace GUI.UserControls
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
-
             decimal monto;
-            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            if (txtMonto.Text == "")
+            {
+                txtMonto.Text = "0.00";
+                return;
+            } else if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
             {
                 txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
             }
@@ -165,6 +166,17 @@ namespace GUI.UserControls
                 txtMonto.Text = "0.00";
                 MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        private void txtMonto_Enter(object sender, EventArgs e)
+        {
+            if (txtMonto.Text == "0.00")
+            {
+                txtMonto.Clear();
+            }
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
         #endregion
         private void LlenarCbxTipo()
@@ -216,6 +228,14 @@ namespace GUI.UserControls
                 cbxRazon.ValueMember = "ID_CATEGORIA";
                 cbxRazon.SelectedIndex = 0;
             }
+        }
+        private void LimpiarCampos()
+        {
+            txtMonto.Clear();
+            txtMonto.Text = "0.00";
+            txtDescripcion.Clear();
+            dtFecha.Value = DateTime.Today;
+            cbxTipo.SelectedIndex = 0;
         }
     }
 }

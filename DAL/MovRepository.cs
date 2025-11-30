@@ -266,5 +266,71 @@ namespace DAL
                 return dataTable;
             }
         }
+        public decimal IngresosMes(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT SUM(MONTO) FROM MOVIMIENTOS WHERE ID_USER = :p_id_user AND ID_TIPO = 1 AND EXTRACT(MONTH FROM FECHA) = EXTRACT(MONTH FROM SYSDATE) AND EXTRACT(YEAR FROM FECHA) = EXTRACT(YEAR FROM SYSDATE)";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos/contar ingresos mensuales: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+        public decimal SumaFecha(int idUsuario, int idTipo, DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT SUM(MONTO) 
+                             FROM MOVIMIENTOS 
+                             WHERE ID_USER = :p_id_user 
+                               AND ID_TIPO = :p_id_tipo
+                               AND FECHA >= :p_fecha_inicio 
+                               AND FECHA <= :p_fecha_fin";
+
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("p_id_user", idUsuario);
+                        command.Parameters.Add("p_id_tipo", idTipo);
+                        command.Parameters.Add("p_fecha_inicio", OracleDbType.Date).Value = fechaInicio;
+                        command.Parameters.Add("p_fecha_fin", OracleDbType.Date).Value = fechaFin;
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToDecimal(result);
+                        }
+                        return 0m;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error en ObtenerSuma: " + ex.Message);
+                    return 0m;
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace BLL
     public class MovService
     {
         MovRepository MovRepository = new MovRepository();
+        PedidosRepository pedidos = new PedidosRepository();
         public Movimiento AgregarMov(DateTime fecha, decimal monto, int tipo, int id_user, int id_cat, string desc)
         {
             return MovRepository.Agg(fecha, monto, tipo, id_user, id_cat, desc);
@@ -44,6 +45,41 @@ namespace BLL
         public DataTable MostrarMovimientos(int id_user)
         {
             return MovRepository.MostrarMovimientos(id_user);
+        }
+        public decimal IngresosMensuales(int id_user)
+        {
+            return MovRepository.IngresosMes(id_user);
+        }
+        public Datos ObtenerDatos(int userId)
+        {
+            Datos data = new Datos();
+            DateTime hoy = DateTime.Now;
+            DateTime inicioMesActual = new DateTime(hoy.Year, hoy.Month, 1);
+            DateTime finMesActual = hoy;
+            DateTime inicioMesPasado = inicioMesActual.AddMonths(-1);
+            DateTime finMesPasado = inicioMesActual.AddDays(-1);
+            decimal ingresosActuales = MovRepository.SumaFecha(userId, 1, inicioMesActual, finMesActual);
+            decimal egresosActuales = MovRepository.SumaFecha(userId, 2, inicioMesActual, finMesActual);
+            decimal ingresosPasados = MovRepository.SumaFecha(userId, 1, inicioMesPasado, finMesPasado);
+            decimal egresosPasados = MovRepository.SumaFecha(userId, 2, inicioMesPasado, finMesPasado);
+            data.TotalIngresos = ingresosActuales;
+            data.TotalEgresos = egresosActuales;
+            data.Balance = ingresosActuales - egresosActuales;
+            data.PorcentajeIngresos = Calcular(ingresosActuales, ingresosPasados);
+            data.PorcentajeEgresos = Calcular(egresosActuales, egresosPasados);
+            data.dIngresos = MovRepository.CPI(userId, 1);
+            data.dEgresos = MovRepository.CPE(userId, 2);
+            data.DetalleMov = MovRepository.MostrarMovimientos(userId);
+            data.DetallePed = pedidos.MostrarPedidos(userId);
+            return data;
+        }
+        private decimal Calcular(decimal actual, decimal anterior)
+        {
+            if (anterior == 0)
+            {
+                return actual > 0 ? 100m : 0m;
+            }
+            return ((actual - anterior) / anterior) * 100;
         }
     }
 }

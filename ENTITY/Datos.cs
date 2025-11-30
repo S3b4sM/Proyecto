@@ -16,6 +16,10 @@ namespace ENTITY
         public decimal SumIngresos { get; set; }
         public decimal SumEgresos { get; set; }
         public decimal Balance { get; set; }
+        public decimal TotalIngresos { get; set; }
+        public decimal TotalEgresos { get; set; }
+        public decimal PorcentajeEgresos { get; set; }
+        public decimal PorcentajeIngresos { get; set; }
         public Datos() { }
     }
 }

@@ -45,11 +45,14 @@
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new GUI.NewButton();
             this.btnBack = new GUI.NewButton();
+            this.newPanel1 = new GUI.NewPanel();
+            this.btnCancel = new GUI.NewButton();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.newPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -154,10 +157,11 @@
             this.txtMonto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMonto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(71, 103);
+            this.txtMonto.Location = new System.Drawing.Point(76, 103);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(92, 22);
             this.txtMonto.TabIndex = 4;
+            this.txtMonto.Enter += new System.EventHandler(this.txtMonto_Enter);
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             this.txtMonto.Leave += new System.EventHandler(this.txtMonto_Leave);
             // 
@@ -244,8 +248,8 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
             this.btnGuardar.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnGuardar.BorderRadius = 20;
             this.btnGuardar.BorderSize = 0;
@@ -256,16 +260,15 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnGuardar.IconColor = System.Drawing.Color.Black;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(484, 533);
+            this.btnGuardar.Location = new System.Drawing.Point(173, 27);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(199, 84);
+            this.btnGuardar.Size = new System.Drawing.Size(102, 57);
             this.btnGuardar.TabIndex = 25;
-            this.btnGuardar.Text = "Agregar Movimiento";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.Text = "Agregar";
             this.btnGuardar.TextColor = System.Drawing.Color.Black;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -293,13 +296,51 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // newPanel1
+            // 
+            this.newPanel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.newPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(84)))), ((int)(((byte)(108)))));
+            this.newPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newPanel1.BorderRadius = 20;
+            this.newPanel1.BorderSize = 0;
+            this.newPanel1.Controls.Add(this.btnCancel);
+            this.newPanel1.Controls.Add(this.btnGuardar);
+            this.newPanel1.Location = new System.Drawing.Point(89, 529);
+            this.newPanel1.Name = "newPanel1";
+            this.newPanel1.Size = new System.Drawing.Size(1047, 109);
+            this.newPanel1.TabIndex = 35;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnCancel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 20;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.Location = new System.Drawing.Point(744, 27);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(102, 57);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextColor = System.Drawing.Color.Black;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // UserCAggMovs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
+            this.Controls.Add(this.newPanel1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -317,6 +358,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.newPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,5 +382,7 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipo;
         private GUI.NewButton btnBack;
+        private NewPanel newPanel1;
+        private NewButton btnCancel;
     }
 }

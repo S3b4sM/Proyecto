@@ -154,6 +154,9 @@
     <Compile Include="NewButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NewComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="NewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -200,6 +203,12 @@
     </Compile>
     <Compile Include="UserControls\UserCEditPedidos.Designer.cs">
       <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserCHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserCHome.Designer.cs">
+      <DependentUpon>UserCHome.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserCMovs.cs">
       <SubType>UserControl</SubType>
@@ -256,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserCEditPedidos.resx">
       <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserCHome.resx">
+      <DependentUpon>UserCHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserCMovs.resx">
       <DependentUpon>UserCMovs.cs</DependentUpon>

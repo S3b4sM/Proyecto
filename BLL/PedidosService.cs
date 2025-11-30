@@ -62,10 +62,13 @@ namespace BLL
         {
             return PedidosRepository.EliminarPedido(id_pedido);
         }
-
         public int PedPendientes(int id)
         {
             return PedidosRepository.PedPendientes(id);
+        }
+        public int PedidosSemanal(int id_user)
+        {
+            return PedidosRepository.PedidosSemanal(id_user);
         }
     }
 }

@@ -152,5 +152,51 @@ namespace DAL
             if (value.HasValue) return value.Value;
             return DBNull.Value;
         }
+        public int ContarClientes(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT COUNT(*) FROM CLIENTES WHERE ID_USUARIO = :p_id_user";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al contar clientes: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+        public int ClientesMensuales(int id_user)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"SELECT COUNT(*) FROM CLIENTES 
+                                     WHERE ID_USUARIO = :p_id_user 
+                                     AND TRUNC(FECHA_ULTIMA_MEDIDA, 'MM') = TRUNC(SYSDATE, 'MM')";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al contar clientes mensuales: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
     }
 }

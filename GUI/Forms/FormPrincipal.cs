@@ -22,7 +22,7 @@ namespace GUI
         {
             InitializeComponent();
             this.usuario = username;
-            AbrirForm(() => new FormHome(username.Id));
+            AbrirUser(() => new UserCHome(usuario.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
             Maximizar();
         }
@@ -118,8 +118,8 @@ namespace GUI
         private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void btnHome_Click(object sender, EventArgs e)
         {   
-            AbrirForm(() => new FormHome(usuario.Id));
-            
+            AbrirUser(() => new UserCHome(usuario.Id));
+
         }
         private void btnMovimientos_Click(object sender, EventArgs e)
         {

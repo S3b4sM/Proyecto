@@ -33,6 +33,11 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCerrar = new GUI.NewButton();
+            this.btnInicio = new GUI.NewButton();
+            this.btnClientes = new GUI.NewButton();
+            this.btnPedidos = new GUI.NewButton();
+            this.btnMov = new GUI.NewButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel_Title = new System.Windows.Forms.Panel();
             this.btnRestart = new FontAwesome.Sharp.IconButton();
@@ -40,11 +45,6 @@
             this.btnMini = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCerrar = new GUI.NewButton();
-            this.btnInicio = new GUI.NewButton();
-            this.btnClientes = new GUI.NewButton();
-            this.btnPedidos = new GUI.NewButton();
-            this.btnMov = new GUI.NewButton();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel_Title.SuspendLayout();
@@ -80,7 +80,7 @@
             this.panelForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
+            this.panelForms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panelForms.Location = new System.Drawing.Point(174, 41);
             this.panelForms.Name = "panelForms";
             this.panelForms.Size = new System.Drawing.Size(1192, 727);
@@ -88,7 +88,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(56)))), ((int)(((byte)(85)))));
+            this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.Controls.Add(this.btnCerrar);
             this.panelMenu.Controls.Add(this.btnInicio);
             this.panelMenu.Controls.Add(this.btnClientes);
@@ -101,6 +101,137 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(174, 768);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 20;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrar.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.btnCerrar.IconColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCerrar.Location = new System.Drawing.Point(3, 686);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(164, 71);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar Sesion";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCerrar.TextColor = System.Drawing.Color.Black;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.ibtnExit_Click);
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnInicio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnInicio.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnInicio.BorderRadius = 20;
+            this.btnInicio.BorderSize = 0;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnInicio.ForeColor = System.Drawing.Color.Black;
+            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.btnInicio.IconColor = System.Drawing.Color.Black;
+            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnInicio.Location = new System.Drawing.Point(9, 130);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(155, 69);
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.Text = "Dashboard";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInicio.TextColor = System.Drawing.Color.Black;
+            this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnClientes.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClientes.BorderRadius = 20;
+            this.btnClientes.BorderSize = 0;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClientes.ForeColor = System.Drawing.Color.Black;
+            this.btnClientes.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.btnClientes.IconColor = System.Drawing.Color.Black;
+            this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnClientes.Location = new System.Drawing.Point(9, 490);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(155, 69);
+            this.btnClientes.TabIndex = 1;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClientes.TextColor = System.Drawing.Color.Black;
+            this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // btnPedidos
+            // 
+            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnPedidos.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPedidos.BorderRadius = 20;
+            this.btnPedidos.BorderSize = 0;
+            this.btnPedidos.FlatAppearance.BorderSize = 0;
+            this.btnPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPedidos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPedidos.ForeColor = System.Drawing.Color.Black;
+            this.btnPedidos.IconChar = FontAwesome.Sharp.IconChar.Tshirt;
+            this.btnPedidos.IconColor = System.Drawing.Color.Black;
+            this.btnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPedidos.Location = new System.Drawing.Point(9, 370);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(155, 69);
+            this.btnPedidos.TabIndex = 1;
+            this.btnPedidos.Text = "Pedidos";
+            this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPedidos.TextColor = System.Drawing.Color.Black;
+            this.btnPedidos.UseVisualStyleBackColor = false;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            // 
+            // btnMov
+            // 
+            this.btnMov.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnMov.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            this.btnMov.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMov.BorderRadius = 20;
+            this.btnMov.BorderSize = 0;
+            this.btnMov.FlatAppearance.BorderSize = 0;
+            this.btnMov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnMov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMov.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMov.ForeColor = System.Drawing.Color.Black;
+            this.btnMov.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.btnMov.IconColor = System.Drawing.Color.Black;
+            this.btnMov.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMov.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMov.Location = new System.Drawing.Point(9, 249);
+            this.btnMov.Name = "btnMov";
+            this.btnMov.Size = new System.Drawing.Size(155, 69);
+            this.btnMov.TabIndex = 7;
+            this.btnMov.Text = "Movimientos";
+            this.btnMov.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMov.TextColor = System.Drawing.Color.Black;
+            this.btnMov.UseVisualStyleBackColor = false;
+            this.btnMov.Click += new System.EventHandler(this.btnMovimientos_Click);
             // 
             // groupBox3
             // 
@@ -119,7 +250,7 @@
             // 
             this.panel_Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
+            this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel_Title.Controls.Add(this.btnRestart);
             this.panel_Title.Controls.Add(this.btnMax);
             this.panel_Title.Controls.Add(this.btnMini);
@@ -215,137 +346,6 @@
             this.label3.Size = new System.Drawing.Size(174, 37);
             this.label3.TabIndex = 4;
             this.label3.Text = "MiTallerPro";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCerrar.BorderRadius = 20;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCerrar.ForeColor = System.Drawing.Color.Black;
-            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
-            this.btnCerrar.IconColor = System.Drawing.Color.Black;
-            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCerrar.Location = new System.Drawing.Point(3, 686);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(164, 71);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "Cerrar Sesion";
-            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCerrar.TextColor = System.Drawing.Color.Black;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.ibtnExit_Click);
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnInicio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnInicio.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnInicio.BorderRadius = 20;
-            this.btnInicio.BorderSize = 0;
-            this.btnInicio.FlatAppearance.BorderSize = 0;
-            this.btnInicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnInicio.ForeColor = System.Drawing.Color.Black;
-            this.btnInicio.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            this.btnInicio.IconColor = System.Drawing.Color.Black;
-            this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInicio.Location = new System.Drawing.Point(9, 160);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(155, 69);
-            this.btnInicio.TabIndex = 0;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInicio.TextColor = System.Drawing.Color.Black;
-            this.btnInicio.UseVisualStyleBackColor = false;
-            this.btnInicio.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnClientes.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnClientes.BorderRadius = 20;
-            this.btnClientes.BorderSize = 0;
-            this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnClientes.ForeColor = System.Drawing.Color.Black;
-            this.btnClientes.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.btnClientes.IconColor = System.Drawing.Color.Black;
-            this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClientes.Location = new System.Drawing.Point(9, 520);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(155, 69);
-            this.btnClientes.TabIndex = 1;
-            this.btnClientes.Text = "Clientes";
-            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClientes.TextColor = System.Drawing.Color.Black;
-            this.btnClientes.UseVisualStyleBackColor = false;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // btnPedidos
-            // 
-            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnPedidos.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnPedidos.BorderRadius = 20;
-            this.btnPedidos.BorderSize = 0;
-            this.btnPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPedidos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPedidos.ForeColor = System.Drawing.Color.Black;
-            this.btnPedidos.IconChar = FontAwesome.Sharp.IconChar.Tshirt;
-            this.btnPedidos.IconColor = System.Drawing.Color.Black;
-            this.btnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPedidos.Location = new System.Drawing.Point(9, 400);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(155, 69);
-            this.btnPedidos.TabIndex = 1;
-            this.btnPedidos.Text = "Pedidos";
-            this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPedidos.TextColor = System.Drawing.Color.Black;
-            this.btnPedidos.UseVisualStyleBackColor = false;
-            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
-            // 
-            // btnMov
-            // 
-            this.btnMov.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnMov.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.btnMov.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMov.BorderRadius = 20;
-            this.btnMov.BorderSize = 0;
-            this.btnMov.FlatAppearance.BorderSize = 0;
-            this.btnMov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnMov.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMov.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnMov.ForeColor = System.Drawing.Color.Black;
-            this.btnMov.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.btnMov.IconColor = System.Drawing.Color.Black;
-            this.btnMov.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMov.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMov.Location = new System.Drawing.Point(9, 279);
-            this.btnMov.Name = "btnMov";
-            this.btnMov.Size = new System.Drawing.Size(155, 69);
-            this.btnMov.TabIndex = 7;
-            this.btnMov.Text = "Movimientos";
-            this.btnMov.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMov.TextColor = System.Drawing.Color.Black;
-            this.btnMov.UseVisualStyleBackColor = false;
-            this.btnMov.Click += new System.EventHandler(this.btnMovimientos_Click);
             // 
             // FormPrincipal
             // 

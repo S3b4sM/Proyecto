@@ -46,9 +46,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new GUI.NewButton();
+            this.btnActu = new GUI.NewButton();
+            this.btnBack = new GUI.NewButton();
             this.newPanel1 = new GUI.NewPanel();
             this.dgvMovimientos = new System.Windows.Forms.DataGridView();
             this.panel4.SuspendLayout();
@@ -235,59 +235,74 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "DESCRIPCIÓN";
             // 
-            // iconButton2
+            // btnDelete
             // 
-            this.iconButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.Black;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton2.Location = new System.Drawing.Point(971, 386);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(111, 67);
-            this.iconButton2.TabIndex = 39;
-            this.iconButton2.Text = "Eliminar";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            this.iconButton2.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 15;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelete.Location = new System.Drawing.Point(971, 386);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(111, 67);
+            this.btnDelete.TabIndex = 39;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.TextColor = System.Drawing.Color.Black;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // iconButton1
+            // btnActu
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Black;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton1.Location = new System.Drawing.Point(85, 386);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(111, 67);
-            this.iconButton1.TabIndex = 38;
-            this.iconButton1.Text = "Actualizar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.btnActu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActu.BackColor = System.Drawing.Color.Transparent;
+            this.btnActu.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnActu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnActu.BorderRadius = 15;
+            this.btnActu.BorderSize = 0;
+            this.btnActu.FlatAppearance.BorderSize = 0;
+            this.btnActu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
+            this.btnActu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
+            this.btnActu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActu.ForeColor = System.Drawing.Color.Black;
+            this.btnActu.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.btnActu.IconColor = System.Drawing.Color.Black;
+            this.btnActu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnActu.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnActu.Location = new System.Drawing.Point(85, 386);
+            this.btnActu.Name = "btnActu";
+            this.btnActu.Size = new System.Drawing.Size(111, 67);
+            this.btnActu.TabIndex = 38;
+            this.btnActu.Text = "Actualizar";
+            this.btnActu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnActu.TextColor = System.Drawing.Color.Black;
+            this.btnActu.UseVisualStyleBackColor = false;
+            this.btnActu.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBack.BorderRadius = 15;
+            this.btnBack.BorderSize = 0;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
             this.btnBack.IconColor = System.Drawing.Color.Black;
             this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -295,6 +310,7 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(76, 48);
             this.btnBack.TabIndex = 33;
+            this.btnBack.TextColor = System.Drawing.Color.White;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -364,8 +380,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
             this.Controls.Add(this.newPanel1);
-            this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnActu);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -394,7 +410,7 @@
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.ComboBox cbxTipo;
-        private FontAwesome.Sharp.IconButton btnBack;
+        private NewButton btnBack;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
@@ -407,8 +423,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label7;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private NewButton btnActu;
+        private NewButton btnDelete;
         private NewPanel newPanel1;
         private System.Windows.Forms.DataGridView dgvMovimientos;
     }

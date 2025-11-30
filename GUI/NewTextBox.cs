@@ -13,7 +13,7 @@ namespace GUI
     public partial class txtbox : UserControl
     {
         
-        private System.Windows.Forms.TextBox textBox1;
+       
         public txtbox()
         {
             InitializeComponent();
