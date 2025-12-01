@@ -18,11 +18,11 @@ namespace GUI
     public partial class FormPrincipal : Form
     {
         public readonly Usuario usuario;
+        public NewButton currentBtn;
         public FormPrincipal(Usuario username)
         {
             InitializeComponent();
             this.usuario = username;
-            AbrirUser(() => new UserCHome(usuario.Id));
             lblName.Text = $"Hola, {usuario.FirstName} {usuario.LastName}";
             Maximizar();
         }
@@ -118,20 +118,45 @@ namespace GUI
         private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void btnHome_Click(object sender, EventArgs e)
         {   
+            ActivarBoton(sender);
             AbrirUser(() => new UserCHome(usuario.Id));
+            btnEditPedidos.Visible = false;
+            btnEditMovs.Visible = false;
+            btnEditClientes.Visible = false;
 
         }
         private void btnMovimientos_Click(object sender, EventArgs e)
         {
+            ActivarBoton(sender);
             AbrirUser(() => new UserCMovs(usuario.Id));
+            btnEditPedidos.Visible = false;
+            btnEditMovs.Visible = true;
+            btnEditClientes.Visible = false;
+        }
+        private void btnEditMovs_Click(object sender, EventArgs e)
+        {
+            AbrirUser(() => new UserCEditMovs(usuario.Id));
         }
         private void btnPedidos_Click(object sender, EventArgs e)
         {
+            ActivarBoton(sender);
             AbrirUser(() => new UserCPedidos(usuario.Id));
+            btnEditPedidos.Visible = true;
+            btnEditMovs.Visible = false;
+            btnEditClientes.Visible = false;
         }
         private void btnClientes_Click(object sender, EventArgs e)
-        {
+        {   
+            ActivarBoton(sender);
             AbrirUser(() => new UserCClientes(usuario.Id));
+            btnEditPedidos.Visible = false;
+            btnEditMovs.Visible = false;
+            btnEditClientes.Visible = true;
+        }
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            AbrirUser(() => new UserCHome(usuario.Id));
+            ActivarBoton(btnInicio);
         }
         #endregion
         public void AbrirForm<T>(Func<T> formFactory) where T : Form
@@ -185,6 +210,22 @@ namespace GUI
             btnRestart.Visible = true;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+        }
+        private void ActivarBoton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                DesactivarBtn();
+                currentBtn = (NewButton)btnSender;
+                currentBtn.BackColor = Color.FromArgb(208, 251, 244);
+            }
+        }
+        private void DesactivarBtn()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.FromArgb(255, 255, 255);
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ namespace ENTITY
         public decimal TotalEgresos { get; set; }
         public decimal PorcentajeEgresos { get; set; }
         public decimal PorcentajeIngresos { get; set; }
+        public decimal PorcentajeBalance { get; set; }
         public Datos() { }
     }
 }

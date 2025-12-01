@@ -157,6 +157,9 @@
     <Compile Include="NewComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="NewDateTimePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="NewPanel.cs">
       <SubType>Component</SubType>
     </Compile>

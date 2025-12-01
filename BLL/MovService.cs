@@ -57,14 +57,17 @@ namespace BLL
             DateTime inicioMesActual = new DateTime(hoy.Year, hoy.Month, 1);
             DateTime finMesActual = hoy;
             DateTime inicioMesPasado = inicioMesActual.AddMonths(-1);
-            DateTime finMesPasado = inicioMesActual.AddDays(-1);
+            DateTime finMesPasado = finMesActual.AddMonths(-1);
             decimal ingresosActuales = MovRepository.SumaFecha(userId, 1, inicioMesActual, finMesActual);
             decimal egresosActuales = MovRepository.SumaFecha(userId, 2, inicioMesActual, finMesActual);
+            decimal BalanceActuales = ingresosActuales - egresosActuales;
             decimal ingresosPasados = MovRepository.SumaFecha(userId, 1, inicioMesPasado, finMesPasado);
             decimal egresosPasados = MovRepository.SumaFecha(userId, 2, inicioMesPasado, finMesPasado);
+            decimal BalancePasados = ingresosPasados - egresosPasados;
             data.TotalIngresos = ingresosActuales;
             data.TotalEgresos = egresosActuales;
-            data.Balance = ingresosActuales - egresosActuales;
+            data.Balance = BalanceActuales;
+            data.PorcentajeBalance = Calcular(BalanceActuales, BalancePasados);
             data.PorcentajeIngresos = Calcular(ingresosActuales, ingresosPasados);
             data.PorcentajeEgresos = Calcular(egresosActuales, egresosPasados);
             data.dIngresos = MovRepository.CPI(userId, 1);
@@ -73,13 +76,13 @@ namespace BLL
             data.DetallePed = pedidos.MostrarPedidos(userId);
             return data;
         }
-        private decimal Calcular(decimal actual, decimal anterior)
+        private decimal Calcular(decimal actual, decimal pasado)
         {
-            if (anterior == 0)
+            if (pasado == 0)
             {
-                return actual > 0 ? 100m : 0m;
+                return actual != 0 ? 100m : 0m;
             }
-            return ((actual - anterior) / anterior) * 100;
+            return ((actual - pasado) / Math.Abs(pasado)) * 100;
         }
     }
 }

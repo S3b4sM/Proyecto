@@ -1,6 +1,7 @@
 ﻿using BLL;
 using ENTITY;
 using GUI.UserControls;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace GUI
         private int idMovimiento = -1;
         public readonly int Id;
         MovService movService = new MovService();
+        private DataTable detalleMov;
         CategoriaService categoryServices = new CategoriaService();
         public UserCEditMovs(int id)
         {
@@ -27,8 +29,66 @@ namespace GUI
             CargarCat(true);
             LlenarCbxTipo();
             CargarMov();
+            txtMonto.Text = "$ 0.00";
+            txtMonto.ForeColor = Color.DimGray;
         }
         #region Funcionalidades
+        private void UserCEditMovs_Load(object sender, EventArgs e)
+        {
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Datos service = new Datos();
+            Datos datosCalculados = movService.ObtenerDatos(this.Id);
+            e.Result = datosCalculados;
+        }
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MessageBox.Show("Error: " + e.Error.Message);
+                return;
+            }
+            Datos data = e.Result as Datos;
+            if (data != null)
+            {
+                lblIngresos.Text = data.TotalIngresos.ToString("C2");
+                lblEgresos.Text = data.TotalEgresos.ToString("C2");
+                lblBalance.Text = data.Balance.ToString("C2");
+                lblIngresos1.Text = $"↑ {data.PorcentajeIngresos:0.0}% vs mes anterior";
+                if (data.PorcentajeIngresos >= 0)
+                    lblIngresos1.ForeColor = Color.Green;
+                else
+                {
+                    lblIngresos1.ForeColor = Color.Red;
+                    lblIngresos1.Text = $"↓{data.PorcentajeIngresos:0.0}% vs mes anterior";
+                }
+                lblEgresos1.Text = $"↑ {data.PorcentajeEgresos:0.0}% vs mes anterior";
+                if (data.PorcentajeEgresos > 0)
+                {
+                    lblEgresos1.ForeColor = Color.Red;
+                    lblEgresos1.Text = $"↓ {data.PorcentajeEgresos:0.0}% vs mes anterior";
+                }
+                else
+                    lblEgresos1.ForeColor = Color.Green;
+                lblBalance1.Text = $"↑ {data.Balance:0.0}% vs mes anterior";
+                if (data.Balance >= 0)
+                {
+                    lblBalance1.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblBalance1.ForeColor = Color.Red;
+                    lblBalance1.Text = $"↓ {data.Balance:0.0}% vs mes anterior";
+                }
+                detalleMov = data.DetalleMov;
+                llenardgvMovs(detalleMov);
+            }
+        }
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
@@ -106,7 +166,7 @@ namespace GUI
                 }
                 else
                 {
-                    int idEliminar = Convert.ToInt32(dgvMovimientos.SelectedRows[0].Cells["id_movimiento"].Value);
+                    int idEliminar = Convert.ToInt32(dgvMovs.SelectedRows[0].Cells["id_movimiento"].Value);
                     bool exito = movService.Eliminar(idEliminar);
                     if (exito)
                     {
@@ -136,12 +196,87 @@ namespace GUI
             cbxRazon.SelectionLength = 0;
             this.ActiveControl = null;
         }
-        private void dgvMovimientos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtMonto.Text.Contains(e.KeyChar.ToString()) && txtMonto.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtMonto_Leave(object sender, EventArgs e)
+        {
+            string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
+            decimal monto;
+            if (string.IsNullOrWhiteSpace(txtMonto.Text))
+            {
+                txtMonto.Text = "$ 0.00";
+                txtMonto.ForeColor = Color.DimGray;
+            }
+            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
+            {
+                txtMonto.Text = monto.ToString("$ 0.00", CultureInfo.CurrentCulture);
+            }
+            else
+            {
+                txtMonto.Text = "$ 0.00";
+                txtMonto.ForeColor = Color.DimGray;
+                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(cbxTipo.SelectedValue.ToString(), out int idTipoSeleccionado))
+            {
+                if (idTipoSeleccionado == 0)
+                {
+                    cbxRazon.DataSource = null;
+                    cbxRazon.Items.Clear();
+                    cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
+                    cbxRazon.DisplayMember = "NOMBRE";
+                    cbxRazon.ValueMember = "ID_CATEGORIA";
+                    cbxRazon.SelectedIndex = 0;
+                }
+                else
+                {
+                    bool esIngreso = (idTipoSeleccionado == 1);
+                    CargarCat(esIngreso);
+                }
+            }
+            else
+            {
+                cbxRazon.DataSource = null;
+                cbxRazon.Items.Clear();
+                cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
+                cbxRazon.DisplayMember = "NOMBRE";
+                cbxRazon.ValueMember = "ID_CATEGORIA";
+                cbxRazon.SelectedIndex = 0;
+            }
+        }
+        private void dgvMovs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            if (dgvMovimientos.SelectedRows.Count > 0)
+            if (dgvMovs.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dgvMovimientos.SelectedRows[0];
+                DataGridViewRow selectedRow = dgvMovs.SelectedRows[0];
                 idMovimiento = Convert.ToInt32(selectedRow.Cells["id_movimiento"].Value);
                 dtFecha.Value = Convert.ToDateTime(selectedRow.Cells["fecha"].Value);
                 txtMonto.Text = selectedRow.Cells["monto"].Value.ToString();
@@ -180,101 +315,36 @@ namespace GUI
                 MessageBox.Show("Por favor, seleccione una fila para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormPrincipal FormPrincipal = this.FindForm() as FormPrincipal;
-            if (FormPrincipal != null)
-            {
-                FormPrincipal.AbrirUser(() => new UserCMovs(Id));
-            }
-            else
-            {
-                MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            idMovimiento = -1;
+            cbxTipo.SelectedIndex = 0;
+            cbxRazon.SelectedIndex = 0;
+            txtDescripcion.Clear();
+            txtMonto.Text = "$ 0.00";
+            txtMonto.ForeColor = Color.DimGray;
+            dtFecha.Value = DateTime.Now;
         }
-        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMonto_Enter(object sender, EventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
+            if (txtMonto.Text == "$ 0.00")
             {
-                e.Handled = false;
-            }
-            else if (e.KeyChar == ',' || e.KeyChar == '.')
-            {
-                if (!txtMonto.Text.Contains(e.KeyChar.ToString()) && txtMonto.Text.Length > 0)
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void txtMonto_Leave(object sender, EventArgs e)
-        {
-            string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
-
-            decimal monto;
-            if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
-            {
-                txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
-            }
-            else
-            {
-                txtMonto.Text = "0.00";
-                MessageBox.Show("Por favor, ingrese un monto válido.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(cbxTipo.SelectedValue.ToString(), out int idTipoSeleccionado))
-            {
-                if (idTipoSeleccionado == 0)
-                {
-                    cbxRazon.DataSource = null;
-                    cbxRazon.Items.Clear();
-                    cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
-                    cbxRazon.DisplayMember = "NOMBRE";
-                    cbxRazon.ValueMember = "ID_CATEGORIA";
-                    cbxRazon.SelectedIndex = 0;
-
-                }
-                else
-                {
-                    bool esIngreso = (idTipoSeleccionado == 1);
-                    CargarCat(esIngreso);
-                }
-            }
-            else
-            {
-                cbxRazon.DataSource = null;
-                cbxRazon.Items.Clear();
-                cbxRazon.Items.Add(new { ID_CATEGORIA = 0, NOMBRE = "Razon" });
-                cbxRazon.DisplayMember = "NOMBRE";
-                cbxRazon.ValueMember = "ID_CATEGORIA";
-                cbxRazon.SelectedIndex = 0;
+                txtMonto.Text = "";
+                txtMonto.ForeColor = Color.Black;
             }
         }
         #endregion
         private void CargarMov()
         {
-            dgvMovimientos.DataSource = movService.MostrarMovimientos(this.Id);
-            dgvMovimientos.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvMovimientos.Columns["id_movimiento"].Visible = false;
-            dgvMovimientos.Columns["monto"].DefaultCellStyle.Format = "C2";
+            dgvMovs.DataSource = movService.MostrarMovimientos(this.Id);
+            dgvMovs.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvMovs.Columns["id_movimiento"].Visible = false;
+            dgvMovs.Columns["monto"].DefaultCellStyle.Format = "C2";
         }
         private void RefreshDgv()
         {
-            dgvMovimientos.DataSource = null;
-            dgvMovimientos.Rows.Clear();
+            dgvMovs.DataSource = null;
+            dgvMovs.Rows.Clear();
             CargarMov();
             txtMonto.Clear();
             cbxTipo.SelectedIndex = 0;
@@ -329,6 +399,21 @@ namespace GUI
                 cbxRazon.DisplayMember = "NOMBRE";
                 cbxRazon.ValueMember = "ID_CATEGORIA";
                 cbxRazon.SelectedIndex = 0;
+            }
+        }
+        private void llenardgvMovs(DataTable detalleMov)
+        {
+            try
+            {
+                dgvMovs.DataSource = detalleMov;
+                dgvMovs.Columns["fecha"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvMovs.Columns["id_movimiento"].Visible = false;
+                dgvMovs.Columns["monto"].DefaultCellStyle.Format = "C2";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al llenar el DataGridView de movimientos: " + e.Message);
+                MessageBox.Show("Error al cargar los movimientos.");
             }
         }
     }

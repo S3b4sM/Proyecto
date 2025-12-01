@@ -47,19 +47,19 @@ namespace GUI.UserControls
             {
                 lblIngresos.Text = data.TotalIngresos.ToString("C2");
                 lblEgresos.Text = data.TotalEgresos.ToString("C2");
-                lblIngresos1.Text = $"+{data.PorcentajeIngresos:0.0}%";
+                lblIngresos1.Text = $"↑ {data.PorcentajeIngresos:0.0}%";
                 if (data.PorcentajeIngresos >= 0)
                     lblIngresos1.ForeColor = Color.Green;
                 else
                 {
                     lblIngresos1.ForeColor = Color.Red;
-                    lblIngresos1.Text = $"{data.PorcentajeIngresos:0.0}%";
+                    lblIngresos1.Text = $"↓ {data.PorcentajeIngresos:0.0}%";
                 }
-                lblEgresos1.Text = $"{data.PorcentajeEgresos:0.0}%";
+                lblEgresos1.Text = $"↑ {data.PorcentajeEgresos:0.0}%";
                 if (data.PorcentajeEgresos > 0)
                 {
                     lblEgresos1.ForeColor = Color.Red;
-                    lblEgresos1.Text = $"+{data.PorcentajeEgresos:0.0}%";
+                    lblEgresos1.Text = $"↓ {data.PorcentajeEgresos:0.0}%";
                 }
                 else
                     lblEgresos1.ForeColor = Color.Green;
@@ -194,8 +194,6 @@ namespace GUI.UserControls
             }
             var colFechaInicio = FindColumn(new[] { "fecha_inicio", "Fecha_Inicio", "FECHA_INICIO", "fechaInicio", "FechaInicio" });
             if (colFechaInicio != null) colFechaInicio.Visible = false;
-            //var colIdUser = FindColumn(new[] { "id_user", "ID_USER", "Id_User", "ID_USUARIO" });
-            //if (colIdUser != null) colIdUser.Visible = false; 
             var colTotal = FindColumn(new[] { "Total", "TOTAL", "precio_total", "PRECIO_TOTAL" });
             if (colTotal != null) colTotal.DefaultCellStyle.Format = "C2";
             var colAbonado = FindColumn(new[] { "Abonado", "ABONADO", "abono", "ABONO" });

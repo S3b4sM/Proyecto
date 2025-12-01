@@ -17,11 +17,11 @@ namespace BLL
         {
             return clientesRepository.AggClientes(cliente);
         }
-        public bool ActualizarCliente(Clientes cliente)
+        public bool ActualizarCliente(Clientes clientes)
         {
-            return clientesRepository.ActualizarCliente(cliente);
+            return clientesRepository.ActualizarCliente(clientes);
         }
-        public bool EliminarCliente(string documento)
+        public bool EliminarCliente(int documento)
         {
             return clientesRepository.EliminarCliente(documento);
         }

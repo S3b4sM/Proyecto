@@ -20,17 +20,17 @@ namespace DAL
                 {
                     connection.Open();
                     string query = @"INSERT INTO CLIENTES 
-                                     (DOCUMENTO, NOMBRE, APELLIDO, TELEFONO, ID_USUARIO)
+                                     (DOCUMENTO, NOMBRE, TELEFONO, ID_USUARIO, DIRECCION)
                                      VALUES 
-                                     (:p_doc, :p_nom, :p_ape, :p_tel, :p_ud_user)";
+                                     (:p_doc, :p_nom, :p_tel, :p_id_user, :p_direccion)";
 
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         command.Parameters.Add("p_doc", OracleDbType.Varchar2).Value = cliente.documento;
                         command.Parameters.Add("p_nom", OracleDbType.Varchar2).Value = cliente.nombre;
-                        command.Parameters.Add("p_ape", OracleDbType.Varchar2).Value = cliente.apellido;
                         command.Parameters.Add("p_tel", OracleDbType.Varchar2).Value = cliente.telefono;
                         command.Parameters.Add("p_id_user", OracleDbType.Int32).Value = cliente.id_user;
+                        command.Parameters.Add("p_direccion", OracleDbType.Varchar2).Value = cliente.direccion;
                         int filasAfectadas = command.ExecuteNonQuery();
                         return filasAfectadas > 0;
                     }
@@ -52,7 +52,7 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"UPDATE CLIENTES SET NOMBRE = :p_nom, APELLIDO = :p_ape, TELEFONO = :p_tel, 
+                    string query = @"UPDATE CLIENTES SET DOCUMENTO = :p_doc_nuevo, NOMBRE = :p_nom, TELEFONO = :p_tel, DIRECCION = :p_direccion, 
                                     CONTORNO_BUSTO = :p_c_busto, CONTORNO_CINTURA = :p_c_cintura,
                                     CONTORNO_CADERA = :p_c_cadera, ANCHO_ESPALDA = :p_a_espalda,
                                     TALLE_DELANTERO = :p_t_delantero, TALLE_ESPALDA = :p_t_espalda,
@@ -63,9 +63,10 @@ namespace DAL
 
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
+                        command.Parameters.Add("p_doc_nuevo", OracleDbType.Varchar2).Value = cliente.documento;
                         command.Parameters.Add("p_nom", OracleDbType.Varchar2).Value = cliente.nombre;
-                        command.Parameters.Add("p_ape", OracleDbType.Varchar2).Value = cliente.apellido;
                         command.Parameters.Add("p_tel", OracleDbType.Varchar2).Value = cliente.telefono;
+                        command.Parameters.Add("p_direccion", OracleDbType.Varchar2).Value = cliente.direccion;
                         command.Parameters.Add("p_c_busto", OracleDbType.Decimal).Value = GetDbValue(cliente.contorno_busto);
                         command.Parameters.Add("p_c_cintura", OracleDbType.Decimal).Value = GetDbValue(cliente.contorno_cintura);
                         command.Parameters.Add("p_c_cadera", OracleDbType.Decimal).Value = GetDbValue(cliente.contorno_cadera);
@@ -87,7 +88,7 @@ namespace DAL
                 }
             }
         }
-        public bool EliminarCliente(string documento)
+        public bool EliminarCliente(int documento)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
@@ -121,14 +122,14 @@ namespace DAL
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT DOCUMENTO, NOMBRE, APELLIDO, TELEFONO, FECHA_ULTIMA_MEDIDA AS ""Última Medida"",
+                    string query = @"SELECT DOCUMENTO, NOMBRE, TELEFONO, DIRECCION, FECHA_ULTIMA_MEDIDA AS ""Última Medida"",
                                     CASE 
                                     WHEN FECHA_ULTIMA_MEDIDA IS NULL THEN 'Pendiente Inicial'
                                     WHEN MONTHS_BETWEEN(SYSDATE, FECHA_ULTIMA_MEDIDA) >= 3 THEN 'Requiere Actualización'
                                     ELSE 'Al día'
                                     END AS ""Estado Medidas""
                                     FROM CLIENTES
-                                    WHERE ID_USER = :p_id_user
+                                    WHERE ID_USUARIO = :p_id_user
                                     ORDER BY NOMBRE ASC";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {

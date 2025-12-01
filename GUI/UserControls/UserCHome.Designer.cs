@@ -131,6 +131,8 @@
             // 
             // dgvUltimosMovs
             // 
+            this.dgvUltimosMovs.AllowUserToAddRows = false;
+            this.dgvUltimosMovs.AllowUserToDeleteRows = false;
             this.dgvUltimosMovs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUltimosMovs.BackgroundColor = System.Drawing.Color.White;
             this.dgvUltimosMovs.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -166,6 +168,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUltimosMovs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUltimosMovs.RowHeadersVisible = false;
+            this.dgvUltimosMovs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUltimosMovs.Size = new System.Drawing.Size(1105, 123);
             this.dgvUltimosMovs.TabIndex = 3;
             this.dgvUltimosMovs.Visible = false;
@@ -542,7 +545,8 @@
             this.btnReport.BorderRadius = 15;
             this.btnReport.BorderSize = 0;
             this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.Black;
