@@ -192,6 +192,7 @@
             this.btnEditClientes.TextColor = System.Drawing.Color.Black;
             this.btnEditClientes.UseVisualStyleBackColor = false;
             this.btnEditClientes.Visible = false;
+            this.btnEditClientes.Click += new System.EventHandler(this.btnEditClientes_Click);
             // 
             // btnCerrar
             // 

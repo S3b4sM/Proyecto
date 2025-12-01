@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.newPanel1 = new GUI.NewPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.newPanel2 = new GUI.NewPanel();
+            this.PanelEdit = new GUI.NewPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new GUI.NewButton();
+            this.newButton2 = new GUI.NewButton();
             this.btnEliminar = new GUI.NewButton();
             this.btnActualizar = new GUI.NewButton();
             this.txtNotas = new System.Windows.Forms.TextBox();
@@ -52,10 +53,25 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblActu = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PanelAgg = new GUI.NewPanel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.newButton1 = new GUI.NewButton();
+            this.newButton3 = new GUI.NewButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnAggCliente = new GUI.NewButton();
             this.newPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
-            this.newPanel2.SuspendLayout();
+            this.PanelEdit.SuspendLayout();
+            this.PanelAgg.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -105,35 +121,35 @@
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.Location = new System.Drawing.Point(26, 71);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(251)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(630, 418);
@@ -153,32 +169,34 @@
             this.txtFiltro.Enter += new System.EventHandler(this.txtFiltro_Enter);
             this.txtFiltro.Leave += new System.EventHandler(this.txtFiltro_Leave);
             // 
-            // newPanel2
+            // PanelEdit
             // 
-            this.newPanel2.BackColor = System.Drawing.Color.White;
-            this.newPanel2.BackgroundColor = System.Drawing.Color.White;
-            this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newPanel2.BorderRadius = 15;
-            this.newPanel2.BorderSize = 0;
-            this.newPanel2.Controls.Add(this.groupBox2);
-            this.newPanel2.Controls.Add(this.btnCancelar);
-            this.newPanel2.Controls.Add(this.btnEliminar);
-            this.newPanel2.Controls.Add(this.btnActualizar);
-            this.newPanel2.Controls.Add(this.txtNotas);
-            this.newPanel2.Controls.Add(this.txtDireccion);
-            this.newPanel2.Controls.Add(this.txtTel);
-            this.newPanel2.Controls.Add(this.txtNombre);
-            this.newPanel2.Controls.Add(this.label6);
-            this.newPanel2.Controls.Add(this.label4);
-            this.newPanel2.Controls.Add(this.label3);
-            this.newPanel2.Controls.Add(this.label2);
-            this.newPanel2.Controls.Add(this.groupBox3);
-            this.newPanel2.Controls.Add(this.lblActu);
-            this.newPanel2.Controls.Add(this.label1);
-            this.newPanel2.Location = new System.Drawing.Point(762, 100);
-            this.newPanel2.Name = "newPanel2";
-            this.newPanel2.Size = new System.Drawing.Size(376, 510);
-            this.newPanel2.TabIndex = 32;
+            this.PanelEdit.BackColor = System.Drawing.Color.White;
+            this.PanelEdit.BackgroundColor = System.Drawing.Color.White;
+            this.PanelEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.PanelEdit.BorderRadius = 15;
+            this.PanelEdit.BorderSize = 0;
+            this.PanelEdit.Controls.Add(this.groupBox2);
+            this.PanelEdit.Controls.Add(this.btnCancelar);
+            this.PanelEdit.Controls.Add(this.newButton2);
+            this.PanelEdit.Controls.Add(this.btnEliminar);
+            this.PanelEdit.Controls.Add(this.btnActualizar);
+            this.PanelEdit.Controls.Add(this.txtNotas);
+            this.PanelEdit.Controls.Add(this.txtDireccion);
+            this.PanelEdit.Controls.Add(this.txtTel);
+            this.PanelEdit.Controls.Add(this.txtNombre);
+            this.PanelEdit.Controls.Add(this.label6);
+            this.PanelEdit.Controls.Add(this.label4);
+            this.PanelEdit.Controls.Add(this.label3);
+            this.PanelEdit.Controls.Add(this.label2);
+            this.PanelEdit.Controls.Add(this.groupBox3);
+            this.PanelEdit.Controls.Add(this.lblActu);
+            this.PanelEdit.Controls.Add(this.label1);
+            this.PanelEdit.Location = new System.Drawing.Point(762, 100);
+            this.PanelEdit.Name = "PanelEdit";
+            this.PanelEdit.Size = new System.Drawing.Size(376, 510);
+            this.PanelEdit.TabIndex = 32;
+            this.PanelEdit.Visible = false;
             // 
             // groupBox2
             // 
@@ -214,6 +232,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextColor = System.Drawing.Color.Black;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // newButton2
+            // 
+            this.newButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
+            this.newButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
+            this.newButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newButton2.BorderRadius = 10;
+            this.newButton2.BorderSize = 0;
+            this.newButton2.FlatAppearance.BorderSize = 0;
+            this.newButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newButton2.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.newButton2.ForeColor = System.Drawing.Color.Black;
+            this.newButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.newButton2.IconColor = System.Drawing.Color.Black;
+            this.newButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.newButton2.IconSize = 32;
+            this.newButton2.Location = new System.Drawing.Point(212, 11);
+            this.newButton2.Name = "newButton2";
+            this.newButton2.Size = new System.Drawing.Size(118, 35);
+            this.newButton2.TabIndex = 17;
+            this.newButton2.Text = "Agregar Medidas";
+            this.newButton2.TextColor = System.Drawing.Color.Black;
+            this.newButton2.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
@@ -374,6 +416,189 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Editar Cliente";
             // 
+            // PanelAgg
+            // 
+            this.PanelAgg.BackColor = System.Drawing.Color.White;
+            this.PanelAgg.BackgroundColor = System.Drawing.Color.White;
+            this.PanelAgg.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.PanelAgg.BorderRadius = 15;
+            this.PanelAgg.BorderSize = 0;
+            this.PanelAgg.Controls.Add(this.groupBox4);
+            this.PanelAgg.Controls.Add(this.newButton1);
+            this.PanelAgg.Controls.Add(this.newButton3);
+            this.PanelAgg.Controls.Add(this.textBox1);
+            this.PanelAgg.Controls.Add(this.textBox2);
+            this.PanelAgg.Controls.Add(this.textBox3);
+            this.PanelAgg.Controls.Add(this.textBox4);
+            this.PanelAgg.Controls.Add(this.label7);
+            this.PanelAgg.Controls.Add(this.label8);
+            this.PanelAgg.Controls.Add(this.label9);
+            this.PanelAgg.Controls.Add(this.label10);
+            this.PanelAgg.Controls.Add(this.groupBox5);
+            this.PanelAgg.Controls.Add(this.label12);
+            this.PanelAgg.Location = new System.Drawing.Point(761, 100);
+            this.PanelAgg.Name = "PanelAgg";
+            this.PanelAgg.Size = new System.Drawing.Size(376, 510);
+            this.PanelAgg.TabIndex = 33;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
+            this.groupBox4.Location = new System.Drawing.Point(27, 438);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox4.Size = new System.Drawing.Size(303, 1);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            // 
+            // newButton1
+            // 
+            this.newButton1.BackColor = System.Drawing.Color.Transparent;
+            this.newButton1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.newButton1.BorderColor = System.Drawing.Color.Black;
+            this.newButton1.BorderRadius = 10;
+            this.newButton1.BorderSize = 1;
+            this.newButton1.FlatAppearance.BorderSize = 0;
+            this.newButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newButton1.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.newButton1.ForeColor = System.Drawing.Color.Black;
+            this.newButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.newButton1.IconColor = System.Drawing.Color.Black;
+            this.newButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.newButton1.Location = new System.Drawing.Point(219, 454);
+            this.newButton1.Name = "newButton1";
+            this.newButton1.Size = new System.Drawing.Size(111, 35);
+            this.newButton1.TabIndex = 18;
+            this.newButton1.Text = "Cancelar";
+            this.newButton1.TextColor = System.Drawing.Color.Black;
+            this.newButton1.UseVisualStyleBackColor = false;
+            // 
+            // newButton3
+            // 
+            this.newButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(128)))), ((int)(((byte)(152)))));
+            this.newButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(128)))), ((int)(((byte)(152)))));
+            this.newButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newButton3.BorderRadius = 10;
+            this.newButton3.BorderSize = 0;
+            this.newButton3.FlatAppearance.BorderSize = 0;
+            this.newButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newButton3.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newButton3.ForeColor = System.Drawing.Color.Black;
+            this.newButton3.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.newButton3.IconColor = System.Drawing.Color.Black;
+            this.newButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.newButton3.IconSize = 32;
+            this.newButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.newButton3.Location = new System.Drawing.Point(27, 454);
+            this.newButton3.Name = "newButton3";
+            this.newButton3.Size = new System.Drawing.Size(148, 35);
+            this.newButton3.TabIndex = 16;
+            this.newButton3.Text = "Guardar Cliente";
+            this.newButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.newButton3.TextColor = System.Drawing.Color.Black;
+            this.newButton3.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.textBox1.Location = new System.Drawing.Point(27, 351);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(303, 64);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = "Añadir notas sobre el cliente...";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.textBox2.Location = new System.Drawing.Point(27, 267);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(303, 20);
+            this.textBox2.TabIndex = 14;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.textBox3.Location = new System.Drawing.Point(27, 187);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(303, 20);
+            this.textBox3.TabIndex = 13;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.textBox4.Location = new System.Drawing.Point(27, 118);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(303, 20);
+            this.textBox4.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.label7.Location = new System.Drawing.Point(23, 314);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 20);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Notas Adicionales";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.label8.Location = new System.Drawing.Point(23, 235);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 20);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Dirección";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.label9.Location = new System.Drawing.Point(23, 157);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 20);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Telefono";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(23, 91);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(131, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Nombre Completo";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox5.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
+            this.groupBox5.Location = new System.Drawing.Point(-1, 78);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(376, 1);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(21, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(188, 33);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Agregar Cliente";
+            // 
             // btnAggCliente
             // 
             this.btnAggCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
@@ -390,21 +615,23 @@
             this.btnAggCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAggCliente.IconSize = 32;
             this.btnAggCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAggCliente.Location = new System.Drawing.Point(915, 31);
+            this.btnAggCliente.Location = new System.Drawing.Point(968, 31);
             this.btnAggCliente.Name = "btnAggCliente";
-            this.btnAggCliente.Size = new System.Drawing.Size(223, 40);
+            this.btnAggCliente.Size = new System.Drawing.Size(170, 40);
             this.btnAggCliente.TabIndex = 33;
-            this.btnAggCliente.Text = "Añadir Nuevo Cliente";
+            this.btnAggCliente.Text = "Añadir Cliente";
             this.btnAggCliente.TextColor = System.Drawing.Color.Black;
             this.btnAggCliente.UseVisualStyleBackColor = false;
+            this.btnAggCliente.Click += new System.EventHandler(this.btnAggCliente_Click);
             // 
             // UserCClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.Controls.Add(this.PanelAgg);
             this.Controls.Add(this.btnAggCliente);
-            this.Controls.Add(this.newPanel2);
+            this.Controls.Add(this.PanelEdit);
             this.Controls.Add(this.newPanel1);
             this.Controls.Add(this.label5);
             this.Name = "UserCClientes";
@@ -412,8 +639,10 @@
             this.newPanel1.ResumeLayout(false);
             this.newPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
-            this.newPanel2.ResumeLayout(false);
-            this.newPanel2.PerformLayout();
+            this.PanelEdit.ResumeLayout(false);
+            this.PanelEdit.PerformLayout();
+            this.PanelAgg.ResumeLayout(false);
+            this.PanelAgg.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,7 +651,7 @@
         #endregion
         private System.Windows.Forms.Label label5;
         private NewPanel newPanel1;
-        private NewPanel newPanel2;
+        private NewPanel PanelEdit;
         private NewButton btnAggCliente;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.DataGridView dgvClientes;
@@ -442,5 +671,20 @@
         private NewButton btnEliminar;
         private NewButton btnActualizar;
         private System.Windows.Forms.GroupBox groupBox2;
+        private NewPanel PanelAgg;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private NewButton newButton1;
+        private NewButton newButton3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label12;
+        private NewButton newButton2;
     }
 }

@@ -211,6 +211,23 @@ namespace GUI
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
         }
+
+        private void btnEditClientes_Click(object sender, EventArgs e)
+        {
+            ActivarBoton(sender as NewButton);
+            if(panelForms.Controls.Count > 0)
+            {
+                if (panelForms.Controls[0] is UserCClientes controlClientes)
+                {
+                    controlClientes.CambiarModo(true);
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, abre la sección de Clientes primero.");
+                }
+            }
+        }
+
         private void ActivarBoton(object btnSender)
         {
             if (btnSender != null)

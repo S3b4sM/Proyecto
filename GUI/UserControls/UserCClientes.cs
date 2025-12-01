@@ -22,6 +22,8 @@ namespace GUI.UserControls
             InitializeComponent();
             this.id = id;
             llenarClientes(clientesService.ObtenerClientes(this.id));
+            PanelAgg.Visible = true;
+            btnAggCliente.Visible = false;
         }
         public void llenarClientes(DataTable detalleClientes)
         {
@@ -45,8 +47,8 @@ namespace GUI.UserControls
             };
             var colId = FindColumn(new string[] { "Id_usuario", "ID", "Id" });
             if (colId != null) colId.Visible = false;
+            lblActu.Text = $"Actualizar la informacion del cliente";
         }
-
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             if (dgvClientes.DataSource is DataTable dt)
@@ -63,7 +65,6 @@ namespace GUI.UserControls
                 }
             }
         }
-
         private void txtFiltro_Enter(object sender, EventArgs e)
         {
             if (txtFiltro.Text == "Buscar por nombre o documento")
@@ -72,7 +73,6 @@ namespace GUI.UserControls
                 txtFiltro.ForeColor = Color.Black;
             }
         }
-
         private void txtFiltro_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFiltro.Text))
@@ -81,7 +81,6 @@ namespace GUI.UserControls
                 txtFiltro.ForeColor = Color.DimGray;
             }
         }
-
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -98,7 +97,6 @@ namespace GUI.UserControls
                 MessageBox.Show("Por favor, seleccione una fila para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (documento == -1)
@@ -126,7 +124,6 @@ namespace GUI.UserControls
                 }
             }
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
@@ -172,7 +169,6 @@ namespace GUI.UserControls
                 throw;
             }
         }
-
         private void txtNotas_Enter(object sender, EventArgs e)
         {
             if(txtNotas.Text == "Añadir notas sobre el cliente...")
@@ -181,7 +177,6 @@ namespace GUI.UserControls
                 txtNotas.ForeColor = Color.Black;
             }
         }
-
         private void txtNotas_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNotas.Text))
@@ -189,6 +184,36 @@ namespace GUI.UserControls
                 txtNotas.Text = "Añadir notas sobre el cliente...";
                 txtNotas.ForeColor = Color.DimGray;
             }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            documento = -1;
+            txtNombre.Clear();
+            txtTel.Clear();
+            txtDireccion.Clear();
+            txtNotas.Text = "Añadir notas sobre el cliente...";
+            txtNotas.ForeColor = Color.DimGray;
+        }
+        public void CambiarModo(bool modoEdicion)
+        {
+            if (modoEdicion)
+            {
+                PanelAgg.Visible = false;
+                PanelEdit.Visible = true;
+                btnAggCliente.Visible = true;
+
+            }
+            else
+            {
+                PanelAgg.Visible = true;
+                PanelEdit.Visible = false;
+            }
+        }
+        private void btnAggCliente_Click(object sender, EventArgs e)
+        {
+            PanelAgg.Visible = true;
+            PanelEdit.Visible = false;
+            btnAggCliente.Visible = false;
         }
     }
 }

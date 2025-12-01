@@ -19,6 +19,7 @@ namespace GUI
     {
         private int idMovimiento = -1;
         public readonly int Id;
+        decimal monto;
         MovService movService = new MovService();
         private DataTable detalleMov;
         CategoriaService categoryServices = new CategoriaService();
@@ -225,7 +226,6 @@ namespace GUI
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             string textoLimpio = txtMonto.Text.Trim().Replace(',', '.');
-            decimal monto;
             if (string.IsNullOrWhiteSpace(txtMonto.Text))
             {
                 txtMonto.Text = "$ 0.00";
@@ -233,7 +233,7 @@ namespace GUI
             }
             if (decimal.TryParse(textoLimpio, NumberStyles.Any, CultureInfo.InvariantCulture, out monto))
             {
-                txtMonto.Text = monto.ToString("$ 0.00", CultureInfo.CurrentCulture);
+                txtMonto.Text = monto.ToString("0.00", CultureInfo.CurrentCulture);
             }
             else
             {
@@ -280,6 +280,7 @@ namespace GUI
                 idMovimiento = Convert.ToInt32(selectedRow.Cells["id_movimiento"].Value);
                 dtFecha.Value = Convert.ToDateTime(selectedRow.Cells["fecha"].Value);
                 txtMonto.Text = selectedRow.Cells["monto"].Value.ToString();
+                txtMonto.ForeColor = Color.Black;
                 txtDescripcion.Text = selectedRow.Cells["descripcion"].Value.ToString();
                 string tipo = selectedRow.Cells["tipo"].Value.ToString();
                 foreach (var item in cbxTipo.Items)

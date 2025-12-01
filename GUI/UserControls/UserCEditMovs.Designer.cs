@@ -40,8 +40,6 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.cbxRazon = new System.Windows.Forms.ComboBox();
-            this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,6 +60,8 @@
             this.lblIngresos1 = new System.Windows.Forms.Label();
             this.lblIngresos = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.cbxRazon = new System.Windows.Forms.ComboBox();
             this.newPanel2.SuspendLayout();
             this.newPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovs)).BeginInit();
@@ -93,14 +93,14 @@
             this.newPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.newPanel2.BorderRadius = 20;
             this.newPanel2.BorderSize = 0;
+            this.newPanel2.Controls.Add(this.cbxRazon);
+            this.newPanel2.Controls.Add(this.cbxTipo);
             this.newPanel2.Controls.Add(this.btnCancel);
             this.newPanel2.Controls.Add(this.btnEliminar);
             this.newPanel2.Controls.Add(this.btnActualizar);
             this.newPanel2.Controls.Add(this.txtDescripcion);
             this.newPanel2.Controls.Add(this.dtFecha);
             this.newPanel2.Controls.Add(this.txtMonto);
-            this.newPanel2.Controls.Add(this.cbxRazon);
-            this.newPanel2.Controls.Add(this.cbxTipo);
             this.newPanel2.Controls.Add(this.label8);
             this.newPanel2.Controls.Add(this.label6);
             this.newPanel2.Controls.Add(this.label5);
@@ -183,6 +183,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Montserrat", 8.249999F);
             this.txtDescripcion.Location = new System.Drawing.Point(22, 367);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -191,40 +192,23 @@
             // 
             // dtFecha
             // 
+            this.dtFecha.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFecha.Location = new System.Drawing.Point(21, 291);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(242, 20);
+            this.dtFecha.Size = new System.Drawing.Size(242, 23);
             this.dtFecha.TabIndex = 18;
             // 
             // txtMonto
             // 
+            this.txtMonto.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonto.Location = new System.Drawing.Point(22, 219);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(241, 20);
+            this.txtMonto.Size = new System.Drawing.Size(241, 23);
             this.txtMonto.TabIndex = 17;
             this.txtMonto.Enter += new System.EventHandler(this.txtMonto_Enter);
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             this.txtMonto.Leave += new System.EventHandler(this.txtMonto_Leave);
-            // 
-            // cbxRazon
-            // 
-            this.cbxRazon.FormattingEnabled = true;
-            this.cbxRazon.Location = new System.Drawing.Point(21, 153);
-            this.cbxRazon.Name = "cbxRazon";
-            this.cbxRazon.Size = new System.Drawing.Size(242, 21);
-            this.cbxRazon.TabIndex = 16;
-            this.cbxRazon.SelectionChangeCommitted += new System.EventHandler(this.cbxRazon_SelectionChangeCommitted);
-            // 
-            // cbxTipo
-            // 
-            this.cbxTipo.FormattingEnabled = true;
-            this.cbxTipo.Location = new System.Drawing.Point(22, 88);
-            this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(241, 21);
-            this.cbxTipo.TabIndex = 15;
-            this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
-            this.cbxTipo.SelectionChangeCommitted += new System.EventHandler(this.cbxTipo_SelectionChangeCommitted);
             // 
             // label8
             // 
@@ -485,6 +469,33 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Ingresos del Mes";
             // 
+            // cbxTipo
+            // 
+            this.cbxTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxTipo.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Location = new System.Drawing.Point(22, 88);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(241, 28);
+            this.cbxTipo.TabIndex = 23;
+            this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
+            this.cbxTipo.SelectionChangeCommitted += new System.EventHandler(this.cbxTipo_SelectionChangeCommitted);
+            // 
+            // cbxRazon
+            // 
+            this.cbxRazon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cbxRazon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRazon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxRazon.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRazon.FormattingEnabled = true;
+            this.cbxRazon.Location = new System.Drawing.Point(22, 153);
+            this.cbxRazon.Name = "cbxRazon";
+            this.cbxRazon.Size = new System.Drawing.Size(241, 28);
+            this.cbxRazon.TabIndex = 24;
+            this.cbxRazon.SelectionChangeCommitted += new System.EventHandler(this.cbxRazon_SelectionChangeCommitted);
+            // 
             // UserCEditMovs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,7 +550,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ComboBox cbxTipo;
         private NewButton btnCancel;
         private NewButton btnEliminar;
         private NewButton btnActualizar;
@@ -547,5 +557,6 @@
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.ComboBox cbxRazon;
+        private System.Windows.Forms.ComboBox cbxTipo;
     }
 }
