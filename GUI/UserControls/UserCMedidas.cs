@@ -18,11 +18,13 @@ namespace GUI.UserControls
         private int documento = -1; 
         ClientesService clientesService = new ClientesService();
         private Action onMedidaGuardado;
-        public UserCMedidas(int id, Action onGuardado)
+        public UserCMedidas(int id, Action onGuardado, string nombre)
         {
             InitializeComponent();
             this.documento = id;
             onMedidaGuardado = onGuardado;
+            lblCliente.Text = $"Cliente: {nombre}";
+            CargarDatos();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -36,7 +38,6 @@ namespace GUI.UserControls
                 MessageBox.Show("No se pudo encontrar el formulario principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -106,6 +107,34 @@ namespace GUI.UserControls
         {
             Limpiar();
         }
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txtOrigen = sender as TextBox;
+            if (txtOrigen == null) return;
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false; 
+            }
+            else if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtOrigen.Text.Contains(e.KeyChar.ToString()) && txtOrigen.Text.Length > 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
         public void Limpiar()
         {
             txtContornoCuello.Clear();
@@ -119,6 +148,20 @@ namespace GUI.UserControls
             txtMuñeca.Clear();
             txtBiceps.Clear();
             this.documento = -1;
+        }
+        private void CargarDatos()
+        {
+            Clientes cliente = clientesService.ObtenerClientePorDocumento(documento);
+            txtContornoCuello.Text = cliente.contorno_cuello?.ToString() ?? "";
+            txtContornoBusto.Text = cliente.contorno_busto?.ToString() ?? "";
+            txtContornoCintura.Text = cliente.contorno_cintura?.ToString() ?? "";
+            txtContornoCadera.Text = cliente.contorno_cadera?.ToString() ?? "";
+            txtAnchoEspalda.Text = cliente.ancho_espalda?.ToString() ?? "";
+            txtTalleDelantero.Text = cliente.talle_delantero?.ToString() ?? "";
+            txtTalleEspalda.Text = cliente.talle_espalda?.ToString() ?? "";
+            txtLargoBrazo.Text = cliente.largo_brazo?.ToString() ?? "";
+            txtMuñeca.Text = cliente.contorno_muneca?.ToString() ?? "";
+            txtBiceps.Text = cliente.contorno_brazo_biceps?.ToString() ?? "";
         }
     }
 }

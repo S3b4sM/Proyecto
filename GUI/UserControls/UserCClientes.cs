@@ -16,6 +16,7 @@ namespace GUI.UserControls
     {
         private readonly int id;
         private int documento = -1;
+        private string nombreCliente = "";
         ClientesService clientesService = new ClientesService();
         public UserCClientes(int id)
         {
@@ -87,6 +88,7 @@ namespace GUI.UserControls
             {
                 DataGridViewRow fila = dgvClientes.SelectedRows[0];
                 documento = Convert.ToInt32(fila.Cells["DOCUMENTO"].Value);
+                nombreCliente = fila.Cells["NOMBRE"].Value.ToString();
                 txtDoc.Text = fila.Cells["DOCUMENTO"].Value.ToString();
                 txtNombre.Text = fila.Cells["NOMBRE"].Value.ToString();
                 txtTel.Text = fila.Cells["TELEFONO"].Value.ToString();
@@ -297,7 +299,7 @@ namespace GUI.UserControls
                     MessageBox.Show("Por favor, seleccione un cliente para agregar medidas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                UserCMedidas controlAgregar = new UserCMedidas(documento, this.Recargar);
+                UserCMedidas controlAgregar = new UserCMedidas(documento, this.Recargar, nombreCliente);
                 formPrincipal.MostrarModal(controlAgregar);
             }
         }

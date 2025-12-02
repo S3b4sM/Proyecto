@@ -210,6 +210,7 @@
             this.txtContornoCuello.Name = "txtContornoCuello";
             this.txtContornoCuello.Size = new System.Drawing.Size(100, 23);
             this.txtContornoCuello.TabIndex = 55;
+            this.txtContornoCuello.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtContornoBusto
             // 
@@ -219,6 +220,7 @@
             this.txtContornoBusto.Name = "txtContornoBusto";
             this.txtContornoBusto.Size = new System.Drawing.Size(100, 23);
             this.txtContornoBusto.TabIndex = 56;
+            this.txtContornoBusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtContornoCintura
             // 
@@ -228,6 +230,7 @@
             this.txtContornoCintura.Name = "txtContornoCintura";
             this.txtContornoCintura.Size = new System.Drawing.Size(100, 23);
             this.txtContornoCintura.TabIndex = 57;
+            this.txtContornoCintura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtContornoCadera
             // 
@@ -237,6 +240,7 @@
             this.txtContornoCadera.Name = "txtContornoCadera";
             this.txtContornoCadera.Size = new System.Drawing.Size(100, 23);
             this.txtContornoCadera.TabIndex = 58;
+            this.txtContornoCadera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtAnchoEspalda
             // 
@@ -246,6 +250,7 @@
             this.txtAnchoEspalda.Name = "txtAnchoEspalda";
             this.txtAnchoEspalda.Size = new System.Drawing.Size(100, 23);
             this.txtAnchoEspalda.TabIndex = 59;
+            this.txtAnchoEspalda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtBiceps
             // 
@@ -255,6 +260,7 @@
             this.txtBiceps.Name = "txtBiceps";
             this.txtBiceps.Size = new System.Drawing.Size(100, 23);
             this.txtBiceps.TabIndex = 64;
+            this.txtBiceps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtMuñeca
             // 
@@ -264,6 +270,7 @@
             this.txtMuñeca.Name = "txtMuñeca";
             this.txtMuñeca.Size = new System.Drawing.Size(100, 23);
             this.txtMuñeca.TabIndex = 63;
+            this.txtMuñeca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtLargoBrazo
             // 
@@ -273,6 +280,7 @@
             this.txtLargoBrazo.Name = "txtLargoBrazo";
             this.txtLargoBrazo.Size = new System.Drawing.Size(100, 23);
             this.txtLargoBrazo.TabIndex = 62;
+            this.txtLargoBrazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtTalleEspalda
             // 
@@ -282,6 +290,7 @@
             this.txtTalleEspalda.Name = "txtTalleEspalda";
             this.txtTalleEspalda.Size = new System.Drawing.Size(100, 23);
             this.txtTalleEspalda.TabIndex = 61;
+            this.txtTalleEspalda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtTalleDelantero
             // 
@@ -291,12 +300,13 @@
             this.txtTalleDelantero.Name = "txtTalleDelantero";
             this.txtTalleDelantero.Size = new System.Drawing.Size(100, 23);
             this.txtTalleDelantero.TabIndex = 60;
+            this.txtTalleDelantero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(258, 16);
+            this.lblCliente.Location = new System.Drawing.Point(5, 354);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(84, 30);
             this.lblCliente.TabIndex = 65;

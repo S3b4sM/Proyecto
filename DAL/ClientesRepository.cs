@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DAL
 {
@@ -274,6 +275,55 @@ namespace DAL
                     return false;
                 }
             }
+        }
+        public Clientes ObtenerClientePorDocumento(int documento)
+        {
+            Clientes cliente = null;
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM CLIENTES WHERE DOCUMENTO = :p_doc --AND ID_USUARIO = :p_id_user";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("p_doc", OracleDbType.Varchar2).Value = documento.ToString(); 
+                        //command.Parameters.Add("p_id_user", OracleDbType.Int32).Value = idUsuario;
+
+                        using (OracleDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cliente = new Clientes();
+                                cliente.documento = reader["DOCUMENTO"].ToString();
+                                cliente.nombre = reader["NOMBRE"].ToString();
+                                cliente.telefono = reader["TELEFONO"] != DBNull.Value ? reader["TELEFONO"].ToString() : "";
+                                cliente.direccion = reader["DIRECCION"] != DBNull.Value ? reader["DIRECCION"].ToString() : "";
+                                cliente.contorno_busto = reader["CONTORNO_BUSTO"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_BUSTO"]) : (decimal?)null;
+                                cliente.contorno_cintura = reader["CONTORNO_CINTURA"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_CINTURA"]) : (decimal?)null;
+                                cliente.contorno_cadera = reader["CONTORNO_CADERA"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_CADERA"]) : (decimal?)null;
+                                cliente.ancho_espalda = reader["ANCHO_ESPALDA"] != DBNull.Value ? Convert.ToDecimal(reader["ANCHO_ESPALDA"]) : (decimal?)null;
+                                cliente.talle_delantero = reader["TALLE_DELANTERO"] != DBNull.Value ? Convert.ToDecimal(reader["TALLE_DELANTERO"]) : (decimal?)null;
+                                cliente.talle_espalda = reader["TALLE_ESPALDA"] != DBNull.Value ? Convert.ToDecimal(reader["TALLE_ESPALDA"]) : (decimal?)null;
+                                cliente.largo_brazo = reader["LARGO_BRAZO"] != DBNull.Value ? Convert.ToDecimal(reader["LARGO_BRAZO"]) : (decimal?)null;
+                                cliente.contorno_cuello = reader["CONTORNO_CUELLO"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_CUELLO"]) : (decimal?)null;
+                                cliente.contorno_muneca = reader["CONTORNO_MUNECA"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_MUNECA"]) : (decimal?)null;
+                                cliente.contorno_brazo_biceps = reader["CONTORNO_BRAZO_BICEPS"] != DBNull.Value ? Convert.ToDecimal(reader["CONTORNO_BRAZO_BICEPS"]) : (decimal?)null;
+                                if (reader["FECHA_ULTIMA_MEDIDA"] != DBNull.Value)
+                                {
+                                    cliente.fecha_ultima_medida = Convert.ToDateTime(reader["FECHA_ULTIMA_MEDIDA"]);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener cliente: " + ex.Message);
+                    return null;
+                }
+            }
+            return cliente;
         }
     }
 }

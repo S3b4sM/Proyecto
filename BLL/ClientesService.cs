@@ -45,5 +45,9 @@ namespace BLL
         {
             return clientesRepository.ActualizarMedidas(cliente);
         }
+        public Clientes ObtenerClientePorDocumento(int documento)
+        {
+            return clientesRepository.ObtenerClientePorDocumento(documento);
+        }
     }
 }
