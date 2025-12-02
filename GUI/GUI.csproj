@@ -183,11 +183,11 @@
     <Compile Include="UserControls\UserCAggMovs.Designer.cs">
       <DependentUpon>UserCAggMovs.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserCAggPedidos.cs">
+    <Compile Include="UserControls\UserCEditPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserCAggPedidos.Designer.cs">
-      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
+    <Compile Include="UserControls\UserCEditPedidos.Designer.cs">
+      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserCClientes.cs">
       <SubType>UserControl</SubType>
@@ -201,11 +201,11 @@
     <Compile Include="UserControls\UserCEditMovs.Designer.cs">
       <DependentUpon>UserCEditMovs.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserCEditPedidos.cs">
+    <Compile Include="UserControls\UserCAggPedidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserCEditPedidos.Designer.cs">
-      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    <Compile Include="UserControls\UserCAggPedidos.Designer.cs">
+      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserCHome.cs">
       <SubType>UserControl</SubType>
@@ -257,8 +257,8 @@
     <EmbeddedResource Include="UserControls\UserCAggMovs.resx">
       <DependentUpon>UserCAggMovs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserCAggPedidos.resx">
-      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserCEditPedidos.resx">
+      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserCClientes.resx">
       <DependentUpon>UserCClientes.cs</DependentUpon>
@@ -266,8 +266,8 @@
     <EmbeddedResource Include="UserControls\UserCEditMovs.resx">
       <DependentUpon>UserCEditMovs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserCEditPedidos.resx">
-      <DependentUpon>UserCEditPedidos.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserCAggPedidos.resx">
+      <DependentUpon>UserCAggPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserCHome.resx">
       <DependentUpon>UserCHome.cs</DependentUpon>

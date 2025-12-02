@@ -37,7 +37,7 @@ namespace GUI
             if (FormPrincipal != null)
             {
                 int id = FormPrincipal.usuario.Id;
-                FormPrincipal.AbrirUser(() => new UserCEditPedidos(id));
+                //FormPrincipal.AbrirUser(() => new UserCAggPedidos(id));
             }
             else
             {

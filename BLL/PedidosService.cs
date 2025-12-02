@@ -15,25 +15,25 @@ namespace BLL
     {
         PedidosRepository PedidosRepository = new PedidosRepository();
         private MovRepository movRepo = new MovRepository();
-        public bool AggPedido(int id_user, string desc, decimal precioT, decimal abono, string estado, DateTime fecha_inicio, DateTime fecha_entrega)
+        public bool AggPedido(Pedidos pedidos)
         {
             using (var scope = new TransactionScope())
             {
                 try
                 {
                     Pedidos nuevoPedido = PedidosRepository.AggPedido(
-                        id_user, desc, precioT, abono, estado, fecha_inicio, fecha_entrega
+                        pedidos
                     );
                     if (nuevoPedido == null)
                     {
                         return false;
                     }
-                    if (abono > 0)
+                    if (pedidos.abono > 0)
                     {
                         int idTipoIngreso = 1;
                         int idCatAbonoPedido = 17;
-                        String descripcion = $"Abono inicial para pedido. Desc: {desc.Substring(0, Math.Min(desc.Length, 20))}...";
-                        Movimiento movimientGuardado = movRepo.Agg(DateTime.Now, abono, idTipoIngreso, id_user, idCatAbonoPedido, descripcion);
+                        String descripcion = $"Abono inicial para pedido. Desc: {pedidos.descripcion.Substring(0, Math.Min(pedidos.descripcion.Length, 20))}...";
+                        Movimiento movimientGuardado = movRepo.Agg(DateTime.Now, pedidos.abono, idTipoIngreso, pedidos.id_usuario, idCatAbonoPedido, descripcion);
 
                         if (movimientGuardado == null)
                         {

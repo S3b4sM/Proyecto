@@ -13,23 +13,24 @@ namespace DAL
     public class PedidosRepository
     {
         private readonly string _connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)));User Id=proyecto;Password=sebas123;";
-        public Pedidos AggPedido(int id_user, string desc, decimal precioT, decimal abono, string estado, DateTime fecha_pedido, DateTime fecha_entrega)
+        public Pedidos AggPedido(Pedidos pedidos)
         {
             using (OracleConnection connection = new OracleConnection(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO PEDIDOS (ID_USER, OBSERVACIONES, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e ) RETURNING ID_PEDIDO INTO :p_id";
+                    string query = "INSERT INTO PEDIDOS (ID_USER, OBSERVACIONES, PRECIO_TOTAL, ABONO, ESTADO, FECHA_INICIO, FECHA_ENTREGA, ID_CLIENTE) VALUES (:p_id_user, :p_desc, :p_precioT, :p_abono, :p_estado, :p_fecha_p, :p_fecha_e, :p_id_cliente ) RETURNING ID_PEDIDO INTO :p_id";
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
-                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
-                        command.Parameters.Add(new OracleParameter("p_desc", desc));
-                        command.Parameters.Add(new OracleParameter("p_precioT", precioT));
-                        command.Parameters.Add(new OracleParameter("p_abono", abono));
-                        command.Parameters.Add(new OracleParameter("p_estado", estado));
-                        command.Parameters.Add(new OracleParameter("p_fecha_p", fecha_pedido));
-                        command.Parameters.Add(new OracleParameter("p_fecha_e", fecha_entrega));
+                        command.Parameters.Add(new OracleParameter("p_id_user", pedidos.id_usuario));
+                        command.Parameters.Add(new OracleParameter("p_desc", pedidos.descripcion));
+                        command.Parameters.Add(new OracleParameter("p_precioT", pedidos.precio_total));
+                        command.Parameters.Add(new OracleParameter("p_abono", pedidos.abono));
+                        command.Parameters.Add(new OracleParameter("p_estado", pedidos.estado));
+                        command.Parameters.Add(new OracleParameter("p_fecha_p", pedidos.fecha_pedido));
+                        command.Parameters.Add(new OracleParameter("p_fecha_e", pedidos.fecha_entrega));
+                        command.Parameters.Add(new OracleParameter("p_id_cliente", pedidos.id_cliente));
                         OracleParameter idParam = new OracleParameter("p_id", OracleDbType.Int32);
                         idParam.Direction = ParameterDirection.Output;
                         command.Parameters.Add(idParam);
@@ -37,18 +38,18 @@ namespace DAL
                         if (rowsAffected > 0)
                         {
                             int pedidoId = Convert.ToInt32(idParam.Value.ToString());
-                            Pedidos pedidos = new Pedidos
+                            Pedidos newpedidos = new Pedidos
                             {
                                 id_pedido = pedidoId,
-                                id_usuario = id_user,
-                                descripcion = desc,
-                                precio_total = precioT,
-                                abono = abono,
-                                estado = estado,
-                                fecha_pedido = fecha_pedido,
-                                fecha_entrega = fecha_entrega
+                                id_usuario = pedidos.id_usuario,
+                                descripcion = pedidos.descripcion,
+                                precio_total = pedidos.precio_total,
+                                abono = pedidos.abono,
+                                estado = pedidos.estado,
+                                fecha_pedido = pedidos.fecha_pedido,
+                                fecha_entrega = pedidos.fecha_entrega
                             };
-                            return pedidos;
+                            return newpedidos;
                         }
                         else
                         {

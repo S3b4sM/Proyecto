@@ -10,7 +10,6 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace GUI
@@ -19,6 +18,7 @@ namespace GUI
     {
         public readonly Usuario usuario;
         public NewButton currentBtn;
+        private Control pnlOverlay;
         public FormPrincipal(Usuario username)
         {
             InitializeComponent();
@@ -71,24 +71,6 @@ namespace GUI
         }
         int lx, ly;
         int sw, sh;
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            lx = this.Location.X;
-            ly = this.Location.Y;
-            sw = this.Size.Width;
-            sh = this.Size.Height;
-            btnMax.Visible = false;
-            btnRestart.Visible = true;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-        }
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(sw, sh);
-            this.Location = new Point(lx, ly);
-            btnMax.Visible = true;
-            btnRestart.Visible = false;
-        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea salir del programa?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -206,8 +188,6 @@ namespace GUI
             ly = this.Location.Y;
             sw = this.Size.Width;
             sh = this.Size.Height;
-            btnMax.Visible = false;
-            btnRestart.Visible = true;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
         }
@@ -227,7 +207,6 @@ namespace GUI
                 }
             }
         }
-
         private void ActivarBoton(object btnSender)
         {
             if (btnSender != null)
@@ -242,6 +221,38 @@ namespace GUI
             if (currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(255, 255, 255);
+            }
+        }
+        public void MostrarModal(UserControl controlModal)
+        {
+            Bitmap bmp = new Bitmap(this.ClientRectangle.Width, this.ClientRectangle.Height);
+            this.DrawToBitmap(bmp, this.ClientRectangle);
+            TableLayoutPanel layoutPanel = new TableLayoutPanel();
+            layoutPanel.Dock = DockStyle.Fill;
+            layoutPanel.BackgroundImage = bmp; 
+            layoutPanel.BackgroundImageLayout = ImageLayout.None;
+            layoutPanel.ColumnCount = 1;
+            layoutPanel.RowCount = 1;
+            layoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            layoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            controlModal.Anchor = AnchorStyles.None;
+            controlModal.Dock = DockStyle.None;
+            layoutPanel.Controls.Add(controlModal, 0, 0);
+            pnlOverlay = layoutPanel;
+            this.Controls.Add(pnlOverlay);
+            pnlOverlay.BringToFront();
+        }
+        public void CerrarModal()
+        {
+            if (pnlOverlay != null)
+            {
+                this.Controls.Remove(pnlOverlay);
+                if (pnlOverlay.BackgroundImage != null)
+                {
+                    pnlOverlay.BackgroundImage.Dispose();
+                }
+                pnlOverlay.Dispose();
+                pnlOverlay = null;
             }
         }
     }

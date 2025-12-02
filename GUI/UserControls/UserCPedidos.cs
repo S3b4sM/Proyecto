@@ -65,6 +65,12 @@ namespace GUI.UserControls
                 colFecha.DefaultCellStyle.Format = "dd/MM/yyyy";
                 colFecha.HeaderText = "Fecha Entrega";
             }
+            var colFechaCreacion = FindColumn(new[] { "fecha_inicio", "Fecha_Creacion", "FECHA_CREACION", "fechaCreacion", "FechaCreacion" });
+            if (colFechaCreacion != null)
+            {
+                colFechaCreacion.DefaultCellStyle.Format = "dd/MM/yyyy";
+                colFechaCreacion.HeaderText = "Fecha Creacion";
+            }
             var colIdPedido = FindColumn(new[] { "id_pedido", "ID_PEDIDO", "Id_Pedido" });
             if (colIdPedido != null) colIdPedido.HeaderText = "Numero Pedido";
             var coldocCliente = FindColumn(new[] { "doc_cliente", "DOC_CLIENTE", "Doc_Cliente" });
@@ -111,6 +117,43 @@ namespace GUI.UserControls
             dtHasta.Value = DateTime.Today;
             if (dtPedidos != null)
                 dtPedidos.DefaultView.RowFilter = "";
+        }
+        private void btnAggPedido_Click(object sender, EventArgs e)
+        {
+            FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+            if (formPrincipal != null)
+            {
+                UserCAggPedidos controlAgregar = new UserCAggPedidos(this.id, this.Recargar);
+                formPrincipal.MostrarModal(controlAgregar);
+            }
+        }
+        private void cbxFiltro_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cbxFiltro.SelectionLength = 0;
+            this.ActiveControl = null;
+        }
+        public void Recargar()
+        {
+            var dt = pedidosService.MostrarPedidos(this.id);
+            CargarPed(dt);
+        }
+        private void dgvPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            try
+            {
+                int idPedidoSeleccionado = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells["ID_PEDIDO"].Value);
+                FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+                if (formPrincipal != null)
+                {
+                    UserCEditPedidos controlAgregar = new UserCEditPedidos(this.id, this.Recargar);
+                    formPrincipal.MostrarModal(controlAgregar);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el pedido: " + ex.Message);
+            }
         }
     }
 }

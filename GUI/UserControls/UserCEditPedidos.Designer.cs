@@ -28,376 +28,359 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new FontAwesome.Sharp.IconButton();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtFechaE = new System.Windows.Forms.DateTimePicker();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtFechaI = new System.Windows.Forms.DateTimePicker();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAbono = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.dgvPedidos = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnActualizar = new FontAwesome.Sharp.IconButton();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnGuardar = new GUI.NewButton();
+            this.btnCancel = new GUI.NewButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCerrar = new GUI.NewButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtPrecioT = new System.Windows.Forms.TextBox();
+            this.txtAbono = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtEntrega = new System.Windows.Forms.DateTimePicker();
+            this.dtPedido = new System.Windows.Forms.DateTimePicker();
+            this.cbxCliente = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnEliminar = new GUI.NewButton();
             this.SuspendLayout();
             // 
-            // btnBack
+            // cbxEstado
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleLeft;
-            this.btnBack.IconColor = System.Drawing.Color.Black;
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.Location = new System.Drawing.Point(3, 3);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(76, 48);
-            this.btnBack.TabIndex = 34;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.cbxEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxEstado.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Location = new System.Drawing.Point(371, 99);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(169, 28);
+            this.cbxEstado.TabIndex = 65;
+            this.cbxEstado.SelectionChangeCommitted += new System.EventHandler(this.cbxEstado_SelectionChangeCommitted);
             // 
-            // panel6
+            // label8
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.dtFechaE);
-            this.panel6.Location = new System.Drawing.Point(557, 292);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(290, 126);
-            this.panel6.TabIndex = 40;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(366, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 25);
+            this.label8.TabIndex = 64;
+            this.label8.Text = "Estado";
             // 
-            // label3
+            // btnGuardar
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label3.Location = new System.Drawing.Point(33, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(242, 28);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "FECHA ENTREGA";
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
+            this.btnGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnGuardar.BorderRadius = 10;
+            this.btnGuardar.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnGuardar.IconColor = System.Drawing.Color.Black;
+            this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGuardar.Location = new System.Drawing.Point(394, 486);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(146, 33);
+            this.btnGuardar.TabIndex = 63;
+            this.btnGuardar.Text = "Actualizar Pedido";
+            this.btnGuardar.TextColor = System.Drawing.Color.Black;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // dtFechaE
+            // btnCancel
             // 
-            this.dtFechaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtFechaE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFechaE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaE.Location = new System.Drawing.Point(70, 57);
-            this.dtFechaE.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
-            this.dtFechaE.Name = "dtFechaE";
-            this.dtFechaE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtFechaE.Size = new System.Drawing.Size(165, 22);
-            this.dtFechaE.TabIndex = 5;
-            this.dtFechaE.Value = new System.DateTime(2025, 10, 11, 12, 40, 46, 0);
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.btnCancel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.Location = new System.Drawing.Point(31, 486);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(146, 33);
+            this.btnCancel.TabIndex = 62;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextColor = System.Drawing.Color.Black;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // groupBox1
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel5.Controls.Add(this.txtDescripcion);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(118, 292);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(290, 126);
-            this.panel5.TabIndex = 36;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
+            this.groupBox1.Location = new System.Drawing.Point(0, 60);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Size = new System.Drawing.Size(593, 1);
+            this.groupBox1.TabIndex = 61;
+            this.groupBox1.TabStop = false;
             // 
-            // txtDescripcion
+            // btnCerrar
             // 
-            this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txtDescripcion.Location = new System.Drawing.Point(11, 37);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(270, 83);
-            this.txtDescripcion.TabIndex = 10;
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 8;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.Remove;
+            this.btnCerrar.IconColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrar.IconSize = 32;
+            this.btnCerrar.Location = new System.Drawing.Point(528, 20);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(53, 34);
+            this.btnCerrar.TabIndex = 60;
+            this.btnCerrar.TextColor = System.Drawing.Color.White;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox5.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(80)))));
+            this.groupBox5.Location = new System.Drawing.Point(-1, 470);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(597, 1);
+            this.groupBox5.TabIndex = 59;
+            this.groupBox5.TabStop = false;
+            // 
+            // txtPrecioT
+            // 
+            this.txtPrecioT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtPrecioT.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.txtPrecioT.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPrecioT.Location = new System.Drawing.Point(31, 431);
+            this.txtPrecioT.Name = "txtPrecioT";
+            this.txtPrecioT.Size = new System.Drawing.Size(220, 23);
+            this.txtPrecioT.TabIndex = 58;
+            this.txtPrecioT.Text = "$ 0.00";
+            this.txtPrecioT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotal_KeyPress);
+            this.txtPrecioT.Leave += new System.EventHandler(this.txtTotal_Leave);
+            // 
+            // txtAbono
+            // 
+            this.txtAbono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAbono.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.txtAbono.ForeColor = System.Drawing.Color.DimGray;
+            this.txtAbono.Location = new System.Drawing.Point(371, 431);
+            this.txtAbono.Name = "txtAbono";
+            this.txtAbono.Size = new System.Drawing.Size(169, 23);
+            this.txtAbono.TabIndex = 57;
+            this.txtAbono.Text = "$ 0.00";
+            this.txtAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbono_KeyPress);
+            this.txtAbono.Leave += new System.EventHandler(this.txtAbono_Leave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label7.Location = new System.Drawing.Point(42, 5);
+            this.label7.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(366, 403);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(200, 28);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "DESCRIPCION";
+            this.label7.Size = new System.Drawing.Size(85, 25);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Abonado";
             // 
-            // panel3
+            // label6
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.dtFechaI);
-            this.panel3.Location = new System.Drawing.Point(557, 150);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(290, 126);
-            this.panel3.TabIndex = 37;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 403);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 25);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Precio Total";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtDescripcion.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.txtDescripcion.Location = new System.Drawing.Point(31, 255);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(509, 125);
+            this.txtDescripcion.TabIndex = 54;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label4.Location = new System.Drawing.Point(49, 8);
+            this.label4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 227);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(204, 28);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "FECHA INICIO";
+            this.label4.Size = new System.Drawing.Size(197, 25);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Descripcion del pedido";
             // 
-            // dtFechaI
+            // label3
             // 
-            this.dtFechaI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtFechaI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFechaI.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaI.Location = new System.Drawing.Point(70, 68);
-            this.dtFechaI.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
-            this.dtFechaI.Name = "dtFechaI";
-            this.dtFechaI.Size = new System.Drawing.Size(165, 22);
-            this.dtFechaI.TabIndex = 5;
-            this.dtFechaI.Value = new System.DateTime(2025, 10, 11, 12, 40, 46, 0);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtAbono);
-            this.panel2.Location = new System.Drawing.Point(118, 150);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(290, 126);
-            this.panel2.TabIndex = 38;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(366, 144);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 25);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Fecha Entrega";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label2.Location = new System.Drawing.Point(83, 8);
+            this.label2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 28);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "ABONO";
+            this.label2.Size = new System.Drawing.Size(122, 25);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Fecha Pedido";
             // 
-            // txtAbono
+            // dtEntrega
             // 
-            this.txtAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAbono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAbono.Location = new System.Drawing.Point(92, 68);
-            this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(92, 22);
-            this.txtAbono.TabIndex = 4;
-            this.txtAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbono_KeyPress);
-            this.txtAbono.Leave += new System.EventHandler(this.txtAbono_Leave);
+            this.dtEntrega.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.dtEntrega.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.dtEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtEntrega.Location = new System.Drawing.Point(371, 172);
+            this.dtEntrega.Name = "dtEntrega";
+            this.dtEntrega.Size = new System.Drawing.Size(169, 23);
+            this.dtEntrega.TabIndex = 50;
             // 
-            // panel1
+            // dtPedido
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbxEstado);
-            this.panel1.Location = new System.Drawing.Point(557, 7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(290, 124);
-            this.panel1.TabIndex = 39;
+            this.dtPedido.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.dtPedido.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.dtPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPedido.Location = new System.Drawing.Point(31, 172);
+            this.dtPedido.Name = "dtPedido";
+            this.dtPedido.Size = new System.Drawing.Size(220, 23);
+            this.dtPedido.TabIndex = 49;
+            // 
+            // cbxCliente
+            // 
+            this.cbxCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.cbxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxCliente.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.cbxCliente.FormattingEnabled = true;
+            this.cbxCliente.Location = new System.Drawing.Point(31, 99);
+            this.cbxCliente.Name = "cbxCliente";
+            this.cbxCliente.Size = new System.Drawing.Size(220, 28);
+            this.cbxCliente.TabIndex = 48;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.label1.Location = new System.Drawing.Point(93, 16);
+            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 28);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "ESTADO";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Cliente";
             // 
-            // cbxEstado
+            // label5
             // 
-            this.cbxEstado.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pendiente",
-            "En Proceso",
-            "Listo",
-            "Entregado"});
-            this.cbxEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxEstado.Location = new System.Drawing.Point(98, 66);
-            this.cbxEstado.Name = "cbxEstado";
-            this.cbxEstado.Size = new System.Drawing.Size(116, 24);
-            this.cbxEstado.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(162)))), ((int)(((byte)(200)))));
-            this.panel4.Controls.Add(this.lblTipo);
-            this.panel4.Controls.Add(this.txtTotal);
-            this.panel4.Location = new System.Drawing.Point(118, 7);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(290, 124);
-            this.panel4.TabIndex = 35;
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.lblTipo.Location = new System.Drawing.Point(47, 9);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(211, 28);
-            this.lblTipo.TabIndex = 9;
-            this.lblTipo.Text = "PRECIO TOTAL";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtTotal.Location = new System.Drawing.Point(92, 68);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(105, 22);
-            this.txtTotal.TabIndex = 5;
-            this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotal_KeyPress);
-            this.txtTotal.Leave += new System.EventHandler(this.txtTotal_Leave);
-            // 
-            // dgvPedidos
-            // 
-            this.dgvPedidos.AllowUserToAddRows = false;
-            this.dgvPedidos.AllowUserToResizeRows = false;
-            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
-            this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(14, 491);
-            this.dgvPedidos.MultiSelect = false;
-            this.dgvPedidos.Name = "dgvPedidos";
-            this.dgvPedidos.ReadOnly = true;
-            this.dgvPedidos.RowHeadersVisible = false;
-            this.dgvPedidos.RowHeadersWidth = 51;
-            this.dgvPedidos.RowTemplate.ReadOnly = true;
-            this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(911, 116);
-            this.dgvPedidos.TabIndex = 41;
-            this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellClick);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(213, 42);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Editar Pedido";
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.btnEliminar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.btnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEliminar.BorderRadius = 10;
+            this.btnEliminar.BorderSize = 0;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnEliminar.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnEliminar.IconColor = System.Drawing.Color.Black;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(753, 422);
+            this.btnEliminar.Location = new System.Drawing.Point(209, 486);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(111, 67);
-            this.btnEliminar.TabIndex = 43;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEliminar.Size = new System.Drawing.Size(146, 33);
+            this.btnEliminar.TabIndex = 66;
+            this.btnEliminar.Text = "Eliminar Pedido";
+            this.btnEliminar.TextColor = System.Drawing.Color.Red;
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(232)))), ((int)(((byte)(216)))));
-            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnActualizar.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
-            this.btnActualizar.IconColor = System.Drawing.Color.Black;
-            this.btnActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActualizar.Location = new System.Drawing.Point(118, 422);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(111, 67);
-            this.btnActualizar.TabIndex = 42;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // UserCPedidos
+            // UserCEditPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(233)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(246)))));
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.dgvPedidos);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.btnBack);
-            this.Name = "UserCPedidos";
-            this.Size = new System.Drawing.Size(935, 610);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
+            this.Controls.Add(this.cbxEstado);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.txtPrecioT);
+            this.Controls.Add(this.txtAbono);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dtEntrega);
+            this.Controls.Add(this.dtPedido);
+            this.Controls.Add(this.cbxCliente);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label5);
+            this.Name = "UserCEditPedidos";
+            this.Size = new System.Drawing.Size(593, 536);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton btnBack;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtFechaE;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtFechaI;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtAbono;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxEstado;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblTipo;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.DataGridView dgvPedidos;
-        private FontAwesome.Sharp.IconButton btnEliminar;
-        private FontAwesome.Sharp.IconButton btnActualizar;
+        private System.Windows.Forms.Label label8;
+        private NewButton btnGuardar;
+        private NewButton btnCancel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private NewButton btnCerrar;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtPrecioT;
+        private System.Windows.Forms.TextBox txtAbono;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtEntrega;
+        private System.Windows.Forms.DateTimePicker dtPedido;
+        private System.Windows.Forms.ComboBox cbxCliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private NewButton btnEliminar;
     }
 }

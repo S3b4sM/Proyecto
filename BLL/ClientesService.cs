@@ -37,5 +37,9 @@ namespace BLL
         {
             return clientesRepository.ClientesMensuales(id_user);
         }
+        public DataTable ObtenerlistaClientes(int id_user)
+        {
+            return clientesRepository.ObtenerClientes(id_user);
+        }
     }
 }

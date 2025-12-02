@@ -199,5 +199,31 @@ namespace DAL
                 }
             }
         }
+        public DataTable ObtenerClientes(int id_user)
+        {
+            DataTable dataTable = new DataTable();
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT DOCUMENTO, NOMBRE FROM CLIENTES WHERE ID_USUARIO = :p_id_user ORDER BY NOMBRE ASC";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_user", id_user));
+                        using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener clientes para combo: " + ex.Message);
+                    return null;
+                }
+            }
+            return dataTable;
+        }
     }
 }
