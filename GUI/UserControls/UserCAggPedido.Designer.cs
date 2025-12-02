@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class UserCAggPedidos
+    partial class UserCAggPedido
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

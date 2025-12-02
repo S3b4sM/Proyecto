@@ -123,7 +123,7 @@ namespace GUI.UserControls
             FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
             if (formPrincipal != null)
             {
-                UserCAggPedidos controlAgregar = new UserCAggPedidos(this.id, this.Recargar);
+                UserCAggPedido controlAgregar = new UserCAggPedido(this.id, this.Recargar);
                 formPrincipal.MostrarModal(controlAgregar);
             }
         }
@@ -140,13 +140,16 @@ namespace GUI.UserControls
         private void dgvPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
             try
             {
                 int idPedidoSeleccionado = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells["ID_PEDIDO"].Value);
+
                 FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+
                 if (formPrincipal != null)
                 {
-                    UserCEditPedidos controlAgregar = new UserCEditPedidos(this.id, this.Recargar);
+                    UserCEditPedidos controlAgregar = new UserCEditPedidos(this.id, this.Recargar, idPedidoSeleccionado);
                     formPrincipal.MostrarModal(controlAgregar);
                 }
             }

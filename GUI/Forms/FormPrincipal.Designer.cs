@@ -34,7 +34,6 @@
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnEditMovs = new GUI.NewButton();
-            this.btnEditPedidos = new GUI.NewButton();
             this.btnEditClientes = new GUI.NewButton();
             this.btnCerrar = new GUI.NewButton();
             this.btnInicio = new GUI.NewButton();
@@ -91,7 +90,6 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.Controls.Add(this.btnEditMovs);
-            this.panelMenu.Controls.Add(this.btnEditPedidos);
             this.panelMenu.Controls.Add(this.btnEditClientes);
             this.panelMenu.Controls.Add(this.btnCerrar);
             this.panelMenu.Controls.Add(this.btnInicio);
@@ -134,34 +132,6 @@
             this.btnEditMovs.UseVisualStyleBackColor = false;
             this.btnEditMovs.Visible = false;
             this.btnEditMovs.Click += new System.EventHandler(this.btnEditMovs_Click);
-            // 
-            // btnEditPedidos
-            // 
-            this.btnEditPedidos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
-            this.btnEditPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(236)))), ((int)(((byte)(200)))));
-            this.btnEditPedidos.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEditPedidos.BorderRadius = 20;
-            this.btnEditPedidos.BorderSize = 0;
-            this.btnEditPedidos.FlatAppearance.BorderSize = 0;
-            this.btnEditPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(245)))), ((int)(((byte)(238)))));
-            this.btnEditPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditPedidos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnEditPedidos.ForeColor = System.Drawing.Color.Black;
-            this.btnEditPedidos.IconChar = FontAwesome.Sharp.IconChar.Tshirt;
-            this.btnEditPedidos.IconColor = System.Drawing.Color.Black;
-            this.btnEditPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditPedidos.IconSize = 32;
-            this.btnEditPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEditPedidos.Location = new System.Drawing.Point(9, 607);
-            this.btnEditPedidos.Name = "btnEditPedidos";
-            this.btnEditPedidos.Size = new System.Drawing.Size(155, 56);
-            this.btnEditPedidos.TabIndex = 9;
-            this.btnEditPedidos.Text = "Editar Pedidos";
-            this.btnEditPedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEditPedidos.TextColor = System.Drawing.Color.Black;
-            this.btnEditPedidos.UseVisualStyleBackColor = false;
-            this.btnEditPedidos.Visible = false;
             // 
             // btnEditClientes
             // 
@@ -443,6 +413,5 @@
         private NewButton btnCerrar;
         private NewButton btnEditClientes;
         private NewButton btnEditMovs;
-        private NewButton btnEditPedidos;
     }
 }

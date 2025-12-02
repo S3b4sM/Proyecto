@@ -41,5 +41,9 @@ namespace BLL
         {
             return clientesRepository.ObtenerClientes(id_user);
         }
+        public bool ActualizarMedidas(Clientes cliente)
+        {
+            return clientesRepository.ActualizarMedidas(cliente);
+        }
     }
 }

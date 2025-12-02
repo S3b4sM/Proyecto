@@ -47,7 +47,6 @@ namespace GUI.UserControls
             };
             var colId = FindColumn(new string[] { "Id_usuario", "ID", "Id" });
             if (colId != null) colId.Visible = false;
-            lblActu.Text = $"Actualizar la informacion del cliente";
         }
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -88,6 +87,7 @@ namespace GUI.UserControls
             {
                 DataGridViewRow fila = dgvClientes.SelectedRows[0];
                 documento = Convert.ToInt32(fila.Cells["DOCUMENTO"].Value);
+                txtDoc.Text = fila.Cells["DOCUMENTO"].Value.ToString();
                 txtNombre.Text = fila.Cells["NOMBRE"].Value.ToString();
                 txtTel.Text = fila.Cells["TELEFONO"].Value.ToString();
                 txtDireccion.Text = fila.Cells["DIRECCION"].Value.ToString();
@@ -97,6 +97,7 @@ namespace GUI.UserControls
                 MessageBox.Show("Por favor, seleccione una fila para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #region editar clietnes
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (documento == -1)
@@ -136,7 +137,7 @@ namespace GUI.UserControls
                 var resultado = MessageBox.Show("¿Está seguro de que desea actualizar este cliente?", "Confirmar actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    int docActualizar = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["DOCUMENTO"].Value);
+                    string docActualizar = txtDoc.Text.Trim();
                     string nuevoNombre = txtNombre.Text.Trim();
                     string nuevoTel = txtTel.Text.Trim();
                     string nuevaDireccion = txtDireccion.Text.Trim();
@@ -145,6 +146,7 @@ namespace GUI.UserControls
                         documento = docActualizar,
                         nombre = nuevoNombre,
                         telefono = nuevoTel,
+                        id_user = this.id,
                         direccion = nuevaDireccion
                     };
                     bool exito = clientesService.ActualizarCliente(clientes);
@@ -152,10 +154,7 @@ namespace GUI.UserControls
                     {
                         MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         llenarClientes(clientesService.ObtenerClientes(this.id));
-                        documento = -1;
-                        txtNombre.Clear();
-                        txtTel.Clear();
-                        txtDireccion.Clear();
+                        LimpiarActu();
                     }
                     else
                     {
@@ -163,11 +162,18 @@ namespace GUI.UserControls
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void LimpiarActu()
+        {
+            documento = -1;
+            txtDoc.Clear();
+            txtNombre.Clear();
+            txtTel.Clear();
+            txtDireccion.Clear();
         }
         private void txtNotas_Enter(object sender, EventArgs e)
         {
@@ -194,6 +200,7 @@ namespace GUI.UserControls
             txtNotas.Text = "Añadir notas sobre el cliente...";
             txtNotas.ForeColor = Color.DimGray;
         }
+        #endregion
         public void CambiarModo(bool modoEdicion)
         {
             if (modoEdicion)
@@ -211,9 +218,88 @@ namespace GUI.UserControls
         }
         private void btnAggCliente_Click(object sender, EventArgs e)
         {
+            txtName.Focus();
             PanelAgg.Visible = true;
             PanelEdit.Visible = false;
             btnAggCliente.Visible = false;
+        }
+        #region agregar cliente
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try 
+            { 
+                if (string.IsNullOrWhiteSpace(txtDocumento.Text) ||
+                string.IsNullOrWhiteSpace(txtName.Text) || 
+                string.IsNullOrWhiteSpace(txtTele.Text) || 
+                string.IsNullOrWhiteSpace(txtDir.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios (Documento, Nombre, Apellido, Teléfono).", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Clientes nuevoCliente = new Clientes
+                {
+                    id_user = this.id,
+                    documento = txtDocumento.Text.Trim(),
+                    nombre = txtName.Text.Trim(),
+                    telefono = txtTele.Text.Trim(),
+                    direccion = txtDir.Text.Trim()
+                };
+                bool exito = clientesService.AggClientes(nuevoCliente);
+                if (exito)
+                {
+                    MessageBox.Show("Cliente registrado correctamente. Ahora puede agregar las medidas.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                    llenarClientes(clientesService.ObtenerClientes(this.id));
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo registrar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("ORA-00001") || ex.Message.Contains("unique constraint"))
+                {
+                    MessageBox.Show("Ya existe un cliente registrado con ese número de documento.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void Limpiar()
+        {
+            txtDocumento.Clear();
+            txtName.Clear();
+            txtTele.Clear();
+            txtDir.Clear();
+            txtNots.Text = "Añadir notas sobre el cliente...";
+            txtNots.ForeColor = Color.DimGray;
+        }   
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+        #endregion
+        public void Recargar()
+        {
+            var dt = clientesService.ObtenerClientes(this.id);
+            llenarClientes(dt);
+        }
+        private void btnMedidas_Click(object sender, EventArgs e)
+        {
+            FormPrincipal formPrincipal = this.FindForm() as FormPrincipal;
+            if (formPrincipal != null)
+            {
+                if (documento <= 0)
+                {
+                    MessageBox.Show("Por favor, seleccione un cliente para agregar medidas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                UserCMedidas controlAgregar = new UserCMedidas(documento, this.Recargar);
+                formPrincipal.MostrarModal(controlAgregar);
+            }
         }
     }
 }

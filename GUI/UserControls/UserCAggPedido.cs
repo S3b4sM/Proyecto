@@ -16,14 +16,14 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class UserCAggPedidos : UserControl
+    public partial class UserCAggPedido : UserControl
     {
         decimal monto;
         public readonly int Id;
         private Action onPedidoGuardado;
         PedidosService pedidosService = new PedidosService();
         ClientesService clientesService = new ClientesService();
-        public UserCAggPedidos(int id, Action onGuardado)
+        public UserCAggPedido(int id, Action onGuardado)
         {
             InitializeComponent();
             this.Id = id;
@@ -241,107 +241,3 @@ namespace GUI
         }
     }
 }
-//private void btnActualizar_Click(object sender, EventArgs e)
-//{
-//    try
-//    {
-//        if(idPedido == -1)
-//        {
-//            MessageBox.Show("Seleccione un pedido para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//            return;
-//        }
-//        decimal AbonoD;
-//        string AbonoS = txtAbono.Text.Replace(',', '.');
-//        if (!decimal.TryParse(AbonoS, NumberStyles.Any, CultureInfo.InvariantCulture, out AbonoD) || AbonoD <= 0)
-//        {
-//            MessageBox.Show("El valor del abono no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            txtAbono.Focus();
-//            return;
-//        }
-//        decimal TotalD;
-//        string TotalS = txtTotal.Text.Replace(',', '.');
-//        if (!decimal.TryParse(TotalS, NumberStyles.Any, CultureInfo.InvariantCulture, out TotalD) || TotalD <= 0)
-//        {
-//            MessageBox.Show("El valor del total no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            txtTotal.Focus();
-//            return;
-//        }
-//        if (AbonoD > TotalD)
-//        {
-//            MessageBox.Show("El monto del abono no puede superar el precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//            txtAbono.Focus();
-//            return;
-//        }
-//        var messageBoxResult = MessageBox.Show("¿Está seguro de que desea actualizar este Pedido?", "Confirmar actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-//        if (messageBoxResult == DialogResult.No)
-//        {
-//            return;
-//        }
-//        string estadoSeleccionado = cbxEstado.Text;
-//        var pedido = new Pedidos
-//        {
-//            id_pedido = idPedido,
-//            id_usuario = this.Id,
-//            descripcion = txtDescripcion.Text,
-//            abono = AbonoD,
-//            precio_total = TotalD,
-//            estado = estadoSeleccionado,
-//            fecha_pedido = dtFechaI.Value,
-//            fecha_entrega = dtFechaE.Value
-//        };
-//        bool resultado = pedidosService.ActualizarPedido(pedido);
-//        if (resultado)
-//        {
-//            MessageBox.Show("Pedido actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-//            CargarPed(pedidosService.MostrarPedidos(Id));
-//            Limpiar();
-//        }
-//       else
-//       {
-//            MessageBox.Show("No se pudo actualizar el pedido. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//       }
-//    }
-//    catch (InvalidOperationException ex)
-//    {
-//        Console.WriteLine("Error crítico: " + ex.Message);
-//        MessageBox.Show("No se puede actualizar: El monto del abono supera al precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//    }
-//    catch (Exception x)
-//    {
-//        Console.WriteLine("Error crítico: " + x.Message);
-//        MessageBox.Show("Ocurrió un error inesperado al actualizar: " + x.Message, "Error del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//    }
-//}
-//private void btnEliminar_Click(object sender, EventArgs e)
-//{
-//    try
-//    {
-//        if(idPedido == -1)
-//        {
-//            MessageBox.Show("Seleccione un pedido para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//            return;
-//        }
-//        var messageBoxResult = MessageBox.Show("¿Está seguro de que desea eliminar este Pedido?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-//        if (messageBoxResult == DialogResult.No)
-//        {
-//            return;
-//        }
-//        else
-//        {
-//            bool resultado = pedidosService.EliminarPedido(idPedido);
-//            if (resultado)
-//            {
-//                MessageBox.Show("Pedido eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-//                CargarPed(pedidosService.MostrarPedidos(Id));
-//            }
-//            else
-//            {
-//                MessageBox.Show("No se pudo eliminar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
-//        }
-//    }
-//    catch (Exception)
-//    {
-//        throw;
-//    }
-//}

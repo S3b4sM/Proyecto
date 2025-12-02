@@ -26,6 +26,7 @@ namespace DAL
 
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
+                        command.BindByName = true;
                         command.Parameters.Add("p_doc", OracleDbType.Varchar2).Value = cliente.documento;
                         command.Parameters.Add("p_nom", OracleDbType.Varchar2).Value = cliente.nombre;
                         command.Parameters.Add("p_tel", OracleDbType.Varchar2).Value = cliente.telefono;
@@ -224,6 +225,55 @@ namespace DAL
                 }
             }
             return dataTable;
+        }
+        public bool ActualizarMedidas(Clientes cliente)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"UPDATE CLIENTES SET 
+                                CONTORNO_BUSTO = :p_busto,
+                                CONTORNO_CINTURA = :p_cintura,
+                                CONTORNO_CADERA = :p_cadera,
+                                ANCHO_ESPALDA = :p_ancho_esp,
+                                TALLE_DELANTERO = :p_talle_del,
+                                TALLE_ESPALDA = :p_talle_esp,
+                                LARGO_BRAZO = :p_largo_brazo,
+                                CONTORNO_CUELLO = :p_cuello,
+                                CONTORNO_MUNECA = :p_muneca,
+                                CONTORNO_BRAZO_BICEPS = :p_biceps,
+                                FECHA_ULTIMA_MEDIDA = SYSDATE
+                             WHERE DOCUMENTO = :p_documento";
+
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        object Val(decimal? v) => v.HasValue ? (object)v.Value : DBNull.Value;
+
+                        command.Parameters.Add("p_busto", OracleDbType.Decimal).Value = Val(cliente.contorno_busto);
+                        command.Parameters.Add("p_cintura", OracleDbType.Decimal).Value = Val(cliente.contorno_cintura);
+                        command.Parameters.Add("p_cadera", OracleDbType.Decimal).Value = Val(cliente.contorno_cadera);
+                        command.Parameters.Add("p_ancho_esp", OracleDbType.Decimal).Value = Val(cliente.ancho_espalda);
+                        command.Parameters.Add("p_talle_del", OracleDbType.Decimal).Value = Val(cliente.talle_delantero);
+                        command.Parameters.Add("p_talle_esp", OracleDbType.Decimal).Value = Val(cliente.talle_espalda);
+                        command.Parameters.Add("p_largo_brazo", OracleDbType.Decimal).Value = Val(cliente.largo_brazo);
+                        command.Parameters.Add("p_cuello", OracleDbType.Decimal).Value = Val(cliente.contorno_cuello);
+                        command.Parameters.Add("p_muneca", OracleDbType.Decimal).Value = Val(cliente.contorno_muneca);
+                        command.Parameters.Add("p_biceps", OracleDbType.Decimal).Value = Val(cliente.contorno_brazo_biceps);
+
+                        command.Parameters.Add("p_documento", OracleDbType.Varchar2).Value = cliente.documento;
+
+                        int filas = command.ExecuteNonQuery();
+                        return filas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al guardar medidas: " + ex.Message);
+                    return false;
+                }
+            }
         }
     }
 }

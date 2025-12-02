@@ -195,5 +195,30 @@ namespace DAL
                 }
             }
         }
+        public DataTable PedidoPorId(int id_pedido)
+        {
+            using (OracleConnection connection = new OracleConnection(_connectionString))
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM PEDIDOS WHERE ID_PEDIDO = :p_id_pedido";
+
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("p_id_pedido", id_pedido));
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        adapter.Fill(dt);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener pedido por ID: " + ex.Message);
+                    return null;
+                }
+                return dt;
+            }
+        }
     }
 }

@@ -15,18 +15,24 @@ namespace GUI
 {
     public partial class UserCEditPedidos : UserControl
     {
+        private int idPedido = -1;
+        public readonly int Id;
+        private Action onPedidoGuardado;
         PedidosService pedidosService = new PedidosService();
         ClientesService clientesService = new ClientesService();
-        public readonly int Id;
-        public int idPedido = -1;
-        private Action onPedidoGuardado;
-        public UserCEditPedidos(int id, Action onGuardado)
+        public UserCEditPedidos(int id, Action onGuardado, int idPedidoEdit = -1)
         {
             InitializeComponent();
-            this.Id = id;
+            Id = id;
+            onPedidoGuardado = onGuardado;
             LlenarCbxEstado();
             LlenarcbxCliente();
-            onPedidoGuardado = onGuardado;
+            dtEntrega.Value = DateTime.Today;
+            dtPedido.Value = DateTime.Today.AddDays(7);
+            if (idPedidoEdit > 0)
+            {
+                CargarDatos(idPedidoEdit);
+            }
         }
         #region Funcionalidades del Form
         private void cbxEstado_SelectionChangeCommitted(object sender, EventArgs e)
@@ -122,59 +128,75 @@ namespace GUI
             {
                 if (idPedido == -1)
                 {
-                    MessageBox.Show("Seleccione un pedido para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se ha cargado ningún pedido para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                decimal AbonoD;
-                string AbonoS = txtAbono.Text.Replace(',', '.');
-                if (!decimal.TryParse(AbonoS, NumberStyles.Any, CultureInfo.InvariantCulture, out AbonoD) || AbonoD <= 0)
+
+                if (Convert.ToInt32(cbxEstado.SelectedValue) == 0)
                 {
-                    MessageBox.Show("El valor del abono no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtAbono.Focus();
+                    MessageBox.Show("Por favor, seleccione un Estado válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                decimal TotalD;
-                string TotalS = txtPrecioT.Text.Replace(',', '.');
-                if (!decimal.TryParse(TotalS, NumberStyles.Any, CultureInfo.InvariantCulture, out TotalD) || TotalD <= 0)
+
+                if (Convert.ToInt32(cbxCliente.SelectedValue) == 0) 
                 {
-                    MessageBox.Show("El valor del total no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPrecioT.Focus();
+                    MessageBox.Show("Por favor, seleccione un Cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (AbonoD > TotalD)
+                decimal precioT;
+                string precioTS = txtPrecioT.Text.Replace(',', '.');
+                if (!decimal.TryParse(precioTS, NumberStyles.Any, CultureInfo.InvariantCulture, out precioT) || precioT <= 0)
                 {
-                    MessageBox.Show("El monto del abono no puede superar el precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtAbono.Focus();
+                    MessageBox.Show("Por favor, ingrese un precio total válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                decimal abono;
+                string abonoS = txtAbono.Text.Replace(',', '.');
+                if (!decimal.TryParse(abonoS, NumberStyles.Any, CultureInfo.InvariantCulture, out abono) || abono < 0)
+                {
+                    MessageBox.Show("Por favor, ingrese un abono válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (abono > precioT)
+                {
+                    MessageBox.Show("El abono no puede ser mayor que el precio total del pedido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 var messageBoxResult = MessageBox.Show("¿Está seguro de que desea actualizar este Pedido?", "Confirmar actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (messageBoxResult == DialogResult.No)
+                if (messageBoxResult == DialogResult.No) return;
+                string estadoTexto = "";
+                foreach (var item in cbxEstado.Items)
                 {
-                    return;
+                    if (item == cbxEstado.SelectedItem)
+                    {
+                        estadoTexto = (string)item.GetType().GetProperty("Nombre").GetValue(item, null);
+                        break;
+                    }
                 }
-                string estadoSeleccionado = cbxEstado.Text;
-                var pedido = new Pedidos
+                Pedidos pedidoEditado = new Pedidos
                 {
-                    id_pedido = idPedido,
+                    id_pedido = this.idPedido,
                     id_usuario = this.Id,
+                    id_cliente = Convert.ToInt32(cbxCliente.SelectedValue),
                     descripcion = txtDescripcion.Text,
-                    abono = AbonoD,
-                    precio_total = TotalD,
-                    estado = estadoSeleccionado,
+                    precio_total = precioT,
+                    abono = abono,
+                    estado = estadoTexto, 
                     fecha_pedido = dtPedido.Value,
                     fecha_entrega = dtEntrega.Value
                 };
-                bool resultado = pedidosService.ActualizarPedido(pedido);
-                if (resultado)
+                bool exito = pedidosService.ActualizarPedido(pedidoEditado);
+
+                if (exito)
                 {
                     MessageBox.Show("Pedido actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    onPedidoGuardado?.Invoke();
-                    Limpiar();
-                    btnCerrar.PerformClick();
+                    onPedidoGuardado?.Invoke(); 
+                    Cerrar(); 
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo actualizar el pedido. Verifique los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se pudo actualizar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (InvalidOperationException ex)
@@ -193,8 +215,7 @@ namespace GUI
         {
             var estado = new List<object>
             {
-                    
-                new { Valor = 0, Nombre = "Estado" }, 
+                new { Valor = 0, Nombre = "Estado" },
                 new { Valor = 1, Nombre = "Pendiente" },
                 new { Valor = 2, Nombre = "En Proceso" },
                 new { Valor = 3, Nombre = "Listo" },
@@ -217,27 +238,21 @@ namespace GUI
         {
             Cerrar();
         }
-        private void Limpiar()
-        {
-            txtDescripcion.Clear();
-            txtAbono.Text = "0.00";
-            txtPrecioT.Text = "0.00";
-            cbxEstado.SelectedIndex = 0;
-            dtPedido.Value = DateTime.Today;
-            dtEntrega.Value = DateTime.Today.AddDays(7);
-        }
         private void LlenarcbxCliente()
         {
             DataTable dtClientes = clientesService.ObtenerlistaClientes(Id);
             if (dtClientes != null && dtClientes.Rows.Count > 0)
             {
                 DataRow row = dtClientes.NewRow();
-                row["DOCUMENTO"] = 0;
+                if (dtClientes.Columns["DOCUMENTO"].DataType == typeof(string))
+                    row["DOCUMENTO"] = "0";
+                else
+                    row["DOCUMENTO"] = 0;
                 row["NOMBRE"] = "Seleccione un Cliente...";
                 dtClientes.Rows.InsertAt(row, 0);
                 cbxCliente.DataSource = dtClientes;
-                cbxCliente.DisplayMember = "NOMBRE";
-                cbxCliente.ValueMember = "DOCUMENTO";
+                cbxCliente.DisplayMember = "NOMBRE"; 
+                cbxCliente.ValueMember = "DOCUMENTO"; 
                 cbxCliente.SelectedIndex = 0;
             }
             else
@@ -248,6 +263,74 @@ namespace GUI
                 cbxCliente.SelectedIndex = 0;
             }
         }
+        private void CargarDatos(int idPedidoEdit)
+        {
+            DataTable dt = pedidosService.PedidoPorId(idPedidoEdit);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                this.idPedido = idPedidoEdit;
+                txtDescripcion.Text = row["OBSERVACIONES"].ToString();
+                decimal abono = Convert.ToDecimal(row["ABONO"]);
+                decimal total = Convert.ToDecimal(row["PRECIO_TOTAL"]);
+                txtAbono.Text = abono.ToString("0.00", CultureInfo.InvariantCulture);
+                txtAbono.ForeColor = Color.Black;
+                txtPrecioT.Text = total.ToString("0.00", CultureInfo.InvariantCulture);
+                txtPrecioT.ForeColor = Color.Black;
+                if (row["FECHA_INICIO"] != DBNull.Value)
+                    dtPedido.Value = Convert.ToDateTime(row["FECHA_INICIO"]);
+                if (row["FECHA_ENTREGA"] != DBNull.Value)
+                    dtEntrega.Value = Convert.ToDateTime(row["FECHA_ENTREGA"]);
+                string estadoDB = row["ESTADO"].ToString();
+                cbxEstado.SelectedIndex = -1;
+                foreach (var item in cbxEstado.Items)
+                {
+                    string nombreItem = "";
+                    if (item.GetType().GetProperty("Nombre") != null)
+                        nombreItem = item.GetType().GetProperty("Nombre").GetValue(item, null).ToString();
 
+                    if (nombreItem == estadoDB)
+                    {
+                        cbxEstado.SelectedItem = item;
+                        break;
+                    }
+                }
+                if (row.Table.Columns.Contains("ID_CLIENTE") && row["ID_CLIENTE"] != DBNull.Value)
+                {
+                    var idCliente = row["ID_CLIENTE"]; 
+                    cbxCliente.SelectedValue = idCliente;
+                }
+            }
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idPedido == -1)
+                {
+                    MessageBox.Show("No hay pedido seleccionado para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var confirmacion = MessageBox.Show("¿Está seguro de que desea eliminar este pedido permanentemente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirmacion == DialogResult.Yes)
+                {
+                    bool exito = pedidosService.EliminarPedido(idPedido);
+                    if (exito)
+                    {
+                        MessageBox.Show("Pedido eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        onPedidoGuardado?.Invoke();
+                        Cerrar(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

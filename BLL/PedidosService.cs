@@ -70,5 +70,9 @@ namespace BLL
         {
             return PedidosRepository.PedidosSemanal(id_user);
         }
+        public DataTable PedidoPorId(int id_pedido)
+        {
+            return PedidosRepository.PedidoPorId(id_pedido);
+        }
     }
 }

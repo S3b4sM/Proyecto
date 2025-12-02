@@ -95,6 +95,7 @@
             this.btnGuardar.Text = "Actualizar Pedido";
             this.btnGuardar.TextColor = System.Drawing.Color.Black;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancel
             // 
@@ -325,6 +326,7 @@
             this.btnEliminar.Text = "Eliminar Pedido";
             this.btnEliminar.TextColor = System.Drawing.Color.Red;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // UserCEditPedidos
             // 

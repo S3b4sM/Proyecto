@@ -102,7 +102,6 @@ namespace GUI
         {   
             ActivarBoton(sender);
             AbrirUser(() => new UserCHome(usuario.Id));
-            btnEditPedidos.Visible = false;
             btnEditMovs.Visible = false;
             btnEditClientes.Visible = false;
 
@@ -111,7 +110,6 @@ namespace GUI
         {
             ActivarBoton(sender);
             AbrirUser(() => new UserCMovs(usuario.Id));
-            btnEditPedidos.Visible = false;
             btnEditMovs.Visible = true;
             btnEditClientes.Visible = false;
         }
@@ -123,7 +121,6 @@ namespace GUI
         {
             ActivarBoton(sender);
             AbrirUser(() => new UserCPedidos(usuario.Id));
-            btnEditPedidos.Visible = true;
             btnEditMovs.Visible = false;
             btnEditClientes.Visible = false;
         }
@@ -131,7 +128,6 @@ namespace GUI
         {   
             ActivarBoton(sender);
             AbrirUser(() => new UserCClientes(usuario.Id));
-            btnEditPedidos.Visible = false;
             btnEditMovs.Visible = false;
             btnEditClientes.Visible = true;
         }
@@ -200,6 +196,7 @@ namespace GUI
                 if (panelForms.Controls[0] is UserCClientes controlClientes)
                 {
                     controlClientes.CambiarModo(true);
+                    controlClientes.LimpiarActu();
                 }
                 else
                 {
