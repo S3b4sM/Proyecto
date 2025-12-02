@@ -22,7 +22,7 @@ namespace GUI
             usuario.LastName= "Admin";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal(usuario));
+            Application.Run(new FormLogin());
         }
     }
 }
